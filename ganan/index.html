@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>יואב גינון - תחזוקה, גיזום ושיקום גינות (עמוד לדוגמה)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e2618;--bg2:#13301f;--cream:#f2eddc;--soft:#b9c7b4;--leaf:#5f9d5a;--moss:#2f5a35;--soil:#3a281b;--accent:#c9f04a;--accent-ink:#0e2618;
+--display:'Karantina',sans-serif;--body:'Rubik',sans-serif;--focus:#c9f04a;--line:rgba(242,237,220,.13);
+--rib-bg:#c9f04a;--rib-ink:#0e2618;--toast-bg:#f2eddc;--toast-ink:#0e2618;--mbar-bg:rgba(14,38,24,.86);--mbar-ink:#f2eddc;
+--ph-line:rgba(242,237,220,.28);--ph-ink:#b9c7b4;--ph-bg:rgba(255,255,255,.03);
+--o-bg:#f2eddc;--o-ink:#0e2618;--o-card:#fffbef;--o-line:rgba(14,38,24,.1);--o-dot:#5f9d5a;--dw:700}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font:400 1.05rem/1.7 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+.demo-ribbon{position:relative;z-index:60;display:flex;gap:.75rem;align-items:center;justify-content:center;flex-wrap:wrap;
+ padding:.55rem 1rem;font:500 .82rem/1.4 var(--body);background:var(--rib-bg);color:var(--rib-ink);text-align:center}
+.demo-ribbon a{color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.toast{position:fixed;inset-inline:1rem;bottom:5.5rem;margin-inline:auto;max-width:420px;z-index:90;padding:1rem 1.2rem;border-radius:18px;
+ background:var(--toast-bg);color:var(--toast-ink);font:500 .95rem/1.5 var(--body);box-shadow:0 20px 60px -20px rgba(0,0,0,.5);
+ opacity:0;transform:translateY(16px);pointer-events:none;transition:.35s cubic-bezier(.2,.8,.2,1)}
+.toast.show{opacity:1;transform:none;pointer-events:auto}
+.toast a{color:inherit;font-weight:700}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.mbar{position:fixed;inset-inline:0;bottom:0;z-index:70;display:none;gap:.5rem;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom));
+ background:var(--mbar-bg);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4)}
+.mbar a{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;gap:.4rem;border-radius:14px;font:700 1rem var(--body);text-decoration:none}
+.mbar .m1{background:var(--accent);color:var(--accent-ink)}
+.mbar .m2{background:transparent;color:var(--mbar-ink);border:1.5px solid currentColor}
+@media (max-width:760px){.mbar{display:flex} body{padding-bottom:76px}}
+.ph{position:relative;display:grid;place-items:center;text-align:center;border:1.5px dashed var(--ph-line);border-radius:var(--ph-r,22px);
+ color:var(--ph-ink);font:500 .9rem/1.5 var(--body);padding:1.2rem;background:var(--ph-bg)}
+.ph b{display:block;font-size:1rem;margin-bottom:.2rem}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+/* offer */
+.offer{position:relative;padding:clamp(4rem,9vw,7rem) 1.25rem;background:var(--o-bg);color:var(--o-ink);overflow:hidden}
+.offer .wrap{max-width:1080px;margin:auto;position:relative}
+.offer .kick{font:700 .8rem var(--body);letter-spacing:.14em;opacity:.7}
+.offer h2{font-family:var(--display);font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:.6rem 0 1rem;font-weight:var(--dw,700)}
+.offer .lead{max-width:640px;font-size:1.08rem;line-height:1.7;opacity:.88}
+.offer .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:1.25rem;margin-top:2.4rem}
+@media (max-width:820px){.offer .grid{grid-template-columns:1fr}}
+.offer .card{border-radius:26px;padding:1.8rem;background:var(--o-card);border:1px solid var(--o-line)}
+.offer .price{display:flex;align-items:baseline;gap:.5rem;font-family:var(--display);font-size:clamp(3.6rem,9vw,5.5rem);line-height:1;font-weight:var(--dw,700)}
+.offer .price small{font:600 1rem var(--body);opacity:.75}
+.offer .renew{font-size:.92rem;opacity:.75;margin:.6rem 0 1.2rem;line-height:1.6}
+.offer ul{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.offer li{display:flex;gap:.65rem;align-items:flex-start;line-height:1.5}
+.offer li::before{content:"";flex:none;width:.55rem;height:.55rem;margin-top:.5rem;border-radius:50%;background:var(--o-dot)}
+.offer h3{font:700 1.05rem var(--body);margin:0 0 .9rem}
+.offer .terms{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.25rem}
+@media (max-width:600px){.offer .terms{grid-template-columns:1fr}}
+.offer .terms div{border-radius:20px;padding:1.2rem;background:var(--o-card);border:1px solid var(--o-line);line-height:1.55}
+.offer .terms b{display:block;margin-bottom:.25rem}
+.offer .switch{margin-top:1.25rem;font-size:.92rem;line-height:1.65;opacity:.8;max-width:760px}
+.offer .go{display:inline-flex;align-items:center;gap:.6rem;margin-top:2rem;min-height:56px;padding:0 2rem;border-radius:999px;
+ background:var(--accent);color:var(--accent-ink);font:800 1.1rem var(--body);text-decoration:none;box-shadow:0 18px 40px -16px var(--accent);
+ transition:transform .25s}
+.offer .go:hover{transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+
+.offer h2,.offer .price{font-size:clamp(2.6rem,7vw,4.6rem);line-height:.95}.offer .price{font-size:clamp(4.4rem,11vw,7rem)}
+header.top{position:absolute;inset-inline:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.2rem clamp(1.2rem,5vw,4rem)}
+.logo{font:700 2.1rem/1 var(--display);display:flex;align-items:center;gap:.5rem}
+.logo svg{width:28px;height:28px}
+.btn{display:inline-flex;align-items:center;gap:.55rem;min-height:52px;padding:0 1.7rem;border-radius:16px;font:700 1.02rem var(--body);text-decoration:none;cursor:pointer;border:0;transition:transform .25s,box-shadow .25s}
+.btn.pri{background:var(--accent);color:var(--accent-ink);box-shadow:0 6px 0 #8fb02a,0 20px 40px -16px rgba(201,240,74,.6)}
+.btn.pri:hover{transform:translateY(-2px);box-shadow:0 8px 0 #8fb02a,0 26px 46px -16px rgba(201,240,74,.7)}
+.btn.pri:active{transform:translateY(4px);box-shadow:0 2px 0 #8fb02a}
+.btn.ghost{color:var(--cream);border:1.5px solid var(--line)}
+.btn.ghost:hover{border-color:var(--cream)}
+/* vine */
+.vine{position:fixed;inset-block:0;inset-inline-end:0;width:90px;z-index:4;pointer-events:none}
+.vine svg{width:100%;height:100%}
+#vp{stroke-dasharray:var(--vl);stroke-dashoffset:var(--vl)}
+.lf{transform-box:fill-box;transform-origin:0 50%;transform:scale(0);transition:transform .7s cubic-bezier(.3,1.6,.5,1)}
+.lf.on{transform:scale(1)}
+@media (max-width:760px){.vine{width:44px;opacity:.6}}
+/* hero */
+.hero{position:relative;min-height:min(100svh,920px);display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;padding:7rem clamp(1.2rem,5vw,4rem) 3rem;overflow:hidden;
+background:radial-gradient(800px 500px at 20% 10%,rgba(201,240,74,.12),transparent 60%),linear-gradient(180deg,#0b1f14,var(--bg))}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.tag{display:inline-flex;gap:.5rem;align-items:center;font:500 .92rem var(--body);color:var(--soft)}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.3}}
+.hero h1{font:700 clamp(4.2rem,13vw,9.5rem)/.82 var(--display);margin:.9rem 0 1.2rem;letter-spacing:-.01em}
+.hero h1 .g{color:var(--accent)}
+.hero h1 .o{color:transparent;-webkit-text-stroke:2px var(--cream)}
+.hero p{max-width:500px;color:var(--soft);font-size:1.15rem;margin:0 0 2rem}
+.cta{display:flex;flex-wrap:wrap;gap:.9rem}
+/* before/after */
+.ba{position:relative;aspect-ratio:1/1.05;max-width:560px;width:100%;margin:auto;border-radius:34px;overflow:hidden;box-shadow:0 50px 90px -40px #000,0 0 0 1px var(--line);touch-action:pan-y;user-select:none}
+.ba svg{position:absolute;inset:0;width:100%;height:100%}
+.ba .after{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;background:var(--cream);transform:translateX(-50%)}
+.ba .knob{position:absolute;top:50%;left:50%;width:54px;height:54px;transform:translate(-50%,-50%);border-radius:50%;background:var(--cream);display:grid;place-items:center;color:var(--bg);font:800 1rem var(--body);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.ba .lb{position:absolute;top:1rem;padding:.3rem .8rem;border-radius:10px;font:700 .85rem var(--body);background:rgba(14,38,24,.75);backdrop-filter:blur(6px)}
+.ba .lb.b{right:1rem}.ba .lb.a{left:1rem;background:var(--accent);color:var(--bg)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba .hint{position:absolute;bottom:1rem;inset-inline:0;text-align:center;font-size:.85rem;color:var(--cream);text-shadow:0 1px 6px #000}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sw 5s ease-in-out infinite}
+.sway:nth-of-type(2n){animation-duration:6.5s}
+@keyframes sw{50%{transform:rotate(3deg)}}
+/* sections */
+section.s{position:relative;padding:clamp(4.5rem,10vw,8rem) clamp(1.2rem,5vw,4rem)}
+.wrap{max-width:1140px;margin:auto}
+.k{font:700 .82rem var(--body);letter-spacing:.16em;color:var(--accent)}
+h2.t{font:700 clamp(3rem,8vw,5.6rem)/.9 var(--display);margin:.7rem 0 1.1rem;max-width:820px}
+.mute{color:var(--soft);max-width:600px}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.4rem}
+@media (max-width:900px){.svc{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.svc{grid-template-columns:1fr}}
+.sv{position:relative;padding:1.7rem;border-radius:26px;background:linear-gradient(170deg,var(--bg2),#0f2819);border:1px solid var(--line);overflow:hidden;transition:transform .4s}
+.sv:hover{transform:translateY(-6px) rotate(-.4deg)}
+.sv svg{width:52px;height:52px;margin-bottom:.8rem}
+.sv svg *{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sv h3{font:700 2rem/1 var(--display);margin:0 0 .4rem}.sv p{margin:0;color:var(--soft);font-size:.98rem}
+.sv::after{content:"";position:absolute;width:140px;height:140px;border-radius:50% 0;background:rgba(95,157,90,.12);inset-inline-start:-40px;bottom:-60px;transform:rotate(30deg);transition:.5s}
+.sv:hover::after{transform:rotate(60deg) scale(1.2)}
+/* seasons */
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 1.2rem}
+.tabs button{min-height:48px;padding:0 1.3rem;border-radius:14px;border:1.5px solid var(--line);background:transparent;color:var(--cream);font:700 1rem var(--body);cursor:pointer;transition:.25s}
+.tabs button[aria-selected=true]{background:var(--cream);color:var(--bg);border-color:var(--cream)}
+.tabs button .now{font-size:.72rem;margin-inline-start:.35rem;padding:.1rem .45rem;border-radius:6px;background:var(--accent);color:var(--bg)}
+.season{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:center;padding:clamp(1.5rem,4vw,2.6rem);border-radius:32px;background:var(--bg2);border:1px solid var(--line)}
+@media (max-width:820px){.season{grid-template-columns:1fr}}
+.season h3{font:700 3.4rem/.9 var(--display);margin:0 0 .6rem}
+.season ul{margin:0;padding:0;list-style:none;display:grid;gap:.7rem}
+.season li{display:flex;gap:.7rem;align-items:flex-start}
+.season li::before{content:"";flex:none;width:18px;height:18px;margin-top:.3rem;border-radius:0 50%;background:var(--leaf);transform:rotate(-45deg)}
+.season .fade{transition:opacity .3s,transform .3s}.season.swap .fade{opacity:0;transform:translateY(8px)}
+/* plans */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.4rem}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+.plan{padding:1.8rem;border-radius:26px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.plan.hot{background:var(--cream);color:var(--bg);transform:translateY(-10px)}
+.plan.hot .mute{color:#3f5a45}
+.plan h3{font:700 2.4rem/1 var(--display);margin:0 0 .3rem}
+.plan .f{font:700 1.15rem var(--body);margin:.4rem 0 1rem}
+.plan ul{margin:0;padding-inline-start:1.1rem;display:grid;gap:.35rem}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem;margin-top:2.4rem}
+.gal .ph:nth-child(1){grid-column:span 2;grid-row:span 2}.gal .ph:nth-child(4){grid-column:span 2}
+@media (max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.4rem}
+@media (max-width:860px){.revs{grid-template-columns:1fr}}
+.revs .ph{min-height:170px}
+.photo{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center;padding:clamp(1.8rem,5vw,3.4rem);border-radius:36px;background:linear-gradient(135deg,var(--moss),var(--bg2));border:1px solid var(--line);overflow:hidden;position:relative}
+@media (max-width:820px){.photo{grid-template-columns:1fr}}
+.phone{justify-self:center;width:220px;aspect-ratio:9/17;border-radius:34px;background:#0a1a10;border:6px solid #1d3a27;padding:1rem .8rem;display:flex;flex-direction:column;gap:.6rem;justify-content:flex-end;box-shadow:0 40px 60px -30px #000;transform:rotate(-6deg)}
+.bub{max-width:85%;padding:.55rem .75rem;border-radius:14px;font-size:.82rem;line-height:1.4}
+.bub.me{align-self:flex-start;background:#1f5132;border-end-start-radius:4px}
+.bub.him{align-self:flex-end;background:#26332a;border-end-end-radius:4px}
+.bub.img{height:80px;width:85%;background:linear-gradient(160deg,#3c6b3a,#203e25);position:relative}
+.bub.img::after{content:"📷 הגינה שלי";position:absolute;bottom:.4rem;right:.6rem;font-size:.75rem}
+footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--soft);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="demo-ribbon" role="note">עמוד לדוגמה לעסק בדוי בתחום גינון. הכפתורים כאן להדגמה בלבד. <a href="#offer">אני רוצה עמוד כזה</a></div>
+<div class="vine" aria-hidden="true"><svg viewBox="0 0 90 1000" preserveAspectRatio="none"><path id="vp" d="M70 0 C 20 80, 80 160, 40 240 S 80 400, 30 480 S 80 640, 40 720 S 70 880, 50 1000" fill="none" stroke="#5f9d5a" stroke-width="3" stroke-linecap="round"/><g id="leaves"></g></svg></div>
+<header class="top"><div class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26C6 12 16 5 28 5c0 13-8 21-22 21z" fill="#c9f04a"/><path d="M6 26L20 12" stroke="#0e2618" stroke-width="2"/></svg>יואב גינון</div><a class="btn ghost" href="#" data-demo>הצעת מחיר</a></header>
+<main>
+<section class="hero" aria-labelledby="h1">
+ <div>
+  <div class="tag rv"><i></i> תחזוקה, גיזום ושיקום גינות</div>
+  <h1 id="h1" class="rv">גינה <span class="g">שמחה</span><br><span class="o">בלי</span> כאב ראש.</h1>
+  <p class="rv">תחזוקה קבועה, גיזום, השקיה ושיקום. שולחים תמונה של הגינה בוואטסאפ, ומקבלים הצעת מחיר עוד היום.</p>
+  <div class="cta rv"><a class="btn pri" href="#" data-demo>לשלוח תמונה של הגינה</a><a class="btn ghost" href="#" data-demo>חיוג</a></div>
+ </div>
+ <div class="ba rv" id="ba" style="--x:50%">
+  <svg viewBox="0 0 400 420" aria-hidden="true">
+   <rect width="400" height="420" fill="#a9b9a2"/><rect y="0" width="400" height="200" fill="#c9d4c2"/>
+   <rect x="0" y="150" width="400" height="20" fill="#8b7a68"/>
+   <path d="M0 230 Q200 200 400 230 V420 H0z" fill="#7d8a52"/>
+   <g fill="#5b6b37"><path class="sway" d="M30 300 l10 -60 l8 60z"/><path class="sway" d="M60 330 l14 -90 l10 90z"/><path class="sway" d="M120 290 l8 -50 l8 50z"/><path class="sway" d="M300 320 l12 -80 l10 80z"/><path class="sway" d="M350 290 l9 -60 l8 60z"/><path class="sway" d="M200 340 l14 -100 l12 100z"/><path class="sway" d="M250 300 l8 -60 l8 60z"/></g>
+   <ellipse cx="90" cy="200" rx="80" ry="70" fill="#4f6a3a"/><ellipse cx="320" cy="190" rx="90" ry="80" fill="#55703d"/>
+   <g fill="#8d7a3e" opacity=".8"><circle cx="160" cy="380" r="6"/><circle cx="240" cy="360" r="5"/><circle cx="280" cy="395" r="7"/><circle cx="110" cy="360" r="4"/></g>
+   <path d="M170 420 L190 260 L210 260 L230 420z" fill="#9a8a6e" opacity=".5"/>
+  </svg>
+  <svg class="after" viewBox="0 0 400 420" aria-hidden="true">
+   <rect width="400" height="420" fill="#cfe3f0"/><rect x="0" y="150" width="400" height="20" fill="#e8dcc7"/>
+   <path d="M0 230 Q200 210 400 230 V420 H0z" fill="#69b25a"/>
+   <g stroke="#7cc46b" stroke-width="2" opacity=".5"><path d="M0 270 Q200 250 400 270"/><path d="M0 320 Q200 300 400 320"/><path d="M0 370 Q200 350 400 370"/></g>
+   <path d="M170 420 L190 232 L210 232 L230 420z" fill="#e8dcc7"/><g fill="#d4c6ad"><rect x="186" y="260" width="28" height="8" rx="3"/><rect x="183" y="300" width="34" height="9" rx="3"/><rect x="179" y="345" width="42" height="10" rx="3"/><rect x="175" y="392" width="50" height="11" rx="3"/></g>
+   <g class="sway"><rect x="84" y="150" width="10" height="80" fill="#6b4a2d"/><circle cx="89" cy="130" r="50" fill="#3f8a3f"/><circle cx="70" cy="120" r="5" fill="#f2c14e"/><circle cx="105" cy="110" r="5" fill="#f2c14e"/><circle cx="96" cy="145" r="5" fill="#f2c14e"/></g>
+   <g class="sway"><rect x="312" y="140" width="12" height="90" fill="#6b4a2d"/><ellipse cx="318" cy="120" rx="58" ry="62" fill="#2f7a3a"/></g>
+   <g><ellipse cx="60" cy="300" rx="40" ry="18" fill="#3c8b45"/><g fill="#ff7aa2"><circle cx="45" cy="292" r="5"/><circle cx="62" cy="288" r="5"/><circle cx="78" cy="295" r="5"/></g>
+   <ellipse cx="340" cy="310" rx="44" ry="18" fill="#3c8b45"/><g fill="#ffd166"><circle cx="322" cy="302" r="5"/><circle cx="340" cy="298" r="5"/><circle cx="358" cy="304" r="5"/></g></g>
+   <circle cx="330" cy="50" r="26" fill="#ffe28a"/>
+  </svg>
+  <div class="handle"><div class="knob" aria-hidden="true">⇆</div></div>
+  <span class="lb b">לפני</span><span class="lb a">אחרי</span>
+  <input type="range" min="0" max="100" value="50" aria-label="השוואה לפני ואחרי">
+  <div class="hint">גררו לצדדים · המחשה</div>
+ </div>
+</section>
+
+<section class="s" aria-labelledby="h-svc">
+ <div class="wrap">
+  <div class="k rv">מה עושים</div>
+  <h2 class="t rv" id="h-svc">כל מה שהגינה צריכה</h2>
+  <div class="svc">
+   <div class="sv rv"><svg viewBox="0 0 52 52"><path d="M8 44h36M14 44V30M26 44V22M38 44V30M10 30c4-6 8-6 8 0M22 22c4-6 8-6 8 0M34 30c4-6 8-6 8 0"/></svg><h3>תחזוקה קבועה</h3><p>כיסוח, ניכוש, ניקוי ופינוי גזם. פעם בשבוע, בשבועיים או בחודש.</p></div>
+   <div class="sv rv"><svg viewBox="0 0 52 52"><circle cx="14" cy="38" r="6"/><circle cx="14" cy="14" r="6"/><path d="M19 34L44 12M19 18l25 22"/></svg><h3>גיזום עצים ושיחים</h3><p>גיזום עיצובי ובטיחותי, כולל עצי פרי ופינוי הגזם.</p></div>
+   <div class="sv rv"><svg viewBox="0 0 52 52"><path d="M26 8c8 12 12 18 12 24a12 12 0 0 1-24 0c0-6 4-12 12-24z"/><path d="M20 34a6 6 0 0 0 6 6"/></svg><h3>השקיה</h3><p>תיקון ממטרות וטפטפות, החלפת מחשב השקיה וכיוון לפי עונה.</p></div>
+   <div class="sv rv"><svg viewBox="0 0 52 52"><path d="M6 40h40M10 40c2-10 4-10 6 0M18 40c2-14 4-14 6 0M26 40c2-10 4-10 6 0M34 40c2-14 4-14 6 0"/></svg><h3>דשא</h3><p>דשא חדש, דשא סינתטי, דישון וטיפול בכתמים.</p></div>
+   <div class="sv rv"><svg viewBox="0 0 52 52"><path d="M26 44V22M26 22c-10 0-14-8-14-14 10 0 14 6 14 14zM26 28c8 0 12-6 12-12-8 0-12 4-12 12z"/></svg><h3>שתילה ועיצוב</h3><p>צמחים מתאימים לאקלים ולשמש, ערוגות, אדניות ומרפסות.</p></div>
+   <div class="sv rv"><svg viewBox="0 0 52 52"><path d="M10 42l8-26 8 10 8-18 8 34z"/><path d="M6 42h40"/></svg><h3>שיקום גינה מוזנחת</h3><p>מנקים, מסדרים ומחזירים לחיים גינה שהזנחה השתלטה עליה.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="s" aria-labelledby="h-sea" style="background:linear-gradient(180deg,transparent,#0b2014 30%,#0b2014 70%,transparent)">
+ <div class="wrap">
+  <div class="k rv">לוח עונות</div>
+  <h2 class="t rv" id="h-sea">מה הגינה צריכה עכשיו?</h2>
+  <div class="tabs rv" role="tablist" aria-label="עונות">
+   <button role="tab" data-s="0" aria-selected="false">אביב</button><button role="tab" data-s="1" aria-selected="false">קיץ</button><button role="tab" data-s="2" aria-selected="false">סתיו</button><button role="tab" data-s="3" aria-selected="false">חורף</button>
+  </div>
+  <div class="season rv" id="season" role="tabpanel" aria-live="polite">
+   <div class="fade"><h3 id="s-t"></h3><p class="mute" id="s-d" style="margin:0 0 1.2rem"></p><a class="btn pri" href="#" data-demo>לתאם ביקור</a></div>
+   <ul class="fade" id="s-l"></ul>
+  </div>
+ </div>
+</section>
+
+<section class="s" aria-labelledby="h-plan">
+ <div class="wrap">
+  <div class="k rv">מסלולים</div>
+  <h2 class="t rv" id="h-plan">בוחרים קצב, ושוכחים מזה</h2>
+  <div class="plans">
+   <div class="plan rv"><h3>חודשי</h3><div class="f">ביקור פעם בחודש</div><p class="mute">לגינות קטנות ומסודרות.</p><ul><li>כיסוח וניכוש</li><li>בדיקת השקיה</li><li>פינוי גזם</li></ul></div>
+   <div class="plan hot rv"><h3>דו־שבועי</h3><div class="f">הכי נבחר</div><p class="mute">הגינה תמיד נראית מטופחת.</p><ul><li>כל מה שבחודשי</li><li>גיזום שוטף</li><li>דישון עונתי</li></ul></div>
+   <div class="plan rv"><h3>חד־פעמי</h3><div class="f">ניקוי או שיקום</div><p class="mute">לפני אירוע, אחרי חורף, או גינה מוזנחת.</p><ul><li>ניקוי יסודי</li><li>גיזום</li><li>תוכנית להמשך</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<section class="s" aria-labelledby="h-gal">
+ <div class="wrap">
+  <div class="k rv">עבודות</div>
+  <h2 class="t rv" id="h-gal">גינות שטיפלנו בהן</h2>
+  <div class="gal">
+   <div class="ph rv"><div><b>תמונה אמיתית שלך</b>הכי יפה שיש, לפני/אחרי</div></div>
+   <div class="ph rv"><div><b>גיזום</b></div></div>
+   <div class="ph rv"><div><b>דשא</b></div></div>
+   <div class="ph rv"><div><b>גינה מוכנה</b></div></div>
+   <div class="ph rv"><div><b>השקיה</b></div></div>
+   <div class="ph rv"><div><b>ערוגה</b></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="s" aria-labelledby="h-rev">
+ <div class="wrap">
+  <div class="k rv">לקוחות</div>
+  <h2 class="t rv" id="h-rev">מה אומרים בשכונה</h2>
+  <div class="revs">
+   <div class="ph rv"><div><b>ביקורת אמיתית מגוגל</b>מילה במילה, עם שם פרטי</div></div>
+   <div class="ph rv"><div><b>ביקורת אמיתית מגוגל</b>מילה במילה, עם שם פרטי</div></div>
+   <div class="ph rv"><div><b>ביקורת אמיתית מגוגל</b>מילה במילה, עם שם פרטי</div></div>
+  </div>
+ </div>
+</section>
+
+<section class="s" aria-labelledby="h-ph">
+ <div class="wrap photo">
+  <div>
+   <div class="k rv">הצעת מחיר</div>
+   <h2 class="t rv" id="h-ph">תמונה אחת. מחיר אחד.</h2>
+   <p class="mute rv" style="color:#d8e3d2">מצלמים את הגינה, שולחים בוואטסאפ, ומקבלים הצעת מחיר ברורה. בלי לתאם ביקור רק בשביל לשמוע מחיר.</p>
+   <div class="cta rv" style="margin-top:1.6rem"><a class="btn pri" href="#" data-demo>לשלוח תמונה בוואטסאפ</a></div>
+  </div>
+  <div class="phone rv" aria-hidden="true"><div class="bub img me"></div><div class="bub me">היי, כמה לתחזוקה חודשית?</div><div class="bub him">קיבלתי 🌿 שולח מחיר תוך שעה</div></div>
+ </div>
+</section>
+</main>
+<section class="offer" id="offer" aria-labelledby="offer-h">
+<div class="wrap">
+ <div class="kick rv">עמוד כזה לעסק שלך</div>
+ <h2 id="offer-h" class="rv">העמוד הזה יכול להיות שלך, באוויר תוך 48 שעות</h2>
+ <p class="lead rv">בונים לך עמוד באותה רמה, עם השם, הטקסטים והתמונות שלך. אתה לא צריך לעשות כלום חוץ מלאשר ולשלוח כמה תמונות.</p>
+ <div class="grid">
+  <div class="card rv">
+   <div class="price">999 <small>₪ לשנה הראשונה, הכל כלול</small></div>
+   <p class="renew">מהשנה השנייה: 349 ₪ לשנה לדומיין, אחסון ותחזוקה. בלי הפתעות.</p>
+   <ul><li>עמוד מותאם לנייד, כמו שרואים כאן</li><li>כתובת (דומיין) בשם העסק לשנה</li><li>אחסון לשנה</li><li>כפתור וואטסאפ וחיוג בכל מסך</li><li>באוויר תוך 48 שעות מהאישור</li></ul>
+  </div>
+  <div class="card rv"><h3>בונוסים, בלי תוספת</h3><ul><li>סידור פרופיל העסק בגוגל מפות</li><li>קישור והודעה מוכנה לבקשת ביקורות מלקוחות</li><li>קוד קיו־אר לכרטיס הביקור ולשלט</li><li>שינוי טקסט או תמונה אחד בחודש, בלי תשלום</li></ul></div>
+ </div>
+ <div class="terms">
+  <div class="rv"><b>משלמים רק אחרי</b>התשלום רק אחרי שהעמוד באוויר ואישרת אותו. לא אהבת? לא משלם.</div>
+  <div class="rv"><b>אתה לא עושה כלום</b>שולח 5 תמונות ומאשר טקסט. את כל השאר אני עושה.</div>
+ </div>
+ <p class="switch rv">כבר יש לך אתר? בונה אתרים לוקח בדרך כלל 1,200-7,000 ₪ על הבנייה, ועוד 60-120 ₪ בחודש על אחסון ותחזוקה. כאן זה 999 ₪ לשנה הכל כלול. את הכתובת הקיימת מעבירים בלי תשלום.</p>
+ <a class="go rv" href="https://wa.me/972525543759?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A1%D7%AA%D7%A8%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%A2%D7%9E%D7%95%D7%93%20%D7%9C%D7%93%D7%95%D7%92%D7%9E%D7%94%20%D7%9C%D7%92%D7%99%D7%A0%D7%95%D7%9F%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%A2%D7%9E%D7%95%D7%93%20%D7%9B%D7%96%D7%94%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" target="_blank" rel="noopener">אני רוצה עמוד כזה <span aria-hidden="true">←</span></a>
+</div>
+</section>
+<footer>יואב גינון · עסק בדוי לצורך הדגמה</footer>
+<nav class="mbar" aria-label="יצירת קשר"><a class="m1" href="#" data-demo>וואטסאפ</a><a class="m2" href="#" data-demo>חיוג</a></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(()=>{const t=document.getElementById('toast');let h;
+document.addEventListener('click',e=>{const a=e.target.closest('[data-demo]');if(!a)return;e.preventDefault();
+t.innerHTML='זה עמוד לדוגמה. בעמוד האמיתי הכפתור הזה פותח וואטסאפ או חיוג ישירות אליך. <a href="#offer">רוצה עמוד כזה?</a>';t.classList.add('show');clearTimeout(h);h=setTimeout(()=>t.classList.remove('show'),4200)});
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));})();
+</script>
+<script>
+(()=>{const ba=document.getElementById('ba'),r=ba.querySelector('input');r.addEventListener('input',()=>ba.style.setProperty('--x',(100-r.value)+'%'));ba.style.setProperty('--x','50%');
+const S=[{t:"אביב",d:"הגינה מתעוררת. זה הזמן לשתול ולהכין לקיץ.",l:["שתילת פרחים עונתיים","דישון אביבי לדשא","בדיקת מערכת השקיה לפני החום","ניכוש עשבים לפני שהם משתלטים"]},
+{t:"קיץ",d:"חום ויובש. השקיה נכונה מצילה את הגינה.",l:["כיוון השקיה ללילה ולבוקר","כיסוח גבוה יותר שמגן על הדשא","טיפול במזיקים","גיזום קל אחרי פריחה"]},
+{t:"סתיו",d:"הזמן הכי טוב לסדר את הגינה לפני החורף.",l:["גיזום עצים ושיחים","ניקוי עלים ופינוי גזם","זריעת דשא וחורף ושתילות","קיצור שעות ההשקיה"]},
+{t:"חורף",d:"הגינה נחה. דואגים שהגשם יעבוד בשבילנו.",l:["ניקוי מרזבים ותעלות ניקוז","גיזום עצי פרי נשירים","הגנה על צמחים רגישים מקור","כיבוי השקיה בימי גשם"]}];
+const box=document.getElementById('season'),tabs=[...document.querySelectorAll('.tabs button')];const m=new Date().getMonth();const cur=m<2||m==11?3:m<5?0:m<8?1:2;
+tabs[cur].insertAdjacentHTML('beforeend','<span class="now">עכשיו</span>');
+function set(i,first){const x=S[i];box.classList.add('swap');setTimeout(()=>{document.getElementById('s-t').textContent=x.t;document.getElementById('s-d').textContent=x.d;
+document.getElementById('s-l').innerHTML=x.l.map(s=>'<li>'+s+'</li>').join('');box.classList.remove('swap')},first?0:260);tabs.forEach((b,j)=>b.setAttribute('aria-selected',j==i))}
+tabs.forEach((b,i)=>b.addEventListener('click',()=>set(i)));set(cur,true);
+const vp=document.getElementById('vp'),L=vp.getTotalLength();vp.style.setProperty('--vl',L);const lg=document.getElementById('leaves');const lv=[];
+for(let i=1;i<14;i++){const pt=vp.getPointAtLength(L*i/14);const side=i%2?1:-1;
+lg.insertAdjacentHTML('beforeend',`<path class="lf" data-t="${i/14}" d="M${pt.x} ${pt.y} q ${side*14} -10 ${side*22} 2 q ${-side*10} 10 ${-side*22} -2z" fill="${i%3?'#5f9d5a':'#c9f04a'}"/>`)}
+const lfs=[...lg.children];const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function sc(){const p=reduce?1:Math.min(1,scrollY/(document.body.scrollHeight-innerHeight)*1.05);vp.style.strokeDashoffset=L*(1-p);lfs.forEach(l=>l.classList.toggle('on',p>=+l.dataset.t))}
+addEventListener('scroll',()=>requestAnimationFrame(sc),{passive:true});sc();})();
+</script>
+</body>
+</html>
