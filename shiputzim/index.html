@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>קו גמר | שיפוצים - עמוד נחיתה לדוגמה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=Heebo:wght@300;400;500;700;800&display=swap">
+<style>
+/* קו גמר - design system
+   Feeling: relief. The fear with contractors is "when will this end?". Answer it visually.
+   Convention broken: renovation sites show before/after photos. Here the apartment builds itself, week by week, as you scroll, and lands on the finish date.
+   Motif: dimension lines - |---- 8 שבועות ----| - the blueprint measure mark, drawn in every section. */
+:root{
+  --bg:#0F1113; --bg-2:#15181B; --bg-3:#1C2024; --line:#2B3036; --fg:#EDEAE4; --muted:#A2A7AB;
+  --sig:#C5F04A; --on-sig:#0F1113; --paper:#EDEAE4; --ink:#121416;
+  --f-d:"Karantina","Heebo",system-ui,sans-serif; --f-b:"Heebo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:max(20px,env(safe-area-inset-left,0px)); --gut-r:max(20px,env(safe-area-inset-right,0px));
+  --ease:cubic-bezier(.2,.7,.1,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.7 var(--f-b);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:700;text-wrap:balance}
+:focus-visible{outline:2px solid var(--sig);outline-offset:4px;border-radius:4px}
+.wrap{max-width:1240px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r);position:relative}
+.mono{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;letter-spacing:.03em}
+.grid-bg{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;background-position:center}
+
+/* motif: dimension line */
+.dim{display:flex;align-items:center;gap:12px;color:var(--muted);font:500 13px/1 var(--f-b);letter-spacing:.16em}
+.dim .l{position:relative;flex:none;width:110px;height:14px}
+.dim .l::before{content:"";position:absolute;inset:6px 0 auto;height:1.5px;background:var(--sig);transform-origin:right;transform:scaleX(var(--dl,1));transition:transform 1.2s var(--ease)}
+.dim .l::after{content:"";position:absolute;inset:0;border-inline:1.5px solid var(--sig)}
+.pre .dim .l,.dim.pre .l{--dl:0}
+
+/* ribbon + header */
+.ribbon{position:relative;z-index:70;background:var(--sig);color:var(--on-sig);font:500 14px/1.4 var(--f-b)}
+.ribbon .wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:9px}
+.ribbon a{font-weight:800;white-space:nowrap;text-underline-offset:3px}
+header{position:fixed;inset-inline:0;z-index:60;border-bottom:1px solid transparent;transition:background .5s,border-color .5s}
+header.solid{background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-color:var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:40px;height:40px}
+.logo b{font:700 36px/.8 var(--f-d);letter-spacing:.01em}
+.logo small{display:block;font:400 12px/1.2 var(--f-b);color:var(--muted);letter-spacing:.08em;margin-top:4px}
+.hphone{display:flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;font-size:15px}
+.hphone svg{width:18px;height:18px}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:0 30px;border-radius:6px;font:700 17px/1 var(--f-b);text-decoration:none;cursor:pointer;border:0;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.btn svg{width:21px;height:21px;flex:none}
+.btn-sig{background:var(--sig);color:var(--on-sig);box-shadow:5px 5px 0 #6E8A1E}
+.btn-sig:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 #6E8A1E}
+.btn-line{background:transparent;color:var(--fg);border:1.5px solid color-mix(in srgb,var(--fg) 30%,transparent)}
+.btn-line:hover{border-color:var(--fg)}
+
+/* ---------- hero: sticky 3D build ---------- */
+.stage{position:relative;height:520vh}
+.sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 40% 45%,#1A1E22,#0D0F11)}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(13,15,17,.55),transparent 20%,transparent 60%,rgba(13,15,17,.85))}
+.hero-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;pointer-events:none}
+.hero-copy .in{max-width:620px;display:grid;gap:22px;pointer-events:auto;transition:opacity .5s}
+.hero h1{font:700 clamp(72px,9vw,150px)/.8 var(--f-d);letter-spacing:.005em}
+.hero h1 .hl{color:var(--sig);display:inline-block;position:relative}
+.hero h1 .hl::after{content:"";position:absolute;inset:auto 0 -.05em;height:.07em;background:var(--sig);transform-origin:right;animation:draw 1.4s .4s var(--ease) both}
+@keyframes draw{from{transform:scaleX(0)}}
+.hero .sub{font-size:clamp(18px,1.6vw,21px);color:#D9D5CE;max-width:44ch}
+.ctas{display:flex;flex-wrap:wrap;gap:14px}
+.hint{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.hint span{width:22px;height:34px;border:1.5px solid currentColor;border-radius:12px;position:relative}
+.hint span::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--sig);animation:wheel 1.8s var(--ease) infinite}
+@keyframes wheel{0%{transform:translateY(0);opacity:1}70%{transform:translateY(10px);opacity:0}100%{opacity:0}}
+
+/* phase card + schedule HUD */
+.phase{position:absolute;inset-inline-start:var(--gut-r);top:50%;transform:translateY(-50%);width:min(380px,calc(100% - 40px));opacity:0;transition:opacity .6s;pointer-events:none}
+.phase.on{opacity:1}
+.phase .wk{display:flex;align-items:baseline;gap:12px;color:var(--muted);font:500 14px/1 var(--f-b);letter-spacing:.12em}
+.phase .wk b{font:700 96px/.8 var(--f-d);color:var(--sig);letter-spacing:0}
+.phase h2{font:700 clamp(46px,5vw,72px)/.9 var(--f-d);margin:14px 0 12px;min-height:1.8em}
+.phase p{color:#CFCBC4;min-height:3.4em}
+.sched{position:absolute;inset-inline:0;bottom:0;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));pointer-events:none}
+.sched .box{border:1px solid var(--line);background:rgba(15,17,19,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:8px;padding:14px 16px 16px;pointer-events:auto}
+.sched .top{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted);margin-bottom:10px;letter-spacing:.06em}
+.sched .top b{color:var(--fg);font-weight:500}
+.cells{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;position:relative}
+.cell{height:30px;border:1px solid var(--line);border-radius:3px;position:relative;overflow:hidden;font:500 11px/30px var(--f-b);text-align:center;color:var(--muted)}
+.cell i{position:absolute;inset:0;background:var(--sig);transform-origin:right;transform:scaleX(var(--f,0));opacity:.92}
+.cell span{position:relative;mix-blend-mode:difference;color:#fff}
+.finish{position:absolute;inset-block:-8px;inset-inline-end:-2px;border-inline-end:2px dashed var(--fg)}
+.finish::after{display:none;content:"";position:absolute;top:-20px;inset-inline-end:-2px;font:500 11px/1 var(--f-b);white-space:nowrap;color:var(--fg)}
+.stamp{position:absolute;inset-inline-end:var(--gut);top:18%;z-index:4;border:3px solid var(--sig);color:var(--sig);padding:10px 18px 6px;font:700 46px/.85 var(--f-d);transform:rotate(-7deg) scale(1.6);opacity:0;transition:transform .5s cubic-bezier(.2,1.6,.4,1),opacity .2s;text-align:center;background:rgba(15,17,19,.55);backdrop-filter:blur(6px)}
+.stamp small{display:block;font:500 13px/1.6 var(--f-b);letter-spacing:.08em}
+.stamp.on{transform:rotate(-7deg) scale(1);opacity:1}
+
+/* ---------- sections ---------- */
+section{position:relative;padding-block:clamp(90px,12vw,150px)}
+.h2{font:700 clamp(64px,9vw,136px)/.82 var(--f-d)}
+.h2 .hl{color:var(--sig)}
+.lead{color:var(--muted);max-width:56ch;font-size:19px}
+.head{display:grid;gap:22px;margin-bottom:clamp(44px,6vw,80px);max-width:900px}
+.rv{transition:opacity 1s var(--ease),transform 1.2s var(--ease)}
+.js .rv.pre{opacity:0;transform:translateY(36px)}
+
+/* promise: three measured statements */
+.prom{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-block:1px solid var(--line)}
+.pr{padding:34px 28px 38px;border-inline-start:1px solid var(--line);display:grid;gap:12px;align-content:start;position:relative;overflow:hidden}
+.pr:first-child{border-inline-start:0}
+.pr b{font:700 clamp(72px,8vw,120px)/.8 var(--f-d);color:var(--sig)}
+.pr h3{font:700 36px/.95 var(--f-d)}
+.pr p{color:var(--muted);font-size:16px}
+.pr::after{content:"";position:absolute;inset:auto 0 0;height:3px;background:var(--sig);transform-origin:right;transform:scaleX(0);transition:transform .8s var(--ease)}
+.pr:hover::after{transform:scaleX(1)}
+
+/* services spec table */
+.spec{border-top:2px solid var(--fg)}
+.srow{display:grid;grid-template-columns:110px minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:baseline;padding:26px 4px;border-bottom:1px solid var(--line);position:relative}
+.srow .code{font:500 13px var(--f-b);color:var(--muted);letter-spacing:.1em}
+.srow h3{font:700 clamp(40px,4.4vw,64px)/.9 var(--f-d);transition:color .3s,transform .5s var(--ease)}
+.srow p{color:var(--muted)}
+.srow:hover h3{color:var(--sig);transform:translateX(-10px)}
+.srow .wks{display:block;margin-top:8px;height:6px;width:calc(var(--w) * 12.5%);background:repeating-linear-gradient(90deg,var(--sig) 0 calc(100%/var(--w) - 3px),transparent 0 calc(100%/var(--w)));border-radius:2px;opacity:.85}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.step{padding:28px 24px 30px;border-inline-start:1px solid var(--line);display:grid;gap:12px;align-content:start;background:var(--bg-2)}
+.step:first-child{border-inline-start:0}
+.step .n{display:flex;align-items:center;gap:10px;font:500 13px var(--f-b);color:var(--muted);letter-spacing:.1em}
+.step .bar{height:6px;border-radius:2px;background:var(--line);overflow:hidden}
+.step .bar i{display:block;height:100%;width:calc(var(--i) * 25%);background:var(--sig)}
+.step h3{font:700 40px/.9 var(--f-d)}
+.step p{color:var(--muted);font-size:16px}
+
+/* before / after */
+.ba{position:relative;aspect-ratio:16/8;border-radius:10px;overflow:hidden;border:1px solid var(--line);user-select:none;touch-action:pan-y;background:var(--bg-2)}
+.ba svg{position:absolute;inset:0;width:100%;height:100%}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .knob{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:var(--sig);transform:translateX(-1px)}
+.ba .knob button{position:absolute;top:50%;left:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;border:0;background:var(--sig);color:var(--on-sig);cursor:ew-resize;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(197,240,74,.6)}
+.ba .knob svg{position:static;width:26px;height:26px}
+.ba .tag{position:absolute;top:16px;padding:6px 12px;border-radius:4px;font:700 14px/1 var(--f-b);background:rgba(15,17,19,.7);backdrop-filter:blur(6px)}
+.ba .tag.b{right:16px}.ba .tag.a{left:16px;background:var(--sig);color:var(--on-sig)}
+.ln{fill:none;stroke:#7E868C;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.lnd{fill:none;stroke:#59616A;stroke-width:1.2;stroke-dasharray:5 6}
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.slot{aspect-ratio:4/3;border-radius:8px;border:1px dashed #4A5158;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:14px;padding:12px;position:relative;overflow:hidden}
+.slot::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(197,240,74,.06) 50%,transparent 70%);background-size:250% 100%;animation:sweep 4s ease-in-out infinite}
+@keyframes sweep{from{background-position:120% 0}to{background-position:-60% 0}}
+.slot b{display:block;font:700 30px/1 var(--f-d);color:var(--fg);margin-bottom:4px}
+.note{margin-top:20px;color:var(--muted);font-size:15px;display:flex;gap:10px;align-items:center}
+.note i{width:8px;height:8px;border-radius:1px;background:var(--sig)}
+
+/* reviews slots */
+.revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rev{border-radius:10px;padding:24px;background:var(--bg-2);border:1px solid var(--line);display:grid;gap:14px;align-content:start;min-height:240px;position:relative}
+.rev .top{display:flex;align-items:center;gap:12px}
+.rev .av{width:40px;height:40px;border-radius:50%;background:#262B30}
+.rev .who{display:grid;gap:6px}
+.sk{height:10px;border-radius:5px;background:linear-gradient(90deg,#22272b 0%,#30363c 40%,#22272b 80%);background-size:300% 100%;animation:sk 2.6s ease-in-out infinite}
+@keyframes sk{from{background-position:100% 0}to{background-position:-100% 0}}
+.stars{color:var(--sig);letter-spacing:3px;font-size:15px}
+.rev blockquote{margin:0;font:700 32px/1 var(--f-d)}
+.rev .g{position:absolute;inset-inline-end:20px;top:22px;font:700 13px/1 var(--f-b);color:var(--muted)}
+
+/* area + hours */
+.info{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chips span{padding:9px 16px;border-radius:4px;border:1px solid var(--line);background:var(--bg-2);font-size:16px}
+.chips span:first-child{border-color:var(--sig);color:var(--sig)}
+.hours{margin-top:26px;border-top:1px solid var(--line)}
+.hours div{display:flex;justify-content:space-between;padding:14px 2px;border-bottom:1px solid var(--line)}
+.hours div span:last-child{color:var(--muted)}
+
+/* final */
+.final{text-align:center;overflow:hidden}
+.final .h2{font-size:clamp(84px,13vw,210px);max-width:10ch;margin:24px auto 0}
+.final .ctas{justify-content:center;margin-top:40px}
+.final .dim{justify-content:center}
+.tape{position:absolute;inset-inline:0;top:50%;height:46px;transform:translateY(-50%) rotate(-4deg);background:repeating-linear-gradient(90deg,transparent 0 19px,rgba(15,17,19,.55) 19px 20px),var(--sig);opacity:.08;pointer-events:none}
+
+/* offer (paper) */
+.offer{background:var(--paper);color:var(--ink)}
+.offer .dim{color:#5D6266}
+.offer .dim .l::before{background:var(--ink)}.offer .dim .l::after{border-color:var(--ink)}
+.offer .h2 .hl{color:var(--ink);background:linear-gradient(transparent 62%,var(--sig) 62%)}
+.ogrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:start}
+.price{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;margin:24px 0 8px}
+.ogrid>*{min-width:0}
+.price b{font:700 clamp(120px,20vw,260px)/.72 var(--f-d)}
+.price span{padding-bottom:12px;font-size:18px}
+.ocopy{color:#4A4F53;max-width:52ch}
+.inc{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.inc li{display:flex;gap:14px;padding:13px 2px;border-bottom:1px solid #CFCAC1;font-size:17px}
+.inc li::before{content:"";flex:none;width:14px;height:14px;margin-top:6px;border:1.5px solid var(--ink);border-radius:2px;background:linear-gradient(45deg,transparent 42%,var(--ink) 42% 58%,transparent 58%)}
+.inc li b{font-weight:800}
+.terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:44px}
+.terms div{border-radius:8px;padding:22px;background:#F7F5F0;border:1px solid #D6D1C7}
+.terms b{display:block;font:700 38px/.9 var(--f-d);margin-bottom:8px}
+.terms p{color:#4A4F53;font-size:16px}
+.upsell{margin-top:14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 24px;align-items:center;border-radius:8px;padding:22px 24px;border:1.5px dashed #8E8A82}
+.upsell b{font:700 40px/.9 var(--f-d)}
+.upsell p{color:#4A4F53;font-size:16px}
+.switch{margin-top:26px;color:#4A4F53;font-size:16px;max-width:70ch}
+.offer .btn-sig{box-shadow:5px 5px 0 var(--ink)}
+.offer .btn-sig:hover{box-shadow:8px 8px 0 var(--ink)}
+
+footer.site{padding-block:28px 120px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer.site .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.mbar{position:fixed;inset:auto 0 0;z-index:65;display:none;gap:10px;padding:10px var(--gut-r) calc(10px + env(safe-area-inset-bottom,0px)) var(--gut);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .5s var(--ease)}
+.mbar.on{transform:none}
+.mbar .btn{flex:1;min-height:52px;font-size:16px;padding:0 14px;box-shadow:none}
+.toast{position:fixed;z-index:95;inset-inline:0;bottom:calc(84px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;pointer-events:none;padding:0 16px}
+.toast div{max-width:460px;padding:16px 20px;border-radius:8px;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.5;box-shadow:0 30px 70px -20px rgba(0,0,0,.6);border-inline-start:6px solid var(--sig);transform:translateY(20px);opacity:0;transition:opacity .4s,transform .5s var(--ease)}
+.toast.on div{opacity:1;transform:none}
+.toast a{font-weight:800}
+
+@media (max-width:900px){
+  .prom{grid-template-columns:1fr}
+  .pr{border-inline-start:0;border-top:1px solid var(--line)}
+  .pr:first-child{border-top:0}
+  .srow{grid-template-columns:52px minmax(0,1fr);gap:6px 14px}
+  .srow p{grid-column:2}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:nth-child(3){border-inline-start:0}
+  .step:nth-child(n+3){border-top:1px solid var(--line)}
+  .gal{grid-template-columns:1fr 1fr}
+  .ba{aspect-ratio:4/3}
+  .revs{grid-template-columns:1fr}
+  .info,.ogrid{grid-template-columns:1fr;gap:44px}
+  .terms{grid-template-columns:1fr}
+  .upsell{grid-template-columns:1fr}
+  .mbar{display:flex}
+  .hphone{width:44px;justify-content:center;border:1px solid var(--line);border-radius:50%}
+  .hphone .mono,.hphone .lbl{display:none}
+  .hero-copy{justify-content:flex-end;padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
+  .shade{background:linear-gradient(to bottom,rgba(13,15,17,.4),transparent 16%,transparent 36%,rgba(13,15,17,.92) 64%)}
+  .phase{top:auto;bottom:calc(200px + env(safe-area-inset-bottom,0px));transform:none}
+  .hero h1{font-size:clamp(56px,16.5vw,96px)}
+  .phase .wk b{font-size:64px}
+  .phase h2{font-size:44px;min-height:0}
+  .phase p{font-size:15px;min-height:0}
+  .sched{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  .sched .top span:last-child{display:none}
+  .stamp{top:14%;font-size:36px}
+}
+@media (max-width:520px){
+  .steps{grid-template-columns:1fr}
+  .step{border-inline-start:0!important;border-top:1px solid var(--line)}
+  .step:first-child{border-top:0}
+  .cell{font-size:0}
+  .finish::after{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv.pre{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="ribbon"><div class="wrap"><span>עמוד נחיתה לדוגמה לעסק בדוי. ככה ייראה העמוד שלכם, עם השם, הביקורות והתמונות שלכם.</span><a href="#offer">מחיר ותנאים ←</a></div></div>
+
+<header id="hdr"><div class="wrap">
+  <a class="logo" href="#top" aria-label="קו גמר, לראש העמוד">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 30h32" stroke="#C5F04A" stroke-width="2.4"/><path d="M4 25v10M36 25v10" stroke="#C5F04A" stroke-width="2"/><path d="M9 22V10l11-6 11 6v12" fill="none" stroke="#EDEAE4" stroke-width="2.2" stroke-linejoin="round"/><path d="M17 22v-6h6v6" fill="none" stroke="#EDEAE4" stroke-width="2.2"/></svg>
+    <span><b>קו גמר</b><small>שיפוצים · עמק יזרעאל</small></span>
+  </a>
+  <a class="hphone" href="tel:050-000-0000" data-demo><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="lbl">רועי:</span><span class="mono">050-000-0000</span></a>
+</div></header>
+
+<main id="top">
+<div class="stage hero" id="stage">
+  <div class="sticky">
+    <canvas id="gl" aria-hidden="true"></canvas>
+    <div class="shade"></div>
+    <div class="hero-copy"><div class="wrap"><div class="in" id="heroIn">
+      <div class="dim"><span class="l"></span>8 שבועות · דירת 4 חדרים</div>
+      <h1>השיפוץ נגמר<br>בתאריך <span class="hl">שכתוב</span><br>בהצעה.</h1>
+      <p class="sub">צוות אחד מנהל את כל השלבים, מהפירוק ועד הניקיון האחרון. בסוף כל שבוע מקבלים עדכון בוואטסאפ עם תמונות.</p>
+      <div class="ctas">
+        <a class="btn btn-sig" href="#" data-demo><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>קבעו פגישה עם רועי</a>
+        <a class="btn btn-line" href="#promise">מה מקבלים</a>
+      </div>
+      <div class="hint"><span></span>גללו וראו את השיפוץ נבנה</div>
+    </div></div></div>
+
+    <div class="phase" id="phase" aria-live="polite"><div class="wk"><b class="mono" id="wkn">1</b>שבוע מתוך 8</div><h2 id="ph">תכנון</h2><p id="pp">מודדים, מתכננים ובוחרים חומרים.</p></div>
+    <div class="stamp" id="stamp" aria-hidden="true">נמסר בזמן<small>בתאריך שבהצעה</small></div>
+
+    <div class="sched"><div class="wrap"><div class="box">
+      <div class="top"><b>לוח זמנים לדוגמה · שיפוץ דירת 4 חדרים</b><span>עדכון בוואטסאפ בסוף כל שבוע</span></div>
+      <div class="cells" id="cells"><span class="finish"></span></div>
+    </div></div></div>
+  </div>
+</div>
+
+<section id="promise"><div class="wrap">
+  <div class="head rv"><div class="dim"><span class="l"></span>מה מקבלים</div><h2 class="h2">שלושה דברים<br><span class="hl">בכתב.</span></h2><p class="lead">מה שהכי מפחיד בשיפוץ הוא לא המחיר. זה לא לדעת מתי זה ייגמר. אז זה הדבר הראשון שקובעים.</p></div>
+  <div class="prom">
+    <div class="pr rv"><b class="mono">1</b><h3>תאריך מסירה בהצעה</h3><p>לפני שמתחילים מקבלים הצעה כתובה עם השלבים ותאריך הסיום.</p></div>
+    <div class="pr rv"><b class="mono">8</b><h3>עדכון בסוף כל שבוע</h3><p>תמונות ועדכון בוואטסאפ: מה נעשה, מה הלאה, איפה אנחנו בלוח הזמנים.</p></div>
+    <div class="pr rv"><b class="mono">1</b><h3>צוות לכל השלבים</h3><p>בלי לתאם בין חמישה בעלי מקצוע. מישהו אחד אחראי על הכל.</p></div>
+  </div>
+</div></section>
+
+<section id="services" style="padding-top:0"><div class="wrap">
+  <div class="head rv"><div class="dim"><span class="l"></span>מה משפצים</div><h2 class="h2">כל השיפוץ.<br><span class="hl">צוות אחד.</span></h2></div>
+  <div class="spec">
+    <div class="srow rv"><span class="code mono">01</span><h3>שיפוץ דירה מלא</h3><p>מהפירוק ועד הניקיון, בניהול אחד ובלוח זמנים כתוב.<span class="wks" style="--w:8"></span></p></div>
+    <div class="srow rv"><span class="code mono">02</span><h3>חדרי רחצה</h3><p>איטום, ריצוף, חיפוי, כלים ומקלחון. חדר מוכן לשימוש.<span class="wks" style="--w:3"></span></p></div>
+    <div class="srow rv"><span class="code mono">03</span><h3>מטבחים</h3><p>פירוק המטבח הישן, תשתיות, והתקנה של החדש.<span class="wks" style="--w:3"></span></p></div>
+    <div class="srow rv"><span class="code mono">04</span><h3>ריצוף וחיפוי</h3><p>קווים ישרים, פוגות נקיות ותשומת לב לפינות.<span class="wks" style="--w:2"></span></p></div>
+    <div class="srow rv"><span class="code mono">05</span><h3>גבס, טיח וצבע</h3><p>קירות חלקים, תקרות ונישות, וצבע בגוון שבחרתם.<span class="wks" style="--w:2"></span></p></div>
+  </div>
+</div></section>
+
+<section id="how" style="padding-top:0"><div class="wrap">
+  <div class="head rv"><div class="dim"><span class="l"></span>איך זה עובד</div><h2 class="h2">מהודעה<br><span class="hl">ועד מפתח.</span></h2></div>
+  <div class="steps">
+    <div class="step rv" style="--i:1"><span class="n mono">שלב 1</span><div class="bar"><i></i></div><h3>שולחים הודעה</h3><p>כותבים בוואטסאפ מה רוצים לשפץ ומצרפים תמונות.</p></div>
+    <div class="step rv" style="--i:2"><span class="n mono">שלב 2</span><div class="bar"><i></i></div><h3>פגישה בבית</h3><p>רועי מגיע, מודד ומקשיב למה שאתם צריכים.</p></div>
+    <div class="step rv" style="--i:3"><span class="n mono">שלב 3</span><div class="bar"><i></i></div><h3>מחיר ותאריך</h3><p>הצעה כתובה עם שלבים ותאריך סיום, לפני שמתחילים.</p></div>
+    <div class="step rv" style="--i:4"><span class="n mono">שלב 4</span><div class="bar"><i></i></div><h3>עבודה ומסירה</h3><p>בסוף כל שבוע תמונות ועדכון, עד המסירה.</p></div>
+  </div>
+</div></section>
+
+<section id="work" style="padding-top:0"><div class="wrap">
+  <div class="head rv"><div class="dim"><span class="l"></span>לפני ואחרי</div><h2 class="h2">גררו <span class="hl">ותראו.</span></h2></div>
+  <div class="ba rv" id="ba" style="--x:50%">
+    <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="800" height="400" fill="#15181B"/>
+      <path class="ln" d="M60 330H740M100 330V90H700V330"/><path class="lnd" d="M100 250H700M300 90V330M500 90V330"/>
+      <path class="ln" d="M140 330V220H260V330M150 230h100M150 260h100M150 290h100"/><path class="ln" d="M540 150h120v80H540zM600 150v80"/>
+      <path class="lnd" d="M330 120l30 40M420 110l-20 50M380 200l40 30"/><path class="ln" d="M340 330l40-30 50 30" stroke="#8a5a40"/></svg>
+    <svg class="after" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="800" height="400" fill="#1C2024"/>
+      <rect x="100" y="90" width="600" height="240" fill="#262B2F"/><rect x="100" y="90" width="200" height="240" fill="#2E3A33"/>
+      <path d="M60 330H740" stroke="#C5F04A" stroke-width="2"/><path d="M100 330l-40 40M180 330l-40 40M260 330l-40 40M340 330l-40 40M420 330l-40 40M500 330l-40 40M580 330l-40 40M660 330l-40 40M740 330l-40 40" stroke="#3A4148" stroke-width="1.2"/>
+      <rect x="130" y="230" width="150" height="100" fill="#EDEAE4"/><rect x="130" y="222" width="150" height="10" fill="#C5F04A"/><path d="M180 240v80M230 240v80" stroke="#1C2024"/>
+      <rect x="540" y="150" width="120" height="80" fill="#9DB9C9" opacity=".55"/><path d="M540 150h120v80H540zM600 150v80" fill="none" stroke="#EDEAE4" stroke-width="2"/>
+      <path d="M400 90v40" stroke="#EDEAE4"/><circle cx="400" cy="140" r="12" fill="#FFE7A3"/><circle cx="400" cy="140" r="46" fill="#FFE7A3" opacity=".12"/>
+      <rect x="360" y="260" width="200" height="50" rx="10" fill="#4C5A52"/><rect x="350" y="300" width="220" height="16" rx="6" fill="#3F4B44"/>
+      <circle cx="660" cy="290" r="26" fill="#5E7F4E"/><rect x="648" y="300" width="24" height="30" fill="#A07A5A"/></svg>
+    <span class="tag b">לפני</span><span class="tag a">אחרי</span>
+    <div class="knob"><button type="button" id="baBtn" role="slider" aria-label="השוואה לפני ואחרי" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6"/></svg></button></div>
+  </div>
+  <div class="gal">
+    <div class="slot rv"><div><b>סלון</b>תמונה שלכם</div></div>
+    <div class="slot rv"><div><b>חדר רחצה</b>תמונה שלכם</div></div>
+    <div class="slot rv"><div><b>מטבח</b>תמונה שלכם</div></div>
+    <div class="slot rv"><div><b>מסירה</b>תמונה שלכם</div></div>
+  </div>
+  <p class="note"><i></i>בעמוד שלכם: תמונות לפני ואחרי אמיתיות מהעבודות שלכם, במקום השרטוט.</p>
+</div></section>
+
+<section id="reviews" style="padding-top:0"><div class="wrap">
+  <div class="head rv"><div class="dim"><span class="l"></span>ביקורות מגוגל</div><h2 class="h2">מה כתבו <span class="hl">הלקוחות.</span></h2></div>
+  <div class="revs">
+    <div class="rev rv"><span class="g">גוגל</span><div class="top"><span class="av"></span><span class="who"><span class="sk" style="width:110px"></span><span class="stars">★★★★★</span></span></div><blockquote>כאן תיכנס הביקורת הכי טובה שלכם, מילה במילה.</blockquote></div>
+    <div class="rev rv"><span class="g">גוגל</span><div class="top"><span class="av"></span><span class="who"><span class="sk" style="width:90px"></span><span class="stars">★★★★★</span></span></div><div class="sk" style="width:94%"></div><div class="sk" style="width:80%"></div><div class="sk" style="width:62%"></div></div>
+    <div class="rev rv"><span class="g">גוגל</span><div class="top"><span class="av"></span><span class="who"><span class="sk" style="width:120px"></span><span class="stars">★★★★★</span></span></div><div class="sk" style="width:88%"></div><div class="sk" style="width:92%"></div><div class="sk" style="width:48%"></div></div>
+  </div>
+  <p class="note"><i></i>3 ביקורות אמיתיות שלכם מגוגל, בלי עריכה, עם קישור לכל הביקורות.</p>
+</div></section>
+
+<section id="area" style="padding-top:0"><div class="wrap info">
+  <div class="rv"><div class="dim"><span class="l"></span>אזור שירות</div><h2 class="h2" style="font-size:clamp(56px,6.5vw,96px)">איפה עובדים</h2>
+    <div class="chips"><span>עפולה</span><span>נוף הגליל</span><span>מגדל העמק</span><span>נצרת</span><span>יקנעם</span><span>עמק יזרעאל</span></div></div>
+  <div class="rv"><div class="dim"><span class="l"></span>זמינות</div><h2 class="h2" style="font-size:clamp(56px,6.5vw,96px)">שעות</h2>
+    <div class="hours"><div><span>ראשון - חמישי</span><span class="mono">7:30-17:00</span></div><div><span>שישי</span><span class="mono">7:30-12:00</span></div><div><span>שבת</span><span>סגור</span></div></div></div>
+</div></section>
+
+<section class="final grid-bg"><div class="tape"></div><div class="wrap rv">
+  <div class="dim"><span class="l"></span>שיפוצים · עמק יזרעאל</div>
+  <h2 class="h2">מתי אתם<br>נכנסים <span class="hl">הביתה?</span></h2>
+  <div class="ctas"><a class="btn btn-sig" href="#" data-demo><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>שלחו הודעה לרועי</a></div>
+  <p class="mono" style="margin-top:18px;color:var(--muted);font-size:19px">050-000-0000</p>
+</div></section>
+
+<section class="offer" id="offer"><div class="wrap">
+  <div class="head rv"><div class="dim"><span class="l"></span>ההצעה · לא חלק מהעמוד</div><h2 class="h2">עמוד כזה, עם השם שלכם,<br><span class="hl">באוויר תוך 48 שעות.</span></h2></div>
+  <div class="ogrid rv">
+    <div>
+      <p class="ocopy">זה עמוד נחיתה לדוגמה, לעסק בדוי. העמוד שלכם ייבנה עם השם, הטלפון, הביקורות האמיתיות מגוגל והתמונות מהעבודות שלכם. אתם רק מאשרים ושולחים תמונות.</p>
+      <div class="price"><b class="mono">999</b><span>₪ לשנה הראשונה, הכל כלול</span></div>
+      <p class="ocopy" style="font-size:16px">מהשנה השנייה: 349 ₪ לשנה לדומיין, אחסון ותחזוקה. בלי הפתעות.</p>
+      <div class="ctas" style="margin-top:30px"><a class="btn btn-sig" href="https://wa.me/972525543759?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%A2%D7%9E%D7%95%D7%93%20%D7%94%D7%A0%D7%97%D7%99%D7%AA%D7%94%20%D7%9C%D7%93%D7%95%D7%92%D7%9E%D7%94%20%D7%9C%D7%A9%D7%99%D7%A4%D7%95%D7%A6%D7%99%D7%9D.%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9B%D7%96%D7%94%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>אני רוצה עמוד כזה</a></div>
+    </div>
+    <ul class="inc">
+      <li>עמוד נחיתה אחד, מותאם לנייד, כמו שאתם רואים כאן</li>
+      <li>כתובת (דומיין) בשם העסק לשנה</li>
+      <li>אחסון לשנה</li>
+      <li>כפתור וואטסאפ וחיוג בכל מסך</li>
+      <li>באוויר תוך 48 שעות מהאישור</li>
+      <li><span><b>בונוס:</b> סידור פרופיל העסק בגוגל מפות</span></li>
+      <li><span><b>בונוס:</b> קישור והודעה מוכנה לבקשת ביקורות מלקוחות</span></li>
+      <li><span><b>בונוס:</b> קוד קיו־אר לרכב ולכרטיס הביקור</span></li>
+      <li><span><b>בונוס:</b> שינוי טקסט או תמונה אחד בחודש, בלי תשלום</span></li>
+    </ul>
+  </div>
+  <div class="terms">
+    <div class="rv"><b>משלמים רק אחרי</b><p>התשלום רק אחרי שהעמוד באוויר ואישרתם אותו. לא אהבתם? לא משלמים.</p></div>
+    <div class="rv"><b>אתם לא עושים כלום</b><p>שולחים 5 תמונות ומאשרים טקסט. את כל השאר אני עושה.</p></div>
+  </div>
+  <div class="upsell rv"><b>צריכים אתר מלא?</b><p>אתר עם תפריט וכמה עמודים (שירותים, גלריה, אודות, צור קשר) הוא מוצר אחר, ומתומחר בנפרד לפי ההיקף.</p></div>
+  <p class="switch rv">כבר יש לכם אתר? בונה אתרים לוקח בדרך כלל 1,200-7,000 ₪ על הבנייה, ועוד 60-120 ₪ בחודש על אחסון ותחזוקה. כאן זה 999 ₪ לשנה הכל כלול, ו-349 ₪ לשנה מהשנה השנייה. את הכתובת הקיימת מעבירים בלי תשלום.</p>
+</div></section>
+</main>
+
+<footer class="site"><div class="wrap"><span>© קו גמר · עסק בדוי לדוגמה</span><span>עמק יזרעאל · <span class="mono">050-000-0000</span></span></div></footer>
+<div class="mbar" id="mbar"><a class="btn btn-sig" href="#" data-demo>וואטסאפ</a><a class="btn btn-line" href="tel:050-000-0000" data-demo>חיוג</a></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><div>זה עמוד לדוגמה. בעמוד שלכם הכפתור הזה פותח וואטסאפ ישירות אליכם. <a href="#offer">למחיר ותנאים</a></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  document.documentElement.classList.add("js");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const small = innerWidth < 768;
+
+  /* header / bar / toast */
+  const hdr = document.getElementById("hdr"), mbar = document.getElementById("mbar"), toast = document.getElementById("toast"), stage = document.getElementById("stage");
+  const onUI = () => { hdr.style.top = Math.max(0, document.querySelector(".ribbon").getBoundingClientRect().bottom) + "px";
+    hdr.classList.toggle("solid", stage.getBoundingClientRect().bottom < 80); mbar.classList.toggle("on", scrollY > innerHeight*.6); };
+  addEventListener("scroll", onUI, {passive:true}); onUI();
+  let tt; document.querySelectorAll("[data-demo]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); toast.classList.add("on"); clearTimeout(tt); tt = setTimeout(()=>toast.classList.remove("on"), 4200); }));
+
+  /* reveals */
+  if (!reduce && "IntersectionObserver" in window){
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.remove("pre"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -10% 0px"});
+    document.querySelectorAll(".rv").forEach((el,i) => { if (el.getBoundingClientRect().top > innerHeight){ el.classList.add("pre"); el.style.transitionDelay = (i % 4)*70 + "ms"; io.observe(el); } });
+  }
+
+  /* before/after */
+  const ba = document.getElementById("ba"), baBtn = document.getElementById("baBtn");
+  const setX = v => { v = Math.max(0, Math.min(100, v)); ba.style.setProperty("--x", v + "%"); baBtn.setAttribute("aria-valuenow", Math.round(v)); };
+  let drag = false;
+  const fromEv = e => { const r = ba.getBoundingClientRect(); setX((e.clientX - r.left) / r.width * 100); };
+  ba.addEventListener("pointerdown", e => { drag = true; ba.setPointerCapture(e.pointerId); fromEv(e); });
+  ba.addEventListener("pointermove", e => { if (drag) fromEv(e); });
+  ba.addEventListener("pointerup", () => drag = false);
+  baBtn.addEventListener("keydown", e => { const v = parseFloat(getComputedStyle(ba).getPropertyValue("--x")) || 50; if (e.key === "ArrowLeft"){ setX(v-5); e.preventDefault(); } if (e.key === "ArrowRight"){ setX(v+5); e.preventDefault(); } });
+  if (!reduce && "IntersectionObserver" in window){ const o = new IntersectionObserver(es => { if (es[0].isIntersecting){ o.disconnect(); let t0 = null; const sw = t => { if (t0 === null) t0 = t; const k = (t - t0)/1800; if (k < 1 && !drag){ setX(50 + Math.sin(k*Math.PI*2)*28); requestAnimationFrame(sw); } else if (!drag) setX(50); }; requestAnimationFrame(sw); } }, {threshold:.6}); o.observe(ba); }
+
+  /* schedule cells + phases */
+  const PH = [
+    ["תכנון","מודדים, מתכננים ובוחרים חומרים. התוכנית נכנסת להצעה."],
+    ["פירוק ופינוי","המטבח הישן, הריצוף והכלים יוצאים. הכל מפונה מהבניין."],
+    ["אינסטלציה וחשמל","צנרת חדשה ונקודות חשמל, לפני שסוגרים קירות."],
+    ["ריצוף","אריח אחרי אריח, בקווים ישרים ובפוגות נקיות."],
+    ["חיפוי וחדר רחצה","חיפוי קירות, איטום והכנה לכלים."],
+    ["גבס וצבע","קירות חלקים וצבע בגוון שבחרתם."],
+    ["מטבח וגימור","מטבח, כלים ופרטים קטנים שמשנים הכל."],
+    ["מסירה","ניקיון, בדיקה אחרונה, ומסירת מפתח בתאריך שבהצעה."]];
+  const cells = document.getElementById("cells");
+  PH.forEach((p,i) => cells.insertAdjacentHTML("beforeend", `<div class="cell"><i></i><span>שבוע ${i+1}</span></div>`));
+  const cellEls = [...cells.querySelectorAll(".cell")];
+  const heroIn = document.getElementById("heroIn"), phase = document.getElementById("phase"), wkn = document.getElementById("wkn"), ph = document.getElementById("ph"), pp = document.getElementById("pp"), stamp = document.getElementById("stamp");
+  let lastW = -1;
+  const ui = p => {
+    heroIn.style.opacity = Math.max(0, 1 - p*9); heroIn.style.pointerEvents = p > .08 ? "none" : "auto";
+    const b = Math.max(0, (p - .06)/.9), w = Math.min(7, Math.floor(b*8));
+    phase.classList.toggle("on", p > .09 && p < .985);
+    if (w !== lastW){ lastW = w; wkn.textContent = w+1; ph.textContent = PH[w][0]; pp.textContent = PH[w][1]; }
+    cellEls.forEach((c,i) => c.style.setProperty("--f", Math.max(0, Math.min(1, b*8 - i)).toFixed(3)));
+    stamp.classList.toggle("on", b >= 1);
+  };
+
+  let target = 0, progress = 0;
+  const readScroll = () => { const r = stage.getBoundingClientRect(); target = Math.max(0, Math.min(1, -r.top / (r.height - innerHeight))); };
+  addEventListener("scroll", readScroll, {passive:true}); readScroll();
+
+  const canvas = document.getElementById("gl");
+  if (!window.THREE){ ui(target); addEventListener("scroll", () => ui(target), {passive:true}); return; }
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true, powerPreference:"high-performance"}); }
+  catch(e){ ui(target); addEventListener("scroll", () => ui(target), {passive:true}); return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, small ? 1.5 : 2));
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputEncoding = THREE.sRGBEncoding; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = .82;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.OrthographicCamera(-1,1,1,-1,.1,100);
+  const hemi = new THREE.HemisphereLight(0xdfe6ee, 0x2a2c2e, .5); scene.add(hemi);
+  const key = new THREE.DirectionalLight(0xfff4e6, 1.45); key.position.set(6, 11, 7); key.castShadow = true;
+  const sm = small ? 1024 : 2048; key.shadow.mapSize.set(sm, sm); Object.assign(key.shadow.camera, {left:-8,right:8,top:8,bottom:-8,near:1,far:40}); key.shadow.bias = -0.0005; key.shadow.radius = 3;
+  scene.add(key);
+  const room = new THREE.Group(); scene.add(room);
+
+  const std = (c, r=.8, m=0, o={}) => new THREE.MeshStandardMaterial(Object.assign({color:c, roughness:r, metalness:m}, o));
+  const mk = (w,h,d,mat,x,y,z,parent=room) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), mat); m.position.set(x,y,z); m.castShadow = true; m.receiveShadow = true; parent.add(m); return m; };
+  const SIG = 0xc5f04a;
+
+  // blueprint grid under the slab
+  const grid = new THREE.GridHelper(30, 60, 0x2b3036, 0x1f2327); grid.position.y = -.21; scene.add(grid);
+  // slab
+  mk(8.4, .2, 6.4, std(0x6f7376, .95), 0, -.1, 0);
+
+  // walls (back along x, left along z, partition) with plaster->paint
+  const plaster = new THREE.Color(0x6a6762), paint = new THREE.Color(0xd9d2c6), accent = new THREE.Color(0x6f8a6c);
+  const wallMatA = std(0x8d8a84, .95, 0, {transparent:true, opacity:0}), wallMatB = std(0x8d8a84, .95, 0, {transparent:true, opacity:0}), wallMatC = std(0x8d8a84, .95, 0, {transparent:true, opacity:0});
+  const wBack = mk(8.4, 2.8, .16, wallMatA, 0, 1.4, -3.12);
+  const wLeft = mk(.16, 2.8, 6.4, wallMatB, -4.12, 1.4, 0);
+  const wPart = mk(.14, 2.8, 2.6, wallMatC, 1.4, 1.4, -1.8);
+  // window in back wall
+  const glass = mk(1.9, 1.3, .04, std(0x9db9c9, .1, .2, {transparent:true, opacity:0}), -1.5, 1.7, -3.02);
+  const frameM = std(0x1d2124, .5, .3, {transparent:true, opacity:0});
+  const wf = [mk(2.0,.08,.08,frameM,-1.5,2.37,-3.0), mk(2.0,.08,.08,frameM,-1.5,1.03,-3.0), mk(.08,1.4,.08,frameM,-2.5,1.7,-3.0), mk(.08,1.4,.08,frameM,-.5,1.7,-3.0)];
+  // wireframe edges (week 1)
+  const edgeMat = new THREE.LineBasicMaterial({color:SIG, transparent:true, opacity:1});
+  [wBack, wLeft, wPart].forEach(w => { const e = new THREE.LineSegments(new THREE.EdgesGeometry(w.geometry), edgeMat); e.position.copy(w.position); room.add(e); });
+  const planLines = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(8.4,.01,6.4)), edgeMat); planLines.position.y = .01; room.add(planLines);
+
+  // old stuff (week 2 removes it)
+  const oldMat = std(0x5a4636, .9, 0, {transparent:true}), oldTile = std(0x6d5a4a, .95, 0, {transparent:true});
+  const old = [mk(.6,.9,3.2,oldMat,-3.7,.45,-1.2), mk(.6,.08,3.2,std(0x8a7a6a,.8,0,{transparent:true}),-3.7,.94,-1.2), mk(1.6,.55,.8,std(0xd8d2c6,.6,0,{transparent:true}),2.6,.28,-2.6), mk(8.2,.04,6.2,oldTile,0,.02,0), mk(.5,1.6,.5,std(0x4a3b2e,.9,0,{transparent:true}),3.2,.8,1.6)];
+  old.forEach(o => o.userData.y0 = o.position.y);
+
+  // pipes + conduits (week 3), hidden behind plaster later
+  const pipes = new THREE.Group(); room.add(pipes);
+  const cyl = (r,l,c,x,y,z,rx,rz) => { const m = new THREE.Mesh(new THREE.CylinderGeometry(r,r,l,10), std(c,.4,.3,{transparent:true})); m.position.set(x,y,z); m.rotation.set(rx||0,0,rz||0); m.castShadow = true; pipes.add(m); return m; };
+  cyl(.045, 4.2, 0x3a8dde, -1.9, .12, -2.95, 0, Math.PI/2); cyl(.045, 4.2, 0xe0533a, -1.9, .25, -2.95, 0, Math.PI/2);
+  cyl(.045, 2.4, 0x3a8dde, 1.3, .12, -1.8, Math.PI/2, 0); cyl(.045, 2.4, 0xe0533a, 1.3, .25, -1.8, Math.PI/2, 0);
+  cyl(.03, 2.4, SIG, -4.02, 1.3, -.4); cyl(.03, 2.4, SIG, -4.02, 1.3, 1.6); cyl(.03, 2.6, SIG, -2.6, 2.35, -3.02, 0, Math.PI/2); cyl(.03, 2.4, SIG, 2.6, 1.3, -3.02);
+  pipes.children.forEach(c => { c.userData.s = 0; c.scale.set(1, .001, 1); });
+
+  // floor tiles (instanced) week 4
+  const TW = .5, NX = 16, NZ = 12, tiles = [];
+  const tileGeo = new THREE.BoxGeometry(TW*.96, .05, TW*.96);
+  const oak = new THREE.InstancedMesh(tileGeo, std(0xc29a6c, .7), NX*NZ); oak.castShadow = false; oak.receiveShadow = true; room.add(oak);
+  const dummy = new THREE.Object3D(); let ti = 0;
+  for (let z = 0; z < NZ; z++) for (let x = 0; x < NX; x++){
+    const px = -4 + TW/2 + x*TW, pz = -3 + TW/2 + z*TW;
+    const bath = px > 1.4 && pz < -.5;
+    tiles.push({x:px, z:pz, d:((NX-1-x) + z*1.3)/(NX+NZ*1.3), bath});
+    oak.setColorAt(ti++, new THREE.Color(bath ? 0xd6d9da : ((x+z)%3===0 ? 0xb88f61 : 0xc6a072)));
+  }
+  oak.instanceColor.needsUpdate = true;
+  // bathroom wall tiles (week 5)
+  const bathTiles = new THREE.Group(); room.add(bathTiles);
+  const btMat = std(0xe4e8e8, .35, .05);
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 6; c++){ const t = mk(.42,.42,.02,btMat, 1.72 + c*.44, .3 + r*.44, -3.02, bathTiles); t.userData.d = (r*6 + c)/24; t.scale.setScalar(.001); }
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 5; c++){ const t = mk(.02,.42,.42,btMat, 1.49, .3 + r*.44, -2.85 + c*.44, bathTiles); t.userData.d = (r*5 + c)/20; t.scale.setScalar(.001); }
+
+  // furniture (week 7) - slides down from above
+  const furn = [];
+  const F = (w,h,d,c,x,y,z,r=.6,m=0) => { const o = mk(w,h,d,std(c,r,m),x,y,z); o.userData.y0 = y; o.userData.d = furn.length; o.visible = false; furn.push(o); return o; };
+  F(.62,.86,3.4,0x2f3a36,-3.72,.43,-1.1); F(.66,.06,3.44,0xe8e4dc,-3.72,.89,-1.1,.35);           // kitchen run
+  F(.62,.7,.9,0x2f3a36,-3.72,2.1,-1.6); F(.62,.7,.9,0x2f3a36,-3.72,2.1,-.5);                      // uppers
+  F(1.6,.88,.8,0x2f3a36,-1.6,.44,-.9); F(1.7,.06,.9,0xe8e4dc,-1.6,.91,-.9,.35);                   // island
+  F(2.2,.42,.9,0x4c5a52,-.2,.21,1.9); F(2.2,.5,.2,0x46534b,-.2,.55,2.3); F(.2,.36,.9,0x46534b,-1.25,.4,1.9); F(.2,.36,.9,0x46534b,.85,.4,1.9); // sofa
+  F(2.6,.02,1.7,0xd9d2c4,-.2,.02,1.1,.95);                                                        // rug
+  F(.9,.36,.5,0x8a6a4c,-.2,.18,.7);                                                               // coffee table
+  F(1.5,.5,.75,0xf4f4f2,2.5,.25,-2.55,.2); F(.8,.8,.45,0x2f3a36,3.5,.4,-.8); F(.02,1.9,1.0,0x9db9c9,1.95,.95,-1.35,.05,.1); // tub, vanity, glass
+  const plant = F(.5,.5,.5,0xa07a5a,3.4,.25,2.4,.9); const leaves = new THREE.Mesh(new THREE.SphereGeometry(.45,12,10), std(0x5e7f4e,.9)); leaves.position.y = .6; leaves.castShadow = true; plant.add(leaves);
+  furn.find(o => o.geometry.parameters.width === .02).material.transparent = true;
+  furn.find(o => o.geometry.parameters.width === .02).material.opacity = .45;
+
+  // pendant lights (week 8)
+  const pend = [], pl = [];
+  [[-1.6,-.9],[-.9,-.9],[-.2,1.3]].forEach(([x,z]) => {
+    const cord = mk(.012, .9, .012, std(0x1d2124), x, 2.35, z); cord.castShadow = false;
+    const shade = new THREE.Mesh(new THREE.ConeGeometry(.2,.22,18,1,true), std(0x1d2124,.5,.3,{side:THREE.DoubleSide})); shade.position.set(x,1.83,z); room.add(shade);
+    const bulb = new THREE.Mesh(new THREE.SphereGeometry(.07,12,10), new THREE.MeshBasicMaterial({color:0x5a5650})); bulb.position.set(x,1.74,z); room.add(bulb); pend.push(bulb);
+    const L = new THREE.PointLight(0xffc98a, 0, 5, 2); L.position.set(x,1.65,z); room.add(L); pl.push(L);
+    [cord, shade, bulb].forEach(o => o.visible = false); bulb.userData.parts = [cord, shade];
+  });
+
+  const clamp = v => Math.max(0, Math.min(1, v));
+  const seg = (b, a, z) => clamp((b - a)/(z - a));
+  const eo = t => 1 - Math.pow(1 - t, 3);
+  const bounce = t => { const c = 1.6; return 1 + (c+1)*Math.pow(t-1,3) + c*Math.pow(t-1,2); };
+
+  function build(b, now){
+    // week bands on b in [0,1]: 0-.125 plan, .125-.25 demo, .25-.375 mep, .375-.5 floor, .5-.625 cladding, .625-.75 paint, .75-.875 kitchen, .875-1 handover
+    const w1 = seg(b, 0, .1), w2 = seg(b, .125, .24), w3 = seg(b, .25, .36), w4 = seg(b, .375, .5), w5 = seg(b, .5, .615), w6 = seg(b, .625, .74), w7 = seg(b, .75, .87), w8 = seg(b, .875, .99);
+    // walls fade in from wireframe
+    const wo = eo(w1);
+    [wallMatA, wallMatB, wallMatC].forEach(m => { m.opacity = .25 + wo*.75; m.transparent = m.opacity < .99; });
+    edgeMat.opacity = Math.max(.12, 1 - wo*.75 - w6*.3);
+    glass.material.opacity = wo*.55; frameM.opacity = wo;
+    // demolition
+    old.forEach((o,i) => { const t = clamp(w2*1.6 - i*.15); o.position.y = o.userData.y0 + eo(t)*2.2; o.material.opacity = 1 - t; o.visible = t < 1; o.rotation.z = t*.3*(i%2?1:-1); });
+    // pipes
+    pipes.children.forEach((c,i) => { const t = clamp(w3*1.5 - i*.06); c.scale.y = Math.max(.001, eo(t)); c.material.opacity = 1 - seg(b, .6, .7); c.visible = c.material.opacity > .01; });
+    // floor tiles fall in
+    let k = 0;
+    for (const t of tiles){ const s = clamp((w4*1.4) - t.d*.9); const y = .03 + (1 - bounce(s))*1.6;
+      dummy.position.set(t.x, s <= 0 ? -5 : y, t.z); dummy.rotation.set((1-s)*.4, 0, 0); dummy.scale.setScalar(s <= 0 ? .001 : 1); dummy.updateMatrix(); oak.setMatrixAt(k++, dummy.matrix); }
+    oak.instanceMatrix.needsUpdate = true;
+    // bathroom tiles pop
+    bathTiles.children.forEach(t => { const s = clamp(w5*1.6 - t.userData.d); t.scale.setScalar(Math.max(.001, bounce(s))); });
+    // paint
+    const pt = eo(w6);
+    wallMatA.color.copy(plaster).lerp(paint, pt); wallMatC.color.copy(plaster).lerp(paint, pt); wallMatB.color.copy(plaster).lerp(accent, pt);
+    // furniture
+    furn.forEach((o,i) => { const s = clamp(w7*1.9 - i*.07); o.visible = s > 0; o.position.y = o.userData.y0 + (1 - bounce(s))*2.6; });
+    // lights on
+    pend.forEach((bl,i) => { const s = clamp(w8*1.6 - i*.2); const on = s > 0; bl.visible = on; bl.userData.parts.forEach(p => p.visible = on); bl.position.y = 1.74 + (1-eo(s))*1.2; bl.userData.parts[1].position.y = 1.83 + (1-eo(s))*1.2; bl.userData.parts[0].position.y = 2.35 + (1-eo(s))*1.2;
+      bl.material.color.setRGB(.35 + s*.65, .34 + s*.6, .31 + s*.45); pl[i].intensity = s*2.2; });
+    renderer.toneMappingExposure = .82 + w8*.06;
+    hemi.intensity = .5 - w8*.14;
+  }
+
+  let mx = 0, smx = 0;
+  if (matchMedia("(pointer:fine)").matches) addEventListener("pointermove", e => { mx = e.clientX/innerWidth - .5; wake(); });
+
+  let aspect = 1;
+  const resize = () => { const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); aspect = w/h;
+    const s = aspect < .8 ? 7.4 : (aspect < 1.2 ? 6.2 : 5.1);
+    camera.left = -s*aspect; camera.right = s*aspect; camera.top = s; camera.bottom = -s; camera.updateProjectionMatrix(); wake(); };
+  addEventListener("resize", resize);
+
+  let visible = true, running = false, last = performance.now(), idle = 0;
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) wake(); }).observe(stage);
+  function wake(){ idle = performance.now() + 1500; if (!running && visible){ running = true; last = performance.now(); requestAnimationFrame(frame); } }
+  addEventListener("scroll", wake, {passive:true});
+
+  function frame(now){
+    const dt = Math.min(.25, (now - last)/1000); last = now;
+    const k = reduce ? 1 : 1 - Math.exp(-dt*5);
+    progress += (target - progress)*k; smx += (mx - smx)*k*.6;
+    const p = progress, b = clamp((p - .06)/.9);
+    build(b, now);
+    const drift = reduce ? 0 : Math.sin(now/6000)*.05;
+    const a = Math.PI/4 + .28 - b*.42 + drift + smx*.15;
+    const R = 20, el = 13.2;
+    camera.position.set(Math.sin(a)*R, el, Math.cos(a)*R);
+    // shift the room to the visual left on wide screens (copy sits on the right in RTL), up on phones
+    const ox = aspect > 1.2 ? 4.6 - b*1.3 : 0, oy = aspect < .8 ? -2.6 : (aspect < 1.2 ? -1.0 : 0);
+    const look = new THREE.Vector3(0, .9, 0);
+    const right = new THREE.Vector3().subVectors(look, camera.position).cross(new THREE.Vector3(0,1,0)).normalize();
+    const up = new THREE.Vector3(0,1,0);
+    camera.position.addScaledVector(right, ox).addScaledVector(up, oy);
+    camera.lookAt(look.clone().addScaledVector(right, ox).addScaledVector(up, oy));
+    renderer.render(scene, camera);
+    ui(p);
+    if (visible && (Math.abs(target - progress) > .0004 || now < idle || !reduce)) requestAnimationFrame(frame); else running = false;
+  }
+  resize(); wake();
+})();
+</script>
+</body>
+</html>
