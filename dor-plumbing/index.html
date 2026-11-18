@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="אינסטלציה ופיצוצי צנרת ביקנעם עילית והסביבה. עבודה מקצועית, הגעה מהירה ומחיר הוגן, כך כותבים הלקוחות.">
+<meta name="robots" content="noindex,nofollow">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>דור האינסטלציה | אינסטלציה ופיצוצי צנרת ביקנעם עילית</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Frank+Ruhl+Libre:wght@700;900&family=Heebo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Plumbing trades, two skins on one structure so neighbours never look alike.
+   thermal: dark, a wall seen through a thermal camera; motif = the camera's colour scale bar.
+   dossier: light concrete paper, isometric floor slab you scan to find the leak; motif = a pipe run with a flange joint that fills with water. */
+:root{
+  --bg:#0E0A12; --surf:#18121F; --line:#2C2236; --fg:#F3EEF6; --mute:#A99CB4;
+  --cta:#FFF1B8; --cta-ink:#1B1206;
+  --ramp:linear-gradient(90deg,#1B1046,#4B1F8F,#9B2C9E,#E0457B,#FF8A3D,#FFD25C,#FFF6C8);
+  --f-d:"Rubik",system-ui,sans-serif; --f-b:"IBM Plex Sans Hebrew","Rubik",system-ui,sans-serif; --f-m:"IBM Plex Mono",ui-monospace,monospace;
+  --gl:max(16px,env(safe-area-inset-left,0px)); --gr:max(16px,env(safe-area-inset-right,0px));
+  --radius:18px;
+  color-scheme:dark;
+}
+.skin-dossier{
+  --bg:#E8EBEE; --surf:#F6F7F8; --line:#C6CDD4; --fg:#12233D; --mute:#56657A;
+  --cta:#E8591A; --cta-ink:#FFFFFF; --pipe:#12233D; --water:#2F7FD6;
+  --f-d:"Frank Ruhl Libre",Georgia,serif; --f-b:"Heebo",system-ui,sans-serif;
+  --radius:6px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.6 var(--f-b);direction:rtl;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--fg);outline-offset:3px;border-radius:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr);position:relative}
+.mono{font-family:var(--f-m);font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;letter-spacing:.02em}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+.eyebrow{font:600 13px/1.2 var(--f-b);letter-spacing:.14em;color:var(--mute)}
+h2{font:900 clamp(40px,6.4vw,76px)/.95 var(--f-d);letter-spacing:-.01em}
+.skin-dossier h2{font-weight:900;letter-spacing:0;line-height:1}
+section{padding-block:84px;position:relative}
+.sec-head{display:grid;gap:14px;margin-bottom:36px;max-width:760px}
+.sec-head p{color:var(--mute);max-width:58ch}
+
+/* ribbon + header */
+.ribbon{background:var(--surf);border-bottom:1px solid var(--line);font-size:14px;color:var(--mute);position:relative;z-index:61}
+.ribbon .wrap{display:flex;gap:12px;justify-content:space-between;align-items:center;padding-block:8px;flex-wrap:wrap}
+.ribbon b{color:var(--fg)}
+.ribbon a{text-decoration:none;font-weight:600;color:var(--fg);white-space:nowrap}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:12px}
+.brand strong{display:block;font:900 22px/1.1 var(--f-d)}
+.brand span{font-size:13px;color:var(--mute)}
+.hdr-call .mono{white-space:nowrap}
+.hdr-call{display:flex;align-items:center;gap:8px;text-decoration:none;min-height:44px;font-size:15px}
+
+/* buttons */
+.ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;font:700 18px/1 var(--f-b);text-decoration:none;border:0;cursor:pointer;transition:transform .25s cubic-bezier(.2,.7,.1,1),box-shadow .25s,background .25s}
+.btn svg{width:22px;height:22px;flex:none}
+.btn-cta{background:var(--cta);color:var(--cta-ink)}
+.btn-ghost{color:var(--fg);border:1px solid var(--line);background:transparent}
+.btn-ghost:hover{border-color:var(--mute)}
+.skin-thermal .btn-cta{box-shadow:0 0 0 1px #fff7,0 12px 46px -8px #FF8A3Dcc,inset 0 1px 0 #fff}
+.skin-thermal .btn-cta:hover{transform:translateY(-2px);box-shadow:0 0 0 1px #fff,0 18px 60px -6px #FFB24Ddd,inset 0 1px 0 #fff}
+.skin-dossier .btn{border-radius:4px}
+.skin-dossier .btn-cta{box-shadow:0 2px 0 #9E3A0D,0 14px 30px -14px #E8591A}
+.skin-dossier .btn-cta:hover{transform:translateY(-2px);box-shadow:0 4px 0 #9E3A0D,0 20px 34px -14px #E8591A}
+
+/* ============ THERMAL HERO ============ */
+.t-hero{position:relative;padding-block:40px 56px;overflow:hidden}
+.t-hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:center}
+.t-copy{display:grid;gap:20px;min-width:0}
+.t-copy h1{font:900 clamp(60px,9.5vw,124px)/.86 var(--f-d);letter-spacing:-.02em}
+.t-copy h1 em{font-style:normal;display:block;background:var(--ramp);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:rampShift 9s ease-in-out infinite alternate}
+@keyframes rampShift{from{background-position:0 0}to{background-position:100% 0}}
+.t-copy .tag{font:500 clamp(20px,2.3vw,25px)/1.35 var(--f-b);max-width:28ch}
+.t-copy .lede{color:var(--mute);max-width:50ch}
+.cam{position:relative;aspect-ratio:4/3.2;max-width:100%;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#B9B3AE;box-shadow:0 40px 90px -40px #000,0 0 0 1px #0006;cursor:crosshair;touch-action:pan-y}
+.cam .plaster{position:absolute;inset:0;background:
+  radial-gradient(120% 90% at 70% 20%,#D6D0CA,#A9A39D 70%),#B9B3AE}
+.cam .plaster::after{content:"";position:absolute;inset:0;opacity:.35;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .48 0 0 0 0 .46 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.cam .tile-line{position:absolute;inset:auto 0 22% 0;height:2px;background:#8f8984}
+.cam canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:auto;
+  -webkit-mask-image:radial-gradient(circle var(--r,110px) at var(--x,50%) var(--y,50%),#000 96%,transparent 100%);
+          mask-image:radial-gradient(circle var(--r,110px) at var(--x,50%) var(--y,50%),#000 96%,transparent 100%)}
+.cam.full canvas{-webkit-mask-image:none;mask-image:none}
+.cam .vf{position:absolute;left:var(--x,50%);top:var(--y,50%);width:calc(var(--r,110px)*2);height:calc(var(--r,110px)*2);transform:translate(-50%,-50%);pointer-events:none}
+.cam .vf::before,.cam .vf::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid #fff9}
+.cam .vf::after{inset:46%;border-radius:0;border:0;background:linear-gradient(#fff,#fff) center/100% 1.5px no-repeat,linear-gradient(#fff,#fff) center/1.5px 100% no-repeat}
+.cam.full .vf{opacity:0}
+.cam .hud{position:absolute;inset:14px;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between}
+.cam .hud-top,.cam .hud-bot{display:flex;justify-content:space-between;align-items:center;gap:10px;font:500 12px var(--f-m);color:#fff;direction:ltr}
+.cam .hud span{background:#0009;padding:4px 8px;border-radius:6px;backdrop-filter:blur(4px)}
+.cam .rec::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#FF4D5E;margin-inline-end:6px;animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.cam .scale{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:10px;height:44%;border-radius:6px;background:linear-gradient(0deg,#1B1046,#4B1F8F,#9B2C9E,#E0457B,#FF8A3D,#FFD25C,#FFF6C8);box-shadow:0 0 0 1px #0006}
+.cam .found{position:absolute;left:var(--lx);top:var(--ly);transform:translate(-50%,-140%);font:600 14px var(--f-b);background:#fff;color:#1B1206;padding:6px 12px;border-radius:999px;white-space:nowrap;opacity:0;transition:opacity .4s;pointer-events:none;box-shadow:0 10px 30px -10px #000}
+.cam.got .found{opacity:1}
+.cam-note{margin-top:10px;font-size:14px;color:var(--mute);text-align:center}
+.cam-toggle{background:none;border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:8px 14px;font:500 14px var(--f-b);cursor:pointer;min-height:44px}
+
+/* thermal motif: colour-scale divider */
+.t-scale{position:relative;height:46px}
+.t-scale .wrap{height:100%}
+.t-scale .bar{position:absolute;inset:16px var(--gr) auto var(--gl);height:6px;border-radius:6px;background:var(--ramp);opacity:.9;box-shadow:0 0 24px -4px #E0457B88}
+.t-scale .ticks{position:absolute;inset:26px var(--gr) auto var(--gl);display:flex;justify-content:space-between;font:400 11px var(--f-m);color:var(--mute);direction:ltr}
+.t-scale .pin{position:absolute;top:8px;width:2px;height:22px;background:#fff;left:var(--p,30%);box-shadow:0 0 10px #fff;transition:left 1.4s cubic-bezier(.2,.7,.1,1)}
+
+/* ============ DOSSIER HERO ============ */
+.d-hero{padding-block:44px 40px;position:relative;overflow:hidden}
+.d-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:32px 32px;opacity:.45;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent);mask-image:linear-gradient(180deg,#000 30%,transparent)}
+.d-hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:36px;align-items:center}
+.d-copy{display:grid;gap:20px;min-width:0}
+.d-copy .file{display:inline-flex;gap:10px;align-items:center;font:500 13px var(--f-m);color:var(--mute);border:1px solid var(--line);background:var(--surf);padding:6px 12px;border-radius:4px;width:fit-content}
+.d-copy h1{font:900 clamp(56px,8.6vw,112px)/.92 var(--f-d)}
+.d-copy h1 span{display:block;font:700 .42em/1.15 var(--f-b);color:var(--cta);margin-top:12px;letter-spacing:.01em}
+.d-copy .tag{font:500 clamp(20px,2.2vw,24px)/1.35 var(--f-b);max-width:30ch}
+.d-copy .lede{color:var(--mute);max-width:52ch}
+.slab{position:relative;max-width:100%;touch-action:pan-y;cursor:none}
+.slab svg{width:100%;height:auto;display:block;overflow:visible}
+.slab .tile{fill:#F7F8F9;stroke:#B5BEC8;stroke-width:1}
+.slab .tile.alt{fill:#EEF1F4}
+.slab .side-a{fill:#C9D0D7}.slab .side-b{fill:#B3BCC6}
+.slab .layer{stroke:#97A3B0;stroke-width:1;fill:none}
+.slab .pipe{fill:none;stroke:var(--pipe);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.slab .pipe-in{fill:none;stroke:var(--water);stroke-width:3;stroke-linecap:round;stroke-dasharray:8 10;animation:flowD 1.6s linear infinite}
+@keyframes flowD{to{stroke-dashoffset:-36}}
+.slab .leak{fill:var(--cta)}
+.slab .leak-ring{fill:none;stroke:var(--cta);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ring 2s ease-out infinite}
+@keyframes ring{from{transform:scale(.4);opacity:1}to{transform:scale(2.6);opacity:0}}
+.slab .sensor-ring{fill:none;stroke:var(--fg);stroke-width:1.5}
+.slab .sensor-cross{stroke:var(--fg);stroke-width:1}
+.slab .dim{font:500 11px var(--f-m);fill:var(--mute)}
+.slab .tag-leak{opacity:0;transition:opacity .4s}
+.slab.got .tag-leak{opacity:1}
+.slab-note{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin-top:6px}
+
+/* dossier motif: pipe run with flange that fills with water on scroll */
+.d-pipe{height:54px;position:relative}
+.d-pipe .wrap{height:100%;display:flex;align-items:center;gap:0}
+.d-pipe .run{flex:1;height:14px;border-radius:7px;background:var(--surf);box-shadow:inset 0 0 0 2px var(--pipe);position:relative;overflow:hidden}
+.d-pipe .run i{position:absolute;inset:3px auto 3px 3px;right:3px;border-radius:5px;background:linear-gradient(90deg,var(--water),#6DB2F2);transform-origin:right;transform:scaleX(var(--fill,0));transition:transform 1.6s cubic-bezier(.2,.7,.1,1)}
+.d-pipe .flange{width:16px;height:34px;border-radius:3px;background:var(--pipe);margin-inline:-2px;position:relative;z-index:1}
+.d-pipe .flange::before,.d-pipe .flange::after{content:"";position:absolute;left:50%;width:6px;height:6px;border-radius:50%;background:var(--bg);transform:translateX(-50%)}
+.d-pipe .flange::before{top:5px}.d-pipe .flange::after{bottom:5px}
+.d-pipe .lab{font:500 12px var(--f-m);color:var(--mute);padding-inline:12px;white-space:nowrap}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line);background:var(--surf)}
+.stat{padding:22px 20px;border-inline-start:1px solid var(--line);min-width:0}
+.stat:first-child{border-inline-start:0}
+.stat b{display:block;font:900 42px/1 var(--f-d)}
+.stat span{color:var(--mute);font-size:15px}
+.skin-thermal .stat b{font-family:var(--f-m);font-weight:500}
+
+/* feature (case) */
+.case{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:stretch}
+.case-quote{position:relative;padding:clamp(24px,4vw,44px);border-radius:var(--radius);background:var(--surf);border:1px solid var(--line);display:grid;gap:18px;align-content:center}
+.case-quote q{font:700 clamp(24px,3vw,36px)/1.3 var(--f-d);quotes:"״" "״"}
+.case-quote cite{font-style:normal;color:var(--mute)}
+.case-facts{display:grid;gap:12px}
+.fact{border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;display:flex;align-items:baseline;gap:16px;background:color-mix(in srgb,var(--surf) 60%,transparent)}
+.fact b{font:900 48px/1 var(--f-d);min-width:2.2ch}
+.fact span{color:var(--mute)}
+.stamp{position:absolute;top:18px;left:18px;font:900 18px/1 var(--f-d);color:var(--cta);border:3px solid var(--cta);padding:8px 14px;border-radius:6px;transform:rotate(-8deg);opacity:.9;letter-spacing:.06em}
+.skin-thermal .case-quote{background:linear-gradient(160deg,#20172A,#140F1A);border-color:#3A2D48}
+.skin-thermal .case-quote::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--ramp);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.55;pointer-events:none}
+.skin-thermal .stamp{color:#FFD25C;border-color:#FFD25C}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.svc article{position:relative;padding:24px 22px 22px;border-radius:var(--radius);background:var(--surf);border:1px solid var(--line);display:grid;gap:8px;align-content:start;min-width:0;transition:transform .35s cubic-bezier(.2,.7,.1,1),border-color .35s}
+.svc h3{font:700 24px/1.15 var(--f-d)}
+.svc p{color:var(--mute);font-size:16px}
+.skin-thermal .svc article::after{content:"";position:absolute;inset:10px;pointer-events:none;
+  background:linear-gradient(#fff6,#fff6) 0 0/14px 1.5px,linear-gradient(#fff6,#fff6) 0 0/1.5px 14px,
+             linear-gradient(#fff6,#fff6) 100% 0/14px 1.5px,linear-gradient(#fff6,#fff6) 100% 0/1.5px 14px,
+             linear-gradient(#fff6,#fff6) 0 100%/14px 1.5px,linear-gradient(#fff6,#fff6) 0 100%/1.5px 14px,
+             linear-gradient(#fff6,#fff6) 100% 100%/14px 1.5px,linear-gradient(#fff6,#fff6) 100% 100%/1.5px 14px;background-repeat:no-repeat;opacity:.5;transition:opacity .3s}
+.skin-thermal .svc article:hover{transform:translateY(-3px);border-color:#5A4570}
+.skin-thermal .svc article:hover::after{opacity:1}
+.skin-thermal .svc .heat{height:3px;border-radius:3px;background:var(--ramp);width:var(--w,40%);margin-bottom:6px}
+.skin-dossier .svc{grid-template-columns:repeat(3,minmax(0,1fr))}
+.skin-dossier .svc article{border-top:4px solid var(--pipe);padding-top:20px}
+.skin-dossier .svc article:hover{transform:translateY(-3px);border-top-color:var(--cta)}
+.skin-dossier .svc .code{font:500 12px var(--f-m);color:var(--mute)}
+
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;counter-reset:s}
+.proc li{list-style:none;padding:22px;border-radius:var(--radius);border:1px solid var(--line);display:grid;gap:8px;align-content:start;position:relative;min-width:0}
+.proc ol{margin:0;padding:0;display:contents}
+.proc .n{font:500 13px var(--f-m);color:var(--mute)}
+.proc h3{font:700 24px/1.15 var(--f-d)}
+.proc p{color:var(--mute);font-size:16px}
+.skin-thermal .proc li:nth-child(1){background:linear-gradient(160deg,#1B1046aa,transparent)}
+.skin-thermal .proc li:nth-child(2){background:linear-gradient(160deg,#9B2C9E55,transparent)}
+.skin-thermal .proc li:nth-child(3){background:linear-gradient(160deg,#E0457B44,transparent)}
+.skin-thermal .proc li:nth-child(4){background:linear-gradient(160deg,#FF8A3D44,transparent)}
+.skin-dossier .proc li{background:var(--surf)}
+
+/* quotes */
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.quotes figure{margin:0;padding:24px;border-radius:var(--radius);border:1px solid var(--line);background:var(--surf);display:grid;gap:14px;align-content:space-between;min-width:0}
+.quotes blockquote{margin:0;font-size:17px;line-height:1.6}
+.quotes figcaption{color:var(--mute);font-size:15px;display:flex;justify-content:space-between;gap:8px}
+.quotes .st{letter-spacing:2px;color:var(--cta)}
+.skin-thermal .quotes .st{color:#FFD25C}
+.all-reviews{margin-top:18px;display:inline-flex;gap:8px;align-items:center;text-decoration:none;font-weight:600;border-bottom:1px solid currentColor;min-height:44px}
+
+/* gallery placeholders */
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.gal div{aspect-ratio:4/3;border-radius:var(--radius);border:1px dashed var(--line);display:grid;place-items:center;text-align:center;color:var(--mute);font-size:15px;padding:12px}
+
+/* area + hours */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{padding:10px 18px;border:1px solid var(--line);border-radius:999px}
+.chips span:first-child{border-color:var(--fg);font-weight:600}
+.skin-dossier .chips span{border-radius:4px}
+.hours>div{display:flex;justify-content:space-between;gap:16px;padding:14px 2px;border-bottom:1px solid var(--line)}
+.hours>div:first-child{border-top:1px solid var(--line)}
+.hours span:last-child{color:var(--mute)}
+.addr{margin-top:14px;color:var(--mute);font-size:15px}
+
+/* final */
+.final{text-align:center}
+.final h2{font-size:clamp(52px,9vw,116px)}
+.final .ctas{justify-content:center;margin-top:28px}
+.final .big{display:block;margin-top:16px;font:500 22px var(--f-m);color:var(--mute)}
+.skin-thermal .final{background:radial-gradient(60% 80% at 50% 120%,#E0457B33,transparent 70%)}
+.skin-dossier .final{background:var(--fg);color:var(--surf)}
+.skin-dossier .final .eyebrow,.skin-dossier .final .big{color:#AFC0D6}
+
+/* offer */
+.offer{border-top:1px solid var(--line);background:var(--surf)}
+.offer-card{border:1px solid var(--line);border-radius:calc(var(--radius) + 4px);padding:clamp(22px,4vw,46px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;background:var(--bg)}
+.price{display:flex;align-items:flex-end;gap:10px;margin:18px 0 6px}
+.price b{font:900 clamp(80px,11vw,128px)/.82 var(--f-d)}
+.skin-thermal .price b{font-family:var(--f-m);font-weight:500;background:var(--ramp);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price span{color:var(--mute);padding-bottom:10px}
+.renew{color:var(--mute);font-size:15px}
+.inc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.inc li{display:flex;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line);font-size:16px}
+.inc li::before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--fg)}
+.inc li.bonus::before{background:var(--cta)}
+.inc li.bonus b{font-weight:700}
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.terms div{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:var(--bg)}
+.terms b{display:block;font:900 22px/1.15 var(--f-d);margin-bottom:4px}
+.terms p{color:var(--mute);font-size:15px}
+.switch{margin-top:20px;color:var(--mute);font-size:16px;max-width:64ch}
+
+footer{border-top:1px solid var(--line);padding-block:26px 110px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bar{position:fixed;inset:auto 0 0;z-index:55;display:none;gap:10px;padding:10px var(--gr) calc(10px + env(safe-area-inset-bottom,0px)) var(--gl);background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.bar .btn{flex:1;min-height:52px;font-size:17px;padding:0 14px}
+
+.rv{transition:transform .9s cubic-bezier(.2,.7,.1,1)}
+.rv.pre{transform:translateY(26px)}
+
+@media (max-width:900px){
+  .t-hero .wrap,.d-hero .wrap,.case,.two,.offer-card{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat:nth-child(3){border-inline-start:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .svc,.skin-dossier .svc,.quotes{grid-template-columns:1fr 1fr}
+  .proc{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:1fr 1fr}
+  .terms{grid-template-columns:1fr}
+  .bar{display:flex}
+  .hdr-call .lbl{display:none}
+  .brand strong{font-size:19px}
+  .slab{cursor:auto}
+}
+@media (max-width:560px){
+  section{padding-block:60px}
+  .svc,.skin-dossier .svc,.quotes,.proc{grid-template-columns:1fr}
+  .stat b{font-size:34px}
+  .hdr-call .mono{display:none}
+  .hdr-call{border:1px solid var(--line);border-radius:999px;width:44px;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv.pre{transform:none}
+}
+</style>
+</head>
+<body>
+
+<style>:root:root:root,:root:root:root [class*="skin-"]{--bg:#ECEDE6;--surf:#F8F8F3;--line:#CDD0C2;--fg:#1E2B24;--mute:#55624F;--cta:#1F7A4D;--cta-ink:#FFFFFF;--pipe:#1E2B24;--water:#2F7FD6}</style>
+
+<div id="app"></div>
+
+<script>
+const SITE = {"demo": true, "template": "template-plumb.html", "skin": "dossier", "slug": "dor-plumbing", "business": "דור האינסטלציה", "offerTo": "דור האינסטלציה", "heroName": "דור האינסטלציה", "heroTrade": "פיצוצי צנרת", "trade": "אינסטלציה ופיצוצי צנרת", "city": "יקנעם עילית", "address": "אפק 30, יקנעם עילית", "phone": "052-269-1078", "phoneIntl": "972522691078", "rating": 4.0, "reviews": 10, "googleUrl": "https://www.google.com/maps/place/?q=place_id:ChIJ7cMxRCepHRUR5D8_TvUOJ74", "waText": "שלום, הגעתי מהאתר. יש לי ", "tagline": "פיצוץ בצנרת? מגיעים מהר.", "intro": "אינסטלציה ופיצוצי צנרת ביקנעם עילית והסביבה. עבודה מקצועית, הגעה מהירה ומחיר הוגן, כך כותבים הלקוחות.", "foundLabel": "מקור התקלה", "stats": [{"v": "4.0", "l": "דירוג בגוגל"}, {"v": "10", "l": "ביקורות"}, {"v": "5", "l": "תחומי שירות"}, {"v": "6", "l": "יישובים באזור השירות"}], "servicesEyebrow": "במה אפשר לעזור", "servicesTitle": "מהפיצוץ ועד התיקון", "servicesIntro": "לבית פרטי, לדירה ולעסק.", "services": [{"t": "פיצוצי צנרת", "d": "הגעה מהירה, איתור הפיצוץ ותיקון."}, {"t": "נזילות", "d": "איתור מקור הנזילה ותיקון."}, {"t": "פתיחת סתימות", "d": "בכיור, באמבטיה, בשירותים ובצנרת הראשית."}, {"t": "תיקוני אינסטלציה", "d": "ברזים, צינורות וחיבורים בבית."}, {"t": "התקנת כלים סניטריים", "d": "התקנה והחלפה של כלים וברזים."}], "steps": [{"t": "שולחים הודעה", "d": "כותבים בוואטסאפ מה קורה. תמונה של התקלה עוזרת."}, {"t": "מגיעים לבדוק", "d": "בודקים את הצנרת ומסבירים מה מצאו."}, {"t": "מחיר ברור", "d": "מקבלים הסבר ומחיר לפני שמתחילים."}, {"t": "תיקון ובדיקה חוזרת", "d": "מתקנים ובודקים שהכול תקין לפני שהולכים."}], "processTitle": "מהפיצוץ ועד שחוזרים לשגרה", "case": {"eyebrow": "מהביקורות", "title": "פעמיים באותו יום", "q": "קראתי לניסן ביום אחד פעמיים על פיצוצי צנרת. בשתי הפעמים הגיע מהר מאוד תוך 45 דקות,עשה עבודה מקצועית,לקח מחיר הוגן", "n": "לקוח מיקנעם", "stamp": "נפתר", "facts": [{"v": "45", "l": "דקות עד שהגיע"}, {"v": "2", "l": "פיצוצי צנרת באותו יום"}]}, "galleryTitle": "מהשטח", "galleryPlaceholders": ["פיצוץ צנרת", "לפני התיקון", "אחרי התיקון", "הציוד"], "galleryNote": "כאן ייכנסו תמונות מהעבודות שלך. שלח 4 תמונות מהטלפון ואני מכניסה אותן.", "area": ["יקנעם עילית", "יקנעם מושבה", "טבעון", "עמק יזרעאל", "מגדל העמק", "זכרון יעקב"], "hours": [["שעות פעילות", "בתיאום בוואטסאפ"]], "finalTitle": "פיצוץ בצנרת? כתבו לנו.", "photos": [], "theme": {"--bg": "#ECEDE6", "--surf": "#F8F8F3", "--line": "#CDD0C2", "--fg": "#1E2B24", "--mute": "#55624F", "--cta": "#1F7A4D", "--cta-ink": "#FFFFFF", "--pipe": "#1E2B24", "--water": "#2F7FD6"}, "offer": {"title": "האתר הזה יכול להיות באוויר תוך 48 שעות", "lead": "כמו שדיברנו בטלפון, בניתי את האתר הזה בשבילך כדי שתראה איך זה נראה לפני שאתה מחליט. אתה לא צריך לעשות כלום חוץ מלאשר ולשלוח כמה תמונות.", "price": "999", "renewal": "מהשנה השנייה: 349 ₪ לשנה לדומיין, אחסון ותחזוקה. בלי הפתעות.", "includes": ["אתר מותאם לנייד, כמו שאתה רואה כאן", "כתובת (דומיין) בשם העסק לשנה", "אחסון לשנה", "כפתור וואטסאפ וחיוג בכל מסך", "באוויר תוך 48 שעות מהאישור"], "bonuses": ["סידור פרופיל העסק בגוגל מפות", "קישור והודעה מוכנה לבקשת ביקורות מלקוחות", "קוד קיו־אר לרכב ולכרטיס הביקור", "הודעת פתיחה אוטומטית בוואטסאפ ביזנס", "שינוי טקסט או תמונה אחד בחודש, בלי תשלום"], "terms": [{"t": "משלמים רק אחרי", "d": "התשלום רק אחרי שהאתר באוויר ואישרת אותו. לא אהבת? לא משלם."}, {"t": "אתה לא עושה כלום", "d": "שולח 5 תמונות ומאשר טקסט. את כל השאר אני עושה."}, {"t": "אחד בכל עיר", "d": "אני בונה לעסק אחד מכל תחום בכל עיר. מי שסוגר ראשון, תופס את המקום."}], "switchNote": "כבר יש לך אתר? בונה אתרים לוקח בדרך כלל 1,200-7,000 ₪ על הבנייה, ועוד 60-120 ₪ בחודש על אחסון ותחזוקה. כאן זה 999 ₪ לשנה הכל כלול, ו-349 ₪ לשנה מהשנה השנייה. את הכתובת הקיימת מעבירים בלי תשלום.", "cta": "אני רוצה את האתר", "sellerPhoneIntl": "972525543759"}};
+(function(){
+const S=SITE, O=S.offer||{}, skin=S.skin||"thermal";
+document.body.classList.add("skin-"+skin);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const wa=`https://wa.me/${S.waIntl||S.phoneIntl}?text=${encodeURIComponent(S.waText||`שלום${S.ownerFirst?" "+S.ownerFirst:""}, הגעתי מהאתר. יש לי `)}`;
+const waI=`<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>`;
+const telI=`<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>`;
+const stars=n=>"★".repeat(Math.round(n));
+const telHref=`tel:${esc(S.phone)}`;
+
+/* ---------- motif dividers ---------- */
+let mi=0;
+const divider=()=>{ mi++;
+  if(skin==="thermal"){ const p=[22,58,81,40,67][mi%5];
+    return `<div class="t-scale" aria-hidden="true" style="--p:${p}%"><div class="bar"></div><div class="ticks"><span>16°</span><span>19°</span><span>22°</span><span>25°</span><span>28°</span></div><i class="pin"></i></div>`; }
+  return `<div class="d-pipe" aria-hidden="true"><div class="wrap"><span class="lab mono">${["קו הזנה","קו ביוב","קו מים","ניקוז"][mi%4]}</span><div class="run"><i></i></div><div class="flange"></div><div class="run"><i style="transition-delay:.8s"></i></div></div></div>`;
+};
+
+/* ---------- heroes ---------- */
+const heroThermal=()=>`
+<div class="t-hero"><div class="wrap">
+  <div class="t-copy">
+    <span class="eyebrow">${esc(S.trade)} · ${esc(S.city)}</span>
+    <h1>${esc(S.heroName)}<em>${esc(S.heroTrade)}</em></h1>
+    <p class="tag">${esc(S.tagline)}</p>
+    <p class="lede">${esc(S.intro)}</p>
+    <div class="ctas">
+      <a class="btn btn-cta" href="${wa}" target="_blank" rel="noopener">${waI}שלחו הודעה בוואטסאפ</a>
+      <a class="btn btn-ghost" href="${telHref}">${telI}<span class="mono">${esc(S.phone)}</span></a>
+    </div>
+  </div>
+  <div>
+    <div class="cam" id="cam" role="img" aria-label="קיר שנסרק במצלמה תרמית ומראה את מקור הנזילה">
+      <div class="plaster"></div><div class="tile-line"></div>
+      <canvas id="heat" width="160" height="128"></canvas>
+      <div class="vf"></div>
+      <div class="found" id="found">${esc(S.foundLabel||"נמצא המקור")}</div>
+      <div class="scale"></div>
+      <div class="hud"><div class="hud-top"><span class="rec">סריקה</span><span id="tread">--.-°</span></div><div class="hud-bot"><span>${esc(S.city)}</span><span id="tmode">אוטומטי</span></div></div>
+    </div>
+    <div class="cam-note">העבירו את העכבר על הקיר, או <button class="cam-toggle" id="camToggle" type="button">הציגו את כל התמונה</button></div>
+  </div>
+</div></div>`;
+
+const heroDossier=()=>`
+<div class="d-hero"><div class="wrap">
+  <div class="d-copy">
+    <span class="file"><span>${esc(S.fileNo||"תיק פתוח")}</span> · ${esc(S.city)}</span>
+    <h1>${esc(S.heroName)}<span>${esc(S.heroTrade)}</span></h1>
+    <p class="tag">${esc(S.tagline)}</p>
+    <p class="lede">${esc(S.intro)}</p>
+    <div class="ctas">
+      <a class="btn btn-cta" href="${wa}" target="_blank" rel="noopener">${waI}שלחו הודעה בוואטסאפ</a>
+      <a class="btn btn-ghost" href="${telHref}">${telI}<span class="mono">${esc(S.phone)}</span></a>
+    </div>
+  </div>
+  <div>
+    <div class="slab" id="slab" role="img" aria-label="רצפה בחתך: הצנרת מתחת לאריחים ונקודת הנזילה, שנמצאת בלי לשבור"></div>
+    <div class="slab-note"><span>העבירו את הסנסור על הרצפה</span><span class="mono">ללא הרס · ללא ניחושים</span></div>
+  </div>
+</div></div>`;
+
+/* ---------- sections ---------- */
+const stats=`<div class="stats">${(S.stats||[]).map(s=>`<div class="stat"><b>${esc(s.v)}</b><span>${esc(s.l)}</span></div>`).join("")}</div>`;
+const C=S.case||{};
+const caseSec=C.q?`<section id="case"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">${esc(C.eyebrow||"מהשטח")}</span><h2>${esc(C.title)}</h2></div>
+  <div class="case">
+    <figure class="case-quote rv" style="margin:0"><span class="stamp">${esc(C.stamp||"נפתר")}</span><q>${esc(C.q)}</q><cite>${esc(C.n)} · ביקורת בגוגל</cite></figure>
+    <div class="case-facts">${(C.facts||[]).map(f=>`<div class="fact rv"><b>${esc(f.v)}</b><span>${esc(f.l)}</span></div>`).join("")}</div>
+  </div></div></section>`:"";
+const heatW=[38,62,85,50,72,44,90,58,66];
+const svcSec=`<section id="services"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">${esc(S.servicesEyebrow||"שירותים")}</span><h2>${esc(S.servicesTitle||"מה עושים")}</h2>${S.servicesIntro?`<p>${esc(S.servicesIntro)}</p>`:""}</div>
+  <div class="svc">${(S.services||[]).map((s,i)=>`<article class="rv">${skin==="thermal"?`<span class="heat" style="--w:${heatW[i%9]}%"></span>`:`<span class="code mono">${String(i+1).padStart(2,"0")}</span>`}<h3>${esc(s.t)}</h3><p>${esc(s.d)}</p></article>`).join("")}</div>
+</div></section>`;
+const procSec=`<section id="process" style="padding-top:${skin==="dossier"?"84px":"20px"}"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">איך זה עובד</span><h2>${esc(S.processTitle||"מהודעה ועד פתרון")}</h2></div>
+  <ol class="proc">${(S.steps||[]).map((s,i)=>`<li class="rv"><span class="n mono">${i+1}/${S.steps.length}</span><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p></li>`).join("")}</ol>
+</div></section>`;
+const qSec=(S.quotes||[]).length?`<section id="reviews"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">${S.rating?`${S.rating.toFixed(1)} מתוך 5 · ${S.reviews} ביקורות בגוגל`:"ביקורות"}</span><h2>${esc(S.quotesTitle||"מה כותבים עליו")}</h2></div>
+  <div class="quotes">${S.quotes.map(q=>`<figure class="rv"><blockquote>${esc(q.t)}</blockquote><figcaption><span>${esc(q.n)}</span><span class="st" aria-label="5 כוכבים">${stars(5)}</span></figcaption></figure>`).join("")}</div>
+  <a class="all-reviews" href="${esc(S.googleUrl)}" target="_blank" rel="noopener">לכל הביקורות בגוגל ←</a>
+</div></section>`:"";
+const galSec=S.demo&&!(S.photos||[]).length?`<section id="gallery" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">עבודות</span><h2>${esc(S.galleryTitle||"מהשטח")}</h2><p>${esc(S.galleryNote||"כאן ייכנסו תמונות של עבודות שלך. שלח 4 תמונות מהטלפון ואני מכניסה אותן.")}</p></div>
+  <div class="gal">${(S.galleryPlaceholders||["עבודה","עבודה","עבודה","עבודה"]).slice(0,4).map(t=>`<div class="rv">${esc(t)}</div>`).join("")}</div>
+</div></section>`:"";
+const areaSec=`<section id="area"><div class="wrap two">
+  <div class="rv"><div class="sec-head"><span class="eyebrow">אזור שירות</span><h2>${esc(S.areaTitle||"איפה עובדים")}</h2></div><div class="chips">${(S.area||[]).map(a=>`<span>${esc(a)}</span>`).join("")}</div></div>
+  <div class="rv"><div class="sec-head"><span class="eyebrow">זמינות</span><h2>שעות</h2></div><div class="hours">${(S.hours||[]).map(h=>`<div><span>${esc(h[0])}</span><span>${esc(h[1])}</span></div>`).join("")}</div>${S.address?`<p class="addr">${esc(S.address)}</p>`:""}</div>
+</div></section>`;
+const finalSec=`<section class="final"><div class="wrap rv">
+  <span class="eyebrow">${esc(S.trade)} · ${esc(S.city)}</span>
+  <h2 style="margin-top:12px">${esc(S.finalTitle)}</h2>
+  <div class="ctas"><a class="btn btn-cta" href="${wa}" target="_blank" rel="noopener">${waI}שלחו הודעה בוואטסאפ</a></div>
+  <span class="big mono">${esc(S.phone)}</span>
+</div></section>`;
+const inc=(O.includes||[]).map(x=>`<li>${esc(x)}</li>`).join("")+(O.bonuses||[]).map(x=>`<li class="bonus"><span><b>בונוס:</b> ${esc(x)}</span></li>`).join("");
+const offerSec=S.demo?`<section class="offer" id="offer"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">ההצעה ל${esc(S.offerTo||S.ownerFirst||S.business)} · לא חלק מהאתר</span><h2>${esc(O.title)}</h2></div>
+  <div class="offer-card rv"><div>
+    <p style="color:var(--mute);max-width:52ch">${esc(O.lead)}</p>
+    <div class="price"><b>${esc(O.price)}</b><span>₪ לשנה הראשונה, הכל כלול</span></div>
+    <p class="renew">${esc(O.renewal)}</p>
+    ${O.sellerPhoneIntl?`<div class="ctas" style="margin-top:24px"><a class="btn btn-cta" href="https://wa.me/${esc(O.sellerPhoneIntl)}?text=${encodeURIComponent("היי, ראיתי את האתר לדוגמה של "+S.business+". רוצה שיעלה לאוויר")}" target="_blank" rel="noopener">${waI}${esc(O.cta)}</a></div>`:""}
+  </div><ul class="inc">${inc}</ul></div>
+  <div class="terms">${(O.terms||[]).map(t=>`<div class="rv"><b>${esc(t.t)}</b><p>${esc(t.d)}</p></div>`).join("")}</div>
+  ${O.switchNote?`<p class="switch rv">${esc(O.switchNote)}</p>`:""}
+</div></section>`:"";
+
+const order = skin==="thermal"
+  ? [heroThermal(), divider(), stats, qSec, divider(), svcSec, procSec, caseSec, galSec, divider(), areaSec, finalSec]
+  : [heroDossier(), stats, caseSec, divider(), svcSec, divider(), procSec, qSec, galSec, divider(), areaSec, finalSec];
+
+document.getElementById("app").innerHTML=`
+${S.demo?`<div class="ribbon"><div class="wrap"><span><b>אתר לדוגמה</b> שהוכן עבור ${esc(S.business)}. עדיין לא פורסם.</span><a href="#offer">ההצעה ל${esc(S.offerTo||S.ownerFirst||S.business)} ←</a></div></div>`:""}
+<header><div class="wrap"><div class="brand"><strong>${esc(S.business)}</strong><span>${esc(S.trade)} · ${esc(S.city)}</span></div>
+<a class="hdr-call" href="${telHref}">${telI.replace("<svg",'<svg width="20" height="20"')}<span class="lbl">התקשרו:</span><span class="mono">${esc(S.phone)}</span></a></div></header>
+<main>${order.join("")}${offerSec}</main>
+<footer><div class="wrap"><span>© ${new Date().getFullYear()} ${esc(S.business)}</span><span>${esc(S.city)} · <span class="mono">${esc(S.phone)}</span></span></div></footer>
+<div class="bar"><a class="btn btn-cta" href="${wa}" target="_blank" rel="noopener">${waI}וואטסאפ</a><a class="btn btn-ghost" href="${telHref}">${telI}חיוג</a></div>`;
+
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const fine=matchMedia("(pointer:fine)").matches;
+
+/* ---------- thermal camera ---------- */
+if(skin==="thermal"){
+  const cam=document.getElementById("cam"), cv=document.getElementById("heat"), ctx=cv.getContext("2d");
+  const W=cv.width,H=cv.height, img=ctx.createImageData(W,H);
+  const stops=[[27,16,70],[75,31,143],[155,44,158],[224,69,123],[255,138,61],[255,210,92],[255,246,200]];
+  const ramp=v=>{v=Math.max(0,Math.min(.999,v))*(stops.length-1);const i=v|0,f=v-i,a=stops[i],b=stops[i+1];return[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f,a[2]+(b[2]-a[2])*f]};
+  const L={x:.32,y:.38}; // leak, as a fraction of the frame
+  const field=(x,y,t)=>{
+    let v=.62+.18*Math.sin(x*3.1+t*.0004)*Math.cos(y*2.3-t*.0003)+.06*Math.sin(x*11+y*7);
+    const dx=x-L.x, dy=y-L.y, d=dx*dx*1.3+dy*dy, puls=1+.08*Math.sin(t*.002);
+    v-=.62*Math.exp(-d/(.018*puls));                         // cold patch at the leak
+    v-=.35*Math.exp(-((dy-Math.max(0,-dx)*.15)**2/.0015))*(x<L.x?1:0)*Math.exp(-dx*dx/.12); // seep along the pipe
+    v-=.42*Math.exp(-((x-L.x)**2/.0012))*(y>L.y?1:0)*Math.exp(-(((y-L.y)*1.6)**2/.2));       // drip trail
+    if(y>.78) v-=.12;                                        // tiled band
+    return v;
+  };
+  const draw=t=>{let k=0;for(let j=0;j<H;j++)for(let i=0;i<W;i++){const c=ramp(field(i/W,j/H,t));img.data[k++]=c[0];img.data[k++]=c[1];img.data[k++]=c[2];img.data[k++]=255;}ctx.putImageData(img,0,0)};
+  const tread=document.getElementById("tread"), tmode=document.getElementById("tmode"), found=document.getElementById("found");
+  let px=.7,py=.6, auto=true, tx=.7,ty=.6, last=0, t0=performance.now(), phase=0;
+  cam.style.setProperty("--lx",(L.x*100)+"%"); cam.style.setProperty("--ly",(L.y*100)+"%");
+  const setVF=()=>{cam.style.setProperty("--x",(px*100)+"%");cam.style.setProperty("--y",(py*100)+"%");
+    const v=field(px,py,performance.now()); tread.textContent=(15+v*14).toFixed(1)+"°";
+    const near=Math.hypot(px-L.x,py-L.y)<.07; cam.classList.toggle("got",near||cam.classList.contains("full"));};
+  const size=()=>cam.style.setProperty("--r",Math.max(64,Math.min(130,cam.clientWidth*.2))+"px");
+  size(); addEventListener("resize",size);
+  if(fine){cam.addEventListener("pointermove",e=>{const r=cam.getBoundingClientRect();auto=false;tmode.textContent="ידני";tx=(e.clientX-r.left)/r.width;ty=(e.clientY-r.top)/r.height;});
+    cam.addEventListener("pointerleave",()=>{auto=true;tmode.textContent="אוטומטי";});}
+  document.getElementById("camToggle").addEventListener("click",e=>{const on=cam.classList.toggle("full");e.target.textContent=on?"חזרה לסריקה":"הציגו את כל התמונה";setVF();});
+  const path=[[.78,.66],[.62,.3],[.5,.55],[.4,.42],[L.x,L.y],[L.x,L.y],[L.x,L.y]];
+  const loop=now=>{
+    if(now-last>(fine?50:80)){draw(now);last=now;}
+    if(auto){const seg=((now-t0)/1600)|0, p=path[seg%path.length]; tx=p[0]; ty=p[1];}
+    px+=(tx-px)*.06; py+=(ty-py)*.06; setVF();
+    if(!document.hidden) requestAnimationFrame(loop); else setTimeout(()=>requestAnimationFrame(loop),400);
+  };
+  if(reduce){ draw(0); px=L.x; py=L.y; setVF(); } else requestAnimationFrame(loop);
+}
+
+/* ---------- dossier floor slab ---------- */
+if(skin==="dossier"){
+  const host=document.getElementById("slab"), N=8, s=30, cx=250, cy=74;
+  const P=(x,y,z=0)=>[cx+(x-y)*s*.866, cy+(x+y)*s*.5 - z*s];
+  const pts=a=>a.map(p=>P(...p).map(n=>n.toFixed(1)).join(",")).join(" ");
+  let tiles="";
+  for(let x=0;x<N;x++)for(let y=0;y<N;y++) tiles+=`<polygon class="tile${(x+y)%2?" alt":""}" points="${pts([[x,y],[x+1,y],[x+1,y+1],[x,y+1]])}"/>`;
+  const T=1.4;
+  const sideA=pts([[0,N],[N,N],[N,N,-T],[0,N,-T]]), sideB=pts([[N,0],[N,N],[N,N,-T],[N,0,-T]]);
+  const layerA=[.3,.85].map(z=>`<polyline class="layer" points="${pts([[0,N,-z],[N,N,-z]])}"/>`).join("")+[.3,.85].map(z=>`<polyline class="layer" points="${pts([[N,0,-z],[N,N,-z]])}"/>`).join("");
+  const routes=[[[0,2],[5,2],[5,7],[8,7]],[[2,2],[2,6],[0,6]],[[5,4.5],[8,4.5]],[[6.5,0],[6.5,2]]];
+  const pipeD=r=>"M"+r.map(p=>P(p[0],p[1]).join(",")).join("L");
+  const pipes=routes.map(r=>`<path class="pipe" d="${pipeD(r)}"/><path class="pipe-in" d="${pipeD(r)}"/>`).join("");
+  const cuts=[[N,7],[N,4.5]].map(([x,y])=>{const [a,b]=P(x,y,-.6);return`<circle cx="${a}" cy="${b}" r="5" fill="var(--pipe)"/><circle cx="${a}" cy="${b}" r="2.4" fill="var(--water)"/>`}).join("")+(()=>{const [a,b]=P(2,N,-.6);return`<circle cx="${a}" cy="${b}" r="5" fill="var(--pipe)"/><circle cx="${a}" cy="${b}" r="2.4" fill="var(--water)"/>`})();
+  const [lx,ly]=P(5,5.3);
+  const [d1x,d1y]=P(0,N+.6), [d2x,d2y]=P(N,N+.6);
+  host.innerHTML=`<svg viewBox="0 0 500 400" aria-hidden="true">
+    <defs><mask id="hole" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="500" height="400" fill="#fff"/><circle id="mh" cx="-200" cy="-200" r="62" fill="#000"/></mask>
+    <clipPath id="floorClip"><polygon points="${pts([[0,0],[N,0],[N,N],[0,N]])}"/></clipPath></defs>
+    <polygon class="side-a" points="${sideA}"/><polygon class="side-b" points="${sideB}"/>${layerA}${cuts}
+    <g clip-path="url(#floorClip)"><polygon points="${pts([[0,0],[N,0],[N,N],[0,N]])}" fill="#2a3a52"/>${pipes}
+      <circle class="leak" cx="${lx}" cy="${ly}" r="5"/><circle class="leak-ring" cx="${lx}" cy="${ly}" r="9"/></g>
+    <g mask="url(#hole)">${tiles}</g>
+    <g id="sensor" transform="translate(-200,-200)"><circle class="sensor-ring" r="62"/><circle class="sensor-ring" r="66" stroke-dasharray="2 6"/><path class="sensor-cross" d="M-10 0H10M0 -10V10"/></g>
+    <g class="tag-leak"><line x1="${lx}" y1="${ly}" x2="${lx-70}" y2="${ly-90}" stroke="var(--cta)" stroke-width="1.5"/><rect x="${lx-178}" y="${ly-112}" width="116" height="28" rx="4" fill="var(--cta)"/><text x="${lx-120}" y="${ly-93}" text-anchor="middle" fill="#fff" style="font:700 14px var(--f-b)">${esc(S.foundLabel||"מקור הנזילה")}</text></g>
+    <text class="dim" x="${(d1x+d2x)/2}" y="${(d1y+d2y)/2+18}" text-anchor="middle">חתך רצפה · אריח / מצע / צנרת</text>
+  </svg>`;
+  const svg=host.querySelector("svg"), mh=host.querySelector("#mh"), sen=host.querySelector("#sensor");
+  let sx=360,sy=120,tx=360,ty=120,auto=true,t0=performance.now();
+  const to=e=>{const r=svg.getBoundingClientRect();return[(e.clientX-r.left)/r.width*500,(e.clientY-r.top)/r.height*400]};
+  if(fine){host.addEventListener("pointermove",e=>{auto=false;[tx,ty]=to(e)});host.addEventListener("pointerleave",()=>auto=true);}
+  const path=[[370,150],[180,130],[230,250],[lx,ly],[lx,ly],[lx,ly]];
+  const upd=()=>{mh.setAttribute("cx",sx);mh.setAttribute("cy",sy);sen.setAttribute("transform",`translate(${sx},${sy})`);host.classList.toggle("got",Math.hypot(sx-lx,sy-ly)<34)};
+  const loop=now=>{ if(auto){const p=path[(((now-t0)/1700)|0)%path.length];tx=p[0];ty=p[1];} sx+=(tx-sx)*.07; sy+=(ty-sy)*.07; upd(); requestAnimationFrame(loop); };
+  if(reduce){sx=lx;sy=ly;upd();} else requestAnimationFrame(loop);
+  // pipe dividers fill as they scroll in
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.style.setProperty("--fill",1);io.unobserve(e.target);}}),{threshold:.6});
+  document.querySelectorAll(".d-pipe").forEach(el=>reduce?el.style.setProperty("--fill",1):io.observe(el));
+}
+
+/* thermal pins move when in view */
+if(skin==="thermal"){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const p=e.target.querySelector(".pin");p.style.left=(10+Math.random()*80)+"%";}}),{threshold:.8});
+  document.querySelectorAll(".t-scale").forEach(el=>io.observe(el));
+}
+/* reveal: visible at rest; only below-the-fold items slide in */
+if(!reduce&&"IntersectionObserver" in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove("pre");io.unobserve(e.target);}}),{rootMargin:"0px 0px -8% 0px"});
+  document.querySelectorAll(".rv").forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add("pre");io.observe(el);}});
+}
+})();
+</script>
+
+</body>
+</html>

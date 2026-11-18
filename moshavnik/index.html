@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="תיקונים ועבודות כלליות בקרית טבעון והסביבה. דוד וגוף חימום, סתימות, תקלות חשמל וכל מה שהבית צריך. מגיע מהר, עובד נקי ומסביר מה עושים.">
+<meta name="robots" content="noindex,nofollow">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>מושבניק תיקונים ועבודות כלליות | אינסטלציה, חשמל ותיקונים לבית בקרית טבעון</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=Assistant:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark technical "cross-section" sheet. Signature motif = a laser-level line with measurement ticks, drawn in every section. */
+:root{
+  --ink:#0C1015;        /* page */
+  --sheet:#131921;      /* raised surfaces */
+  --rule:#26313D;       /* hairlines, grid */
+  --steel:#8C9AAB;      /* secondary text */
+  --paper:#ECEFF3;      /* primary text */
+  --laser:#9FD8FF;      /* motif line, never on buttons */
+  --amber:#FFB238;      /* primary action only */
+  --amber-ink:#1A1206;
+  --f-display:"Karantina","Assistant",system-ui,sans-serif;
+  --f-body:"Assistant",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gut:max(16px,env(safe-area-inset-left,0px));
+  --gut-r:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--paper);font:400 18px/1.6 var(--f-body);direction:rtl;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+/* grain + blueprint grid */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.07;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.grid-bg{background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:56px 56px;background-position:center}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--laser);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r);position:relative;z-index:2}
+.mono{font-family:var(--f-mono);letter-spacing:.04em;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+.eyebrow{font:500 13px/1.2 var(--f-body);letter-spacing:.14em;color:var(--steel)}
+h1,h2,h3{text-wrap:balance;margin:0}
+h2{font:700 clamp(44px,7vw,84px)/.92 var(--f-display);letter-spacing:.01em}
+p{margin:0}
+
+/* demo ribbon */
+.ribbon{position:relative;z-index:61;background:var(--sheet);border-bottom:1px solid var(--rule);font-size:14px;color:var(--steel)}
+.ribbon .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;padding-block:8px;flex-wrap:wrap}
+.ribbon b{color:var(--paper);font-weight:600}
+.ribbon a{color:var(--laser);text-decoration:none;white-space:nowrap}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--ink) 78%,transparent);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--rule)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;flex-direction:column;line-height:1.05}
+.brand strong{font:700 28px/1 var(--f-display);letter-spacing:.02em}
+.brand span{font-size:13px;color:var(--steel)}
+.hdr-phone{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:15px;color:var(--paper);min-height:44px}
+.hdr-phone .mono{font-size:15px}
+
+/* laser line motif */
+.laser{position:relative;height:22px;margin-block:0;overflow:hidden}
+.laser::before{content:"";position:absolute;inset:10px 0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--laser) 18%,var(--laser) 82%,transparent);box-shadow:0 0 12px 1px color-mix(in srgb,var(--laser) 55%,transparent);transform-origin:right;animation:draw 1.6s cubic-bezier(.2,.7,.1,1) both}
+.laser::after{content:"";position:absolute;inset:4px 0 auto;height:13px;background:repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 28px);opacity:.9}
+.laser .dot{position:absolute;top:6px;width:9px;height:9px;border-radius:50%;background:var(--laser);box-shadow:0 0 14px 3px var(--laser);animation:travel 7s ease-in-out infinite alternate}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes travel{from{right:4%}to{right:94%}}
+
+/* hero */
+.hero{position:relative;padding-block:56px 40px;overflow:hidden}
+.hero .grid-bg{position:absolute;inset:0;opacity:.35;mask-image:radial-gradient(ellipse 70% 70% at 30% 40%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 70% at 30% 40%,#000 20%,transparent 75%)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero-copy{min-width:0;display:grid;gap:22px;position:relative;z-index:2}
+.hero h1{font:700 clamp(68px,12vw,156px)/.84 var(--f-display);letter-spacing:.005em}
+.hero h1 .trade{display:block;font-size:.72em;font-weight:400;color:transparent;-webkit-text-stroke:1.2px var(--steel)}
+.hero .tag{font-size:clamp(19px,2.2vw,23px);color:var(--paper);max-width:32ch}
+.hero .lede{color:var(--steel);max-width:52ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;font:700 18px/1 var(--f-body);text-decoration:none;cursor:pointer;border:0;transition:transform .25s cubic-bezier(.2,.7,.1,1),box-shadow .25s}
+.btn-wa{background:var(--amber);color:var(--amber-ink);box-shadow:0 0 0 1px color-mix(in srgb,var(--amber) 60%,#000),0 10px 40px -8px color-mix(in srgb,var(--amber) 70%,transparent),inset 0 1px 0 rgba(255,255,255,.45)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 0 0 1px var(--amber),0 16px 50px -6px color-mix(in srgb,var(--amber) 80%,transparent),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn-ghost{background:transparent;color:var(--paper);border:1px solid var(--rule)}
+.btn-ghost:hover{border-color:var(--steel)}
+.btn svg{width:22px;height:22px;flex:none}
+.rating{display:inline-flex;align-items:center;gap:14px;padding:10px 16px 10px 18px;border:1px solid var(--rule);border-radius:14px;background:color-mix(in srgb,var(--sheet) 80%,transparent);text-decoration:none;width:fit-content}
+.rating .score{font:700 40px/1 var(--f-display)}
+.rating .stars{color:var(--laser);letter-spacing:2px;font-size:15px}
+.rating small{display:block;color:var(--steel);font-size:14px}
+
+/* hero drawing */
+.drawing{position:relative;aspect-ratio:1/1;max-width:100%;perspective:1000px}
+.drawing-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.1,1)}
+.drawing svg{width:100%;height:100%;overflow:visible}
+.drawing .ln{fill:none;stroke:var(--steel);stroke-width:1;vector-effect:non-scaling-stroke;opacity:.75}
+.drawing .ln-soft{fill:none;stroke:var(--rule);stroke-width:1;vector-effect:non-scaling-stroke}
+.drawing .pipe{fill:none;stroke:var(--laser);stroke-width:2;vector-effect:non-scaling-stroke;stroke-dasharray:6 8;animation:flow 2.4s linear infinite}
+.drawing .lbl{font:500 11px var(--f-mono);fill:var(--steel)}
+@keyframes flow{to{stroke-dashoffset:-56}}
+.plane{position:absolute;inset:0;pointer-events:none}
+.plane i{position:absolute;inset-inline:6%;height:2px;background:var(--laser);box-shadow:0 0 18px 4px color-mix(in srgb,var(--laser) 70%,transparent),0 0 60px 10px color-mix(in srgb,var(--laser) 25%,transparent);animation:sweep 6s cubic-bezier(.45,0,.55,1) infinite alternate;opacity:.85}
+@keyframes sweep{from{top:18%}to{top:82%}}
+.readout{position:absolute;bottom:4%;left:4%;font:500 12px var(--f-mono);color:var(--laser);background:color-mix(in srgb,var(--ink) 85%,transparent);border:1px solid var(--rule);padding:6px 10px;border-radius:6px;direction:ltr}
+
+/* stats band */
+.band{border-block:1px solid var(--rule);background:var(--sheet)}
+.band .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding-block:0}
+.stat{padding:22px 20px;border-inline-start:1px solid var(--rule);min-width:0}
+.stat:first-child{border-inline-start:0}
+.stat b{display:block;font:700 44px/1 var(--f-display)}
+.stat span{color:var(--steel);font-size:15px}
+
+section{position:relative;padding-block:88px}
+.sec-head{display:grid;gap:14px;margin-bottom:40px;max-width:760px}
+.sec-head p{color:var(--steel);max-width:58ch}
+
+/* services as spec sheet */
+.specs{border-top:1px solid var(--rule)}
+.spec{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr) auto;gap:24px;align-items:baseline;padding:26px 4px;border-bottom:1px solid var(--rule);position:relative}
+.spec::after{content:"";position:absolute;bottom:-1px;right:0;height:1px;width:100%;background:var(--laser);box-shadow:0 0 10px var(--laser);transform:scaleX(0);transform-origin:right;transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.spec:hover::after{transform:scaleX(1)}
+.spec h3{font:700 clamp(32px,3.6vw,44px)/1 var(--f-display)}
+.spec p{color:var(--steel)}
+.spec .code{font:500 12px var(--f-mono);color:var(--steel);opacity:.7}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:relative}
+.steps::before{content:"";position:absolute;top:27px;right:0;left:0;height:1px;background:linear-gradient(90deg,transparent,var(--laser) 10%,var(--laser) 90%,transparent);box-shadow:0 0 10px var(--laser);opacity:.7}
+.step{padding-inline-end:24px;display:grid;gap:10px;min-width:0}
+.step .n{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--ink);border:1px solid var(--laser);font:700 28px/1 var(--f-display);color:var(--laser);position:relative;z-index:1;box-shadow:0 0 20px -4px var(--laser)}
+.step h3{font:700 30px/1 var(--f-display);margin-top:8px}
+.step p{color:var(--steel);font-size:16px}
+
+/* gallery */
+/* reviews: verbatim quotes on a measured rule */
+.quotes{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px}
+.quotes figure{margin:0;padding:26px 24px;border:1px solid var(--rule);border-radius:14px;background:var(--sheet);display:grid;gap:16px;align-content:space-between;min-width:0;position:relative;overflow:hidden}
+.quotes figure:first-child{grid-row:span 2}
+.quotes figure::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--laser),transparent);box-shadow:0 0 12px var(--laser);opacity:.8}
+.quotes blockquote{margin:0;font-size:18px;line-height:1.65}
+.quotes figure:first-child blockquote{font:700 clamp(28px,3.4vw,40px)/1.15 var(--f-display)}
+.quotes figcaption{display:flex;justify-content:space-between;gap:10px;color:var(--steel);font-size:15px}
+.quotes .st{color:var(--laser);letter-spacing:2px}
+.allrev{display:inline-flex;margin-top:18px;color:var(--steel);font-size:15px;min-height:44px;align-items:center}
+@media (max-width:900px){.quotes{grid-template-columns:1fr}.quotes figure:first-child{grid-row:auto}}
+.gallery{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-auto-rows:220px;gap:14px}
+.gallery figure{margin:0;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--rule);background:var(--sheet)}
+.gallery figure:first-child{grid-row:span 2}
+.gallery img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.05)}
+.gallery .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:16px;color:var(--steel);font-size:15px}
+.gallery .ph::before{content:"";position:absolute;inset:12px;border:1px dashed var(--rule);border-radius:8px}
+.gallery .ph .mono{display:block;font-size:11px;margin-bottom:6px;color:var(--laser);opacity:.8}
+
+/* area */
+.area{display:flex;flex-wrap:wrap;gap:10px}
+.area span{padding:10px 18px;border:1px solid var(--rule);border-radius:999px;font-size:16px}
+.area span.home{border-color:var(--laser);color:var(--laser)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hours{display:grid;gap:0;border-top:1px solid var(--rule)}
+.hours div{display:flex;justify-content:space-between;gap:16px;padding:14px 2px;border-bottom:1px solid var(--rule)}
+.hours div span:last-child{color:var(--steel)}
+
+/* final cta */
+.final{text-align:center;overflow:hidden}
+.final h2{font-size:clamp(56px,10vw,128px)}
+.final .ctas{justify-content:center;margin-top:28px}
+.final .phone-big{display:block;margin-top:18px;font:500 22px var(--f-mono);color:var(--steel);direction:ltr}
+
+/* offer for owner (demo only) */
+.offer{background:linear-gradient(180deg,var(--sheet),var(--ink));border-top:1px solid var(--rule)}
+.offer-card{border:1px solid var(--rule);border-radius:22px;padding:clamp(22px,4vw,48px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;background:color-mix(in srgb,var(--ink) 70%,transparent)}
+.price{display:flex;align-items:flex-end;gap:10px;margin:18px 0 6px}
+.price b{font:700 clamp(84px,11vw,132px)/.8 var(--f-display)}
+.price span{color:var(--steel);padding-bottom:10px}
+.renew{color:var(--steel);font-size:15px}
+.inc{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
+.inc li{display:flex;gap:12px;padding:12px 2px;border-bottom:1px solid var(--rule);font-size:16px}
+.inc li::before{content:"";flex:none;width:14px;height:1px;margin-top:13px;background:var(--laser);box-shadow:0 0 8px var(--laser)}
+.inc li.bonus b{color:var(--laser);font-weight:600}
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+.terms div{border:1px solid var(--rule);border-radius:14px;padding:16px}
+.terms b{display:block;font:700 26px/1.05 var(--f-display);margin-bottom:4px}
+.terms p{color:var(--steel);font-size:15px}
+.offer .switch{margin-top:20px;color:var(--steel);font-size:16px;max-width:60ch}
+
+footer{border-top:1px solid var(--rule);padding-block:28px 110px;color:var(--steel);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* mobile action bar */
+.bar{position:fixed;inset:auto 0 0;z-index:55;display:none;gap:10px;padding:10px var(--gut-r) calc(10px + env(safe-area-inset-bottom,0px)) var(--gut);background:color-mix(in srgb,var(--ink) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--rule)}
+.bar .btn{flex:1;min-height:52px;font-size:17px;padding:0 14px}
+
+/* reveal: visible at rest, slides in */
+.rv{transition:transform .9s cubic-bezier(.2,.7,.1,1),opacity .9s}
+.rv.pre{transform:translateY(24px)}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .drawing{max-width:420px;width:100%;margin-inline:auto}
+  .band .wrap{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-inline-start:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--rule)}
+  .spec{grid-template-columns:1fr;gap:6px}
+  .spec .code{display:none}
+  .steps{grid-template-columns:1fr 1fr;row-gap:32px}
+  .steps::before{display:none}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
+  .two,.offer-card{grid-template-columns:1fr}
+  .terms{grid-template-columns:1fr}
+  .bar{display:flex}
+  .hdr-phone .lbl-call{display:none}
+}
+@media (max-width:420px){
+  section{padding-block:64px}
+  .steps{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr;grid-auto-rows:200px}
+  .gallery figure:first-child{grid-row:auto}
+  .stat b{font-size:36px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv.pre{transform:none;opacity:1}
+  .plane i{top:50%}
+}
+</style>
+</head>
+<body>
+
+<style>:root:root:root,:root:root:root [class*="skin-"]{--ink:#0B1110;--sheet:#111A18;--rule:#22312E;--steel:#93A5A0;--laser:#6EE7C2;--amber:#FFE14D;--amber-ink:#141205}</style>
+
+<div id="app"></div>
+
+<script>
+const SITE = {"demo": true, "slug": "moshavnik", "template": "template.html", "business": "מושבניק תיקונים ועבודות כלליות", "ownerFirst": "צפריר", "heroName": "מושבניק", "heroTrade": "אינסטלציה, חשמל ותיקונים לבית", "trade": "אינסטלציה, חשמל ותיקונים לבית", "city": "קרית טבעון", "address": "מורן 31, קרית טבעון", "phone": "053-375-8507", "phoneIntl": "972533758507", "rating": 4.8, "reviews": 77, "googleUrl": "https://www.google.com/maps/place/?q=place_id:ChIJjciR9T6yHRURO8K91R7K614", "tagline": "תקלת מים או חשמל בבית? אחד שמגיע, מתקן ולא משאיר בלגן.", "intro": "תיקונים ועבודות כלליות בקרית טבעון והסביבה. דוד וגוף חימום, סתימות, תקלות חשמל וכל מה שהבית צריך. מגיע מהר, עובד נקי ומסביר מה עושים.", "stats": [{"v": "4.8", "l": "דירוג בגוגל"}, {"v": "77", "l": "ביקורות"}, {"v": "5", "l": "תחומי שירות, מים וחשמל"}, {"v": "6", "l": "יישובים באזור השירות"}], "servicesTitle": "מה מתקנים", "servicesIntro": "תקלות מים וחשמל בבית, ועבודות תיקון כלליות.", "services": [{"t": "דוד וגוף חימום", "d": "בדיקה והחלפת גוף חימום, תיקון תקלות בדוד."}, {"t": "סתימות וצנרת", "d": "פתיחת סתימות במטבח ובשירותים, תיקון צנרת."}, {"t": "תקלות חשמל", "d": "קצרים, שקעים ולוחות, איתור התקלה ותיקון."}, {"t": "ברזים וכלים סניטריים", "d": "החלפה והתקנה של ברזים, כיורים ואסלות."}, {"t": "תיקונים כלליים", "d": "עבודות קטנות בבית שצריך לסגור מהר."}], "galleryPlaceholders": ["החלפת גוף חימום", "פתיחת סתימה", "תיקון חשמל", "התקנת ברז", "עבודה נקייה"], "area": ["קרית טבעון", "רמת ישי", "אלונים", "יקנעם", "נשר", "עמק יזרעאל"], "hours": [["ראשון - שישי", "24 שעות"]], "finalTitle": "תקלה בבית? כתבו עכשיו.", "photos": [], "theme": {"--ink": "#0B1110", "--sheet": "#111A18", "--rule": "#22312E", "--steel": "#93A5A0", "--laser": "#6EE7C2", "--amber": "#FFE14D", "--amber-ink": "#141205"}, "readout": "מים ✓ · חשמל ✓", "motifPath": "M75 345H325M120 345V250H95M200 345V200H300V230M260 120V90H330V170M330 120H350M200 200V150", "quotesTitle": "מה כותבים על צפריר", "quotes": [{"n": "איתי", "t": "אחרי ששלשום היה קצר חשמלי בגוף החימום, הגיע צפריר בהתרעה קצרה, איתר מהר הבעיה והחליף גוף החימום במקצועיות וללא תשלום (במסגרת האחריות)."}, {"n": "אורי", "t": "צפריר הגיע בזריזות אחרי שדיברנו, עשה עבודה נקיה ומהירה, במחיר סביר. ברור לי שבתקלה הבאה במערכות מים או חשמל - אזמין אותו"}, {"n": "יגאל", "t": "שוחח עם נציג חברת החשמל כדי שלא יחייבו אותי בתיקון והתקשר לוודא שהתקלה תוקנה."}], "offer": {"title": "האתר הזה יכול להיות באוויר תוך 48 שעות", "lead": "כמו שדיברנו בטלפון, בניתי את האתר הזה בשבילך כדי שתראה איך זה נראה לפני שאתה מחליט. אתה לא צריך לעשות כלום חוץ מלאשר ולשלוח כמה תמונות.", "price": "999", "renewal": "מהשנה השנייה: 349 ₪ לשנה לדומיין, אחסון ותחזוקה. בלי הפתעות.", "includes": ["אתר מותאם לנייד, כמו שאתה רואה כאן", "כתובת (דומיין) בשם העסק לשנה", "אחסון לשנה", "כפתור וואטסאפ וחיוג בכל מסך", "באוויר תוך 48 שעות מהאישור"], "bonuses": ["סידור פרופיל העסק בגוגל מפות", "קישור והודעה מוכנה לבקשת ביקורות מלקוחות", "קוד קיו־אר לרכב ולכרטיס הביקור", "הודעת פתיחה אוטומטית בוואטסאפ ביזנס", "שינוי טקסט או תמונה אחד בחודש, בלי תשלום"], "terms": [{"t": "משלמים רק אחרי", "d": "התשלום רק אחרי שהאתר באוויר ואישרת אותו. לא אהבת? לא משלם."}, {"t": "אתה לא עושה כלום", "d": "שולח 5 תמונות ומאשר טקסט. את כל השאר אני עושה."}, {"t": "אחד בכל עיר", "d": "אני בונה לעסק אחד מכל תחום בכל עיר. מי שסוגר ראשון, תופס את המקום."}], "switchNote": "כבר יש לך אתר? בונה אתרים לוקח בדרך כלל 1,200-7,000 ₪ על הבנייה, ועוד 60-120 ₪ בחודש על אחסון ותחזוקה. כאן זה 999 ₪ לשנה הכל כלול, ו-349 ₪ לשנה מהשנה השנייה. את הכתובת הקיימת מעבירים בלי תשלום.", "cta": "אני רוצה את האתר", "sellerPhoneIntl": "972525543759"}, "steps": [{"t": "שולחים הודעה", "d": "כותבים בוואטסאפ מה קרה. אפשר לצרף תמונה."}, {"t": "מגיע ובודק", "d": "מגיע בזמן שנקבע ובודק את המקור, לא רק את הסימפטום."}, {"t": "מחיר לפני שמתחילים", "d": "הצעת מחיר ברורה לפני העבודה. בלי הפתעות בסוף."}, {"t": "עבודה ואחריות", "d": "עבודה נקייה, ואני זמין גם אחרי שסיימנו."}]};
+(function(){
+  const S = SITE, esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const waText = encodeURIComponent(S.waText || `שלום${S.ownerFirst ? " " + S.ownerFirst : ""}, הגעתי מהאתר. אשמח לפרטים`);
+  const wa = `https://wa.me/${S.phoneIntl}?text=${waText}`;
+  const waIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>`;
+  const phoneIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>`;
+  const stars = r => "★★★★★".slice(0, Math.round(r)) + "☆☆☆☆☆".slice(0, 5 - Math.round(r));
+  const services = (S.services||[]).map((s,i)=>`
+    <div class="spec rv"><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p><span class="code">${String(i+1).padStart(2,"0")}/${String(S.services.length).padStart(2,"0")}</span></div>`).join("");
+  const quotes = (S.quotes||[]).slice(0,3).map(q=>`<figure class="rv"><blockquote>${esc(q.t)}</blockquote><figcaption><span>${esc(q.n)} · ביקורת בגוגל</span><span class="st" aria-label="5 כוכבים">★★★★★</span></figcaption></figure>`).join("");
+  const steps = (S.steps||[]).map((s,i)=>`
+    <div class="step rv"><span class="n">${i+1}</span><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p></div>`).join("");
+  const photos = S.photos && S.photos.length ? S.photos : null;
+  const gallery = photos
+    ? photos.slice(0,5).map(p=>`<figure class="rv"><img src="${esc(p.src)}" alt="${esc(p.alt||"")}" loading="lazy"></figure>`).join("")
+    : (S.galleryPlaceholders||["עבודה גדולה","לפני ואחרי","ציוד","עבודה","צוות"]).map((t,i)=>`<figure class="rv"><div class="ph"><div><span class="mono">0${i+1}</span>${esc(t)}</div></div></figure>`).join("");
+  const area = (S.area||[]).map((a,i)=>`<span class="${i===0?"home":""}">${esc(a)}</span>`).join("");
+  const hours = (S.hours||[]).map(h=>`<div><span>${esc(h[0])}</span><span>${esc(h[1])}</span></div>`).join("");
+  const O = S.offer || {};
+  const inc = (O.includes||[]).map(x=>`<li>${esc(x)}</li>`).join("") + (O.bonuses||[]).map(x=>`<li class="bonus"><span><b>בונוס:</b> ${esc(x)}</span></li>`).join("");
+  const terms = (O.terms||[]).map(t=>`<div class="rv"><b>${esc(t.t)}</b><p>${esc(t.d)}</p></div>`).join("");
+  const year = new Date().getFullYear();
+
+  document.getElementById("app").innerHTML = `
+  ${S.demo ? `<div class="ribbon"><div class="wrap"><span><b>אתר לדוגמה</b> שהוכן עבור ${esc(S.business)}. עדיין לא פורסם.</span><a href="#offer">ההצעה ל${esc(S.offerTo||S.ownerFirst||S.business)} ←</a></div></div>`:""}
+  <header><div class="wrap">
+    <div class="brand"><strong>${esc(S.business)}</strong><span>${esc(S.trade)} · ${esc(S.city)}</span></div>
+    <a class="hdr-phone" href="tel:${esc(S.phone)}">${phoneIcon.replace('<svg','<svg width="20" height="20"')}<span class="lbl-call">התקשרו:</span><span class="mono">${esc(S.phone)}</span></a>
+  </div></header>
+
+  <main>
+  <div class="hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">${esc(S.trade)} · ${esc(S.city)} והסביבה</span>
+        <h1>${esc(S.heroName || S.ownerFirst)}<span class="trade">${esc(S.heroTrade || S.trade)}</span></h1>
+        <p class="tag">${esc(S.tagline)}</p>
+        <p class="lede">${esc(S.intro)}</p>
+        <div class="ctas">
+          <a class="btn btn-wa" id="wa-hero" href="${wa}" target="_blank" rel="noopener">${waIcon}שלחו הודעה בוואטסאפ</a>
+          <a class="btn btn-ghost" href="tel:${esc(S.phone)}">${phoneIcon}<span class="mono">${esc(S.phone)}</span></a>
+        </div>
+        ${S.rating ? `<a class="rating" href="${esc(S.googleUrl)}" target="_blank" rel="noopener"><span class="score mono">${S.rating.toFixed(1)}</span><span><span class="stars" aria-label="${S.rating} כוכבים">${stars(S.rating)}</span><small>${S.reviews} ביקורות בגוגל</small></span></a>`:""}
+      </div>
+      <div class="drawing" id="drawing" aria-hidden="true"><div class="drawing-inner" id="drawing-inner">
+        <svg viewBox="0 0 400 400">
+          <path class="ln-soft" d="M20 360H380M20 40V360M380 40V360"/>
+          <path class="ln" d="M60 330V170L200 70L340 170V330Z"/>
+          <path class="ln" d="M60 250H340"/>
+          <path class="ln" d="M110 330V275H160V330M230 290H300V250"/>
+          <path class="ln" d="M90 170H120V215H90ZM280 170H310V215H280Z"/>
+          <path class="pipe" d="${esc(S.motifPath || "M75 345H325M200 345V120M200 200H300V230M200 280H95V250")}"/>
+          <path class="ln-soft" d="M30 330V60M24 330H36M24 60H36"/>
+          <text class="lbl" x="34" y="205" transform="rotate(-90 34 205)">גובה 2.70 מ׳</text>
+          <text class="lbl" x="230" y="384">סטייה ± 0.3 מ״מ</text>
+        </svg>
+        <div class="plane"><i></i></div>
+        <div class="readout">${esc(S.readout || "פלס · 0.00°")}</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="laser"><span class="dot"></span></div>
+  <div class="band"><div class="wrap">
+    ${(S.stats||[]).map(s=>`<div class="stat"><b class="mono">${esc(s.v)}</b><span>${esc(s.l)}</span></div>`).join("")}
+  </div></div>
+
+  <section id="services"><div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">מה אני עושה</span><h2>${esc(S.servicesTitle || "השירותים")}</h2><p>${esc(S.servicesIntro || "")}</p></div>
+    <div class="specs">${services}</div>
+  </div></section>
+
+  <div class="laser"><span class="dot" style="animation-delay:-3s"></span></div>
+
+  ${quotes ? `<section id="reviews" style="padding-top:0"><div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">${S.rating ? S.rating.toFixed(1)+" · " : ""}${S.reviews||""} ביקורות בגוגל</span><h2>${esc(S.quotesTitle || "מה כותבים הלקוחות")}</h2></div>
+    <div class="quotes">${quotes}</div>
+    ${S.googleUrl?`<a class="allrev" href="${esc(S.googleUrl)}" target="_blank" rel="noopener">לכל הביקורות בגוגל ←</a>`:""}
+  </div></section>` : ""}
+
+  <section id="process"><div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">איך זה עובד</span><h2>מהודעה ועד סיום</h2></div>
+    <div class="steps">${steps}</div>
+  </div></section>
+
+  <section id="gallery" style="padding-top:0"><div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">עבודות</span><h2>מהשטח</h2>${photos?"":`<p>${S.demo?esc(S.galleryNote||"כאן ייכנסו תמונות של עבודות שלך. שלח 5 תמונות מהטלפון ואני מכניסה אותן."):""}</p>`}</div>
+    <div class="gallery">${gallery}</div>
+  </div></section>
+
+  <div class="laser"><span class="dot" style="animation-delay:-5s"></span></div>
+
+  <section id="area"><div class="wrap two">
+    <div class="rv"><div class="sec-head"><span class="eyebrow">אזור שירות</span><h2>מגיע אליכם</h2></div><div class="area">${area}</div></div>
+    <div class="rv"><div class="sec-head"><span class="eyebrow">זמינות</span><h2>שעות</h2></div><div class="hours">${hours}</div></div>
+  </div></section>
+
+  <section class="final grid-bg" style="background-size:56px 56px"><div class="wrap rv">
+    <span class="eyebrow">${esc(S.trade)} · ${esc(S.city)}</span>
+    <h2 style="margin-top:12px">${esc(S.finalTitle || "צריכים מישהו שיגיע?")}</h2>
+    <div class="ctas">
+      <a class="btn btn-wa" href="${wa}" target="_blank" rel="noopener">${waIcon}שלחו הודעה בוואטסאפ</a>
+    </div>
+    <span class="phone-big">${esc(S.phone)}</span>
+  </div></section>
+
+  ${S.demo ? `
+  <section class="offer" id="offer"><div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">ההצעה ל${esc(S.offerTo||S.ownerFirst||S.business)} · לא חלק מהאתר</span><h2>${esc(O.title || "האתר הזה יכול להיות שלך מחר")}</h2></div>
+    <div class="offer-card rv">
+      <div>
+        <p style="color:var(--steel);max-width:52ch">${esc(O.lead || "")}</p>
+        <div class="price"><b class="mono">${esc(O.price)}</b><span>₪ לשנה הראשונה, הכל כלול</span></div>
+        <p class="renew">${esc(O.renewal || "")}</p>
+        ${O.sellerPhoneIntl ? `<div class="ctas" style="margin-top:24px"><a class="btn btn-wa" href="https://wa.me/${esc(O.sellerPhoneIntl)}?text=${encodeURIComponent(O.sellerWaText || ("היי, ראיתי את האתר לדוגמה של "+S.business+". רוצה שיעלה לאוויר"))}" target="_blank" rel="noopener">${waIcon}${esc(O.cta || "אני רוצה את האתר")}</a></div>`:""}
+      </div>
+      <ul class="inc">${inc}</ul>
+    </div>
+    <div class="terms">${terms}</div>
+    ${O.switchNote ? `<p class="switch rv">${esc(O.switchNote)}</p>`:""}
+  </div></section>`:""}
+  </main>
+
+  <footer><div class="wrap"><span>© ${year} ${esc(S.business)}</span><span>${esc(S.city)} · <span class="mono">${esc(S.phone)}</span></span></div></footer>
+  <div class="bar"><a class="btn btn-wa" href="${wa}" target="_blank" rel="noopener">${waIcon}וואטסאפ</a><a class="btn btn-ghost" href="tel:${esc(S.phone)}">${phoneIcon}חיוג</a></div>`;
+
+  // reveal: content visible at rest; only elements below the fold get the slide-in
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce && "IntersectionObserver" in window){
+    const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove("pre"); io.unobserve(e.target);} }),{rootMargin:"0px 0px -8% 0px"});
+    document.querySelectorAll(".rv").forEach(el=>{ if(el.getBoundingClientRect().top > innerHeight){ el.classList.add("pre"); io.observe(el);} });
+  }
+  // cursor tilt on the drawing (fine pointers only)
+  const d = document.getElementById("drawing"), di = document.getElementById("drawing-inner");
+  if (!reduce && matchMedia("(pointer:fine)").matches && d){
+    d.addEventListener("pointermove", e=>{ const r=d.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5; di.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg)`; });
+    d.addEventListener("pointerleave", ()=>{ di.style.transform=""; });
+  }
+})();
+</script>
+
+</body>
+</html>
