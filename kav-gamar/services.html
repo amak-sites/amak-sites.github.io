@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="שיפוץ דירה מלא, חדרי רחצה, מטבחים, ריצוף, גבס וצבע. כמה זמן ייקח השיפוץ שלכם?">
+<meta name="theme-color" content="#0F1113">
+<title>שירותים | קו גמר שיפוצים - אתר לדוגמה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=Heebo:wght@300;400;500;700;800&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="inner">
+<div class="ribbon"><div class="wrap"><span>אתר לדוגמה עם כמה עמודים, לעסק בדוי. ככה ייראה האתר שלכם, עם השם, הביקורות והתמונות שלכם.</span><a href="index.html#offer">מחיר ותנאים ←</a></div></div>
+<header class="hdr"><div class="wrap">
+  <a class="logo" href="index.html" aria-label="קו גמר, דף הבית"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 30h32" stroke="#C5F04A" stroke-width="2.4"/><path d="M4 25v10M36 25v10" stroke="#C5F04A" stroke-width="2"/><path d="M9 22V10l11-6 11 6v12" fill="none" stroke="#EDEAE4" stroke-width="2.2" stroke-linejoin="round"/><path d="M17 22v-6h6v6" fill="none" stroke="#EDEAE4" stroke-width="2.2"/></svg><span><b>קו גמר</b><small>שיפוצים · עמק יזרעאל</small></span></a>
+  <nav class="main" aria-label="תפריט ראשי"><a href="index.html">בית</a><a href="services.html" aria-current="page">שירותים</a><a href="projects.html">פרויקטים</a><a href="about.html">אודות</a><a href="contact.html">צור קשר</a></nav>
+  <div class="hcta">
+    <a class="hphone" href="tel:050-000-0000" data-demo aria-label="חיוג לרועי"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="lbl">רועי:</span><span class="mono">050-000-0000</span></a>
+    <button class="burger" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="drawer"><i></i></button>
+  </div>
+</div></header>
+<div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="תפריט"><button class="x" type="button" aria-label="סגירת תפריט">×</button><a href="index.html"><small class="mono">01</small>בית</a><a href="services.html" aria-current="page"><small class="mono">02</small>שירותים</a><a href="projects.html"><small class="mono">03</small>פרויקטים</a><a href="about.html"><small class="mono">04</small>אודות</a><a href="contact.html"><small class="mono">05</small>צור קשר</a></div>
+
+<main>
+<section class="phero grid-bg"><div class="wrap rv">
+  <div class="crumbs"><a href="index.html">בית</a><span>/</span><span>שירותים</span></div>
+  <h1>מה <span class="hl">משפצים.</span></h1>
+  <div class="dim" style="margin-top:26px"><span class="l"></span>05 שירותים · צוות אחד</div>
+  <p class="lead">בחרו מה רוצים לשפץ, ותראו כמה זמן זה לוקח בערך. את התאריך המדויק מקבלים בהצעה הכתובה.</p>
+</div><div class="ruler" aria-hidden="true"></div></section>
+<section><div class="wrap">
+  <div class="head rv"><div class="dim"><span class="l"></span>מחשבון זמן</div><h2 class="h2">כמה זמן<br><span class="hl">ייקח לי?</span></h2></div>
+  <div class="est rv">
+    <fieldset style="border:0;padding:0;margin:0"><legend class="sr">מה רוצים לשפץ</legend><div class="opts" id="opts"><label class="opt"><input type="checkbox" value="full" data-w="8" data-n="שיפוץ דירה מלא"><span class="bx"></span><b>שיפוץ דירה מלא</b><small class="mono">8 שבועות</small></label><label class="opt"><input type="checkbox" value="bath" data-w="3" data-n="חדרי רחצה"><span class="bx"></span><b>חדרי רחצה</b><small class="mono">3 שבועות</small></label><label class="opt"><input type="checkbox" value="kitchen" data-w="3" data-n="מטבחים"><span class="bx"></span><b>מטבחים</b><small class="mono">3 שבועות</small></label><label class="opt"><input type="checkbox" value="floor" data-w="2" data-n="ריצוף וחיפוי"><span class="bx"></span><b>ריצוף וחיפוי</b><small class="mono">2 שבועות</small></label><label class="opt"><input type="checkbox" value="paint" data-w="2" data-n="גבס, טיח וצבע"><span class="bx"></span><b>גבס, טיח וצבע</b><small class="mono">2 שבועות</small></label></div></fieldset>
+    <div>
+      <div class="gantt" id="gantt" aria-live="polite"></div>
+      <div class="total"><b class="mono" id="tot">0</b><span id="totl">שבועות, בערך</span></div>
+      <p class="disc">הערכה כללית לדירה ממוצעת. עבודות שונות רצות במקביל, ולכן הסכום קטן מהחיבור.</p>
+      <div class="ctas" style="margin-top:22px"><a class="btn btn-sig" href="contact.html" id="estGo"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>לקבל תאריך מדויק</a></div>
+    </div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="head rv"><div class="dim"><span class="l"></span>מה כלול</div><h2 class="h2">כל שירות,<br><span class="hl">שלב אחרי שלב.</span></h2></div>
+  <article class="svc rv" id="full"><div><span class="code mono">01</span><h3>שיפוץ דירה מלא</h3><p class="lead" style="margin-top:20px">מהפירוק ועד מסירת המפתח. אתם מקבלים לוח זמנים כתוב, ורועי מנהל את כל בעלי המקצוע.</p>
+  <div class="wkline"><span class="wks" style="--w:8;margin:0;width:calc(8 * 30px)"></span><span class="mono">~8 שבועות</span></div></div>
+  <ul><li>תכנון ובחירת חומרים יחד</li><li>פירוק ופינוי פסולת מהבניין</li><li>אינסטלציה וחשמל חדשים</li><li>ריצוף, חיפוי, גבס וצבע</li><li>מטבח וחדרי רחצה</li><li>ניקיון ומסירה בתאריך שבהצעה</li></ul></article><article class="svc rv" id="bath"><div><span class="code mono">02</span><h3>חדרי רחצה</h3><p class="lead" style="margin-top:20px">חדר רחצה שלם, מהאיטום ועד המראה. מוכן לשימוש בסוף השבוע השלישי.</p>
+  <div class="wkline"><span class="wks" style="--w:3;margin:0;width:calc(3 * 30px)"></span><span class="mono">~3 שבועות</span></div></div>
+  <ul><li>פירוק הכלים והחיפוי הישנים</li><li>איטום רצפה וקירות</li><li>צנרת וניקוז</li><li>ריצוף וחיפוי</li><li>כלים סניטריים ומקלחון</li></ul></article><article class="svc rv" id="kitchen"><div><span class="code mono">03</span><h3>מטבחים</h3><p class="lead" style="margin-top:20px">מפרקים את הישן, מכינים תשתיות, ומתקינים את המטבח החדש. מתאמים מול חברת המטבחים.</p>
+  <div class="wkline"><span class="wks" style="--w:3;margin:0;width:calc(3 * 30px)"></span><span class="mono">~3 שבועות</span></div></div>
+  <ul><li>פירוק ופינוי המטבח הישן</li><li>נקודות מים, ניקוז וחשמל</li><li>חיפוי קיר עבודה</li><li>תיאום והתקנה מול ספק המטבח</li></ul></article><article class="svc rv" id="floor"><div><span class="code mono">04</span><h3>ריצוף וחיפוי</h3><p class="lead" style="margin-top:20px">ריצוף חדש לחדר או לבית שלם. מסמנים, מפלסים ומרצפים בקווים ישרים.</p>
+  <div class="wkline"><span class="wks" style="--w:2;margin:0;width:calc(2 * 30px)"></span><span class="mono">~2 שבועות</span></div></div>
+  <ul><li>פירוק ריצוף ישן או ריצוף מעל</li><li>פילוס והכנת תשתית</li><li>ריצוף וחיפוי לפי תוכנית</li><li>רובה ופנלים</li></ul></article><article class="svc rv" id="paint"><div><span class="code mono">05</span><h3>גבס, טיח וצבע</h3><p class="lead" style="margin-top:20px">קירות חלקים ותקרות, נישות ותאורה שקועה, וצבע בגוון שבחרתם.</p>
+  <div class="wkline"><span class="wks" style="--w:2;margin:0;width:calc(2 * 30px)"></span><span class="mono">~2 שבועות</span></div></div>
+  <ul><li>תיקוני טיח ושפכטל</li><li>קירות ותקרות גבס</li><li>נישות ותאורה שקועה</li><li>צבע בשתי שכבות</li></ul></article>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="head rv"><div class="dim"><span class="l"></span>איך זה עובד</div><h2 class="h2">מהודעה<br><span class="hl">ועד מפתח.</span></h2></div>
+  <div class="steps">
+    <div class="step rv" style="--i:1"><span class="n mono">שלב 1</span><div class="bar"><i></i></div><h3>שולחים הודעה</h3><p>כותבים בוואטסאפ מה רוצים לשפץ ומצרפים תמונות.</p></div>
+    <div class="step rv" style="--i:2"><span class="n mono">שלב 2</span><div class="bar"><i></i></div><h3>פגישה בבית</h3><p>רועי מגיע, מודד ומקשיב למה שאתם צריכים.</p></div>
+    <div class="step rv" style="--i:3"><span class="n mono">שלב 3</span><div class="bar"><i></i></div><h3>מחיר ותאריך</h3><p>הצעה כתובה עם שלבים ותאריך סיום, לפני שמתחילים.</p></div>
+    <div class="step rv" style="--i:4"><span class="n mono">שלב 4</span><div class="bar"><i></i></div><h3>עבודה ומסירה</h3><p>בסוף כל שבוע תמונות ועדכון, עד המסירה.</p></div>
+  </div>
+</div></section>
+<div class="wrap"><a class="nextp" href="projects.html"><span><small>העמוד הבא</small><b>פרויקטים</b></span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span></a></div>
+</main>
+<footer class="site"><div class="wrap">
+  <div><a class="logo" href="index.html" style="margin-bottom:14px"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 30h32" stroke="#C5F04A" stroke-width="2.4"/><path d="M4 25v10M36 25v10" stroke="#C5F04A" stroke-width="2"/><path d="M9 22V10l11-6 11 6v12" fill="none" stroke="#EDEAE4" stroke-width="2.2" stroke-linejoin="round"/><path d="M17 22v-6h6v6" fill="none" stroke="#EDEAE4" stroke-width="2.2"/></svg><span><b>קו גמר</b><small>שיפוצים · עמק יזרעאל</small></span></a><p>© קו גמר · עסק בדוי לדוגמה. כל הטקסטים והאיורים להמחשה.</p></div>
+  <div><h4>עמודים</h4><a href="index.html">בית</a><a href="services.html">שירותים</a><a href="projects.html">פרויקטים</a><a href="about.html">אודות</a><a href="contact.html">צור קשר</a></div>
+  <div><h4>יצירת קשר</h4><a href="#" data-demo>וואטסאפ לרועי</a><a href="tel:050-000-0000" data-demo class="mono" style="text-align:right">050-000-0000</a><span>א-ה 7:30-17:00 · ו 7:30-12:00</span></div>
+</div></footer>
+<div class="mbar" id="mbar"><a class="btn btn-sig" href="#" data-demo>וואטסאפ</a><a class="btn btn-line" href="tel:050-000-0000" data-demo>חיוג</a></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><div>זה אתר לדוגמה. באתר שלכם הכפתור הזה פותח וואטסאפ או חיוג ישירות אליכם. <a href="index.html#offer">למחיר ותנאים</a></div></div>
+<script src="site.js"></script>
+<script src="pages.js"></script>
+</body>
+</html>

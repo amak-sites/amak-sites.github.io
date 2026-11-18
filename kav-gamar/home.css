@@ -1,0 +1,47 @@
+/* home: sticky 3D build hero */
+.stage{position:relative;height:520vh}
+.sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 40% 45%,#1A1E22,#0D0F11)}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(13,15,17,.55),transparent 20%,transparent 60%,rgba(13,15,17,.85))}
+.hero-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;pointer-events:none}
+.hero-copy .in{max-width:620px;display:grid;gap:22px;pointer-events:auto;transition:opacity .5s}
+.hero h1{font:700 clamp(72px,9vw,150px)/.8 var(--f-d);letter-spacing:.005em}
+.hero h1 .hl{color:var(--sig);display:inline-block;position:relative}
+.hero h1 .hl::after{content:"";position:absolute;inset:auto 0 -.05em;height:.07em;background:var(--sig);transform-origin:right;animation:draw 1.4s .4s var(--ease) both}
+@keyframes draw{from{transform:scaleX(0)}}
+.hero .sub{font-size:clamp(18px,1.6vw,21px);color:#D9D5CE;max-width:44ch}
+.hint{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.hint span{width:22px;height:34px;border:1.5px solid currentColor;border-radius:12px;position:relative}
+.hint span::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--sig);animation:wheel 1.8s var(--ease) infinite}
+@keyframes wheel{0%{transform:translateY(0);opacity:1}70%{transform:translateY(10px);opacity:0}100%{opacity:0}}
+.phase{position:absolute;inset-inline-start:var(--gut-r);top:50%;transform:translateY(-50%);width:min(380px,calc(100% - 40px));opacity:0;transition:opacity .6s;pointer-events:none}
+.phase.on{opacity:1}
+.phase .wk{display:flex;align-items:baseline;gap:12px;color:var(--muted);font:500 14px/1 var(--f-b);letter-spacing:.12em}
+.phase .wk b{font:700 96px/.8 var(--f-d);color:var(--sig);letter-spacing:0}
+.phase h2{font:700 clamp(46px,5vw,72px)/.9 var(--f-d);margin:14px 0 12px;min-height:1.8em}
+.phase p{color:#CFCBC4;min-height:3.4em}
+.sched{position:absolute;inset-inline:0;bottom:0;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));pointer-events:none}
+.sched .box{border:1px solid var(--line);background:rgba(15,17,19,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:8px;padding:14px 16px 16px;pointer-events:auto}
+.sched .top{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted);margin-bottom:10px;letter-spacing:.06em}
+.sched .top b{color:var(--fg);font-weight:500}
+.cells{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;position:relative}
+.cell{height:30px;border:1px solid var(--line);border-radius:3px;position:relative;overflow:hidden;font:500 11px/30px var(--f-b);text-align:center;color:var(--muted)}
+.cell i{position:absolute;inset:0;background:var(--sig);transform-origin:right;transform:scaleX(var(--f,0));opacity:.92}
+.cell span{position:relative;mix-blend-mode:difference;color:#fff}
+.finish{position:absolute;inset-block:-8px;inset-inline-end:-2px;border-inline-end:2px dashed var(--fg)}
+.stamp{position:absolute;inset-inline-end:var(--gut);top:18%;z-index:4;border:3px solid var(--sig);color:var(--sig);padding:10px 18px 6px;font:700 46px/.85 var(--f-d);transform:rotate(-7deg) scale(1.6);opacity:0;transition:transform .5s cubic-bezier(.2,1.6,.4,1),opacity .2s;text-align:center;background:rgba(15,17,19,.55);backdrop-filter:blur(6px)}
+.stamp small{display:block;font:500 13px/1.6 var(--f-b);letter-spacing:.08em}
+.stamp.on{transform:rotate(-7deg) scale(1);opacity:1}
+@media (max-width:900px){
+  .hero-copy{justify-content:flex-end;padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
+  .shade{background:linear-gradient(to bottom,rgba(13,15,17,.4),transparent 16%,transparent 36%,rgba(13,15,17,.92) 64%)}
+  .phase{top:auto;bottom:calc(200px + env(safe-area-inset-bottom,0px));transform:none}
+  .hero h1{font-size:clamp(56px,16.5vw,96px)}
+  .phase .wk b{font-size:64px}
+  .phase h2{font-size:44px;min-height:0}
+  .phase p{font-size:15px;min-height:0}
+  .sched{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  .sched .top span:last-child{display:none}
+  .stamp{top:14%;font-size:36px}
+}
+@media (max-width:520px){.cell{font-size:0}}
