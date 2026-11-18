@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta name="description" content="עצים, תבלינים, ערכות טפטוף ושוברי גינה."><meta name="theme-color" content="#0b140e">
+<title>חנות | יואב גינון - אתר לדוגמה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="g.css"></head><body>
+<div class="grain" aria-hidden="true"></div>
+<div class="ribbon" role="note"><span>אתר לדוגמה לעסק בדוי: אתר מלא עם בלוג וחנות. המוצרים, המחירים והכתבות להמחשה, ושום תשלום לא מתבצע.</span><a href="index.html#offer">רוצים אתר כזה?</a></div>
+<header class="hdr"><div class="wrap">
+ <a class="logo" href="index.html">יואב גינון<small>גינון · עיצוב · שתילה</small></a>
+ <nav class="nav" aria-label="תפריט"><a href="index.html">בית</a><a href="services.html">שירותים</a><a href="blog.html">בלוג</a><a href="shop.html" aria-current="page">חנות</a><a href="contact.html">צור קשר</a></nav>
+ <button class="cartbtn" type="button" aria-label="סל הקניות"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.3 10.2a2 2 0 0 1-2 1.8H8.3a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="n mono" aria-live="polite">0</span></button>
+</div></header>
+
+<main><section class="s" style="padding-top:clamp(3rem,7vw,5rem)"><div class="wrap">
+ <span class="k">החנות</span><h2 class="t">שתילים, כלים, <em>ושובר גינה.</em></h2><p class="mute" style="margin-bottom:2rem">משלוח חינם מעל 250 ₪. בשובר מתנה אפשר לכתוב שם והקדשה ולראות אותו לפני שמזמינים.</p>
+ <div class="tabs" role="group" aria-label="סינון" id="tabs"><button class="tab" type="button" aria-pressed="true" data-c="הכל">הכל</button><button class="tab" type="button" aria-pressed="false" data-c="צמחים">צמחים</button><button class="tab" type="button" aria-pressed="false" data-c="לגינה">לגינה</button><button class="tab" type="button" aria-pressed="false" data-c="שוברים">שוברים</button></div>
+ <div class="grid" id="grid"></div>
+ <p class="illus" style="margin-top:1.4rem">המוצרים, המחירים והאיורים להמחשה. בחנות שלכם: המוצרים והתמונות שלכם.</p>
+</div></section></main>
+<footer><div class="wrap"><span>יואב גינון · גינון ועיצוב גינות · עסק בדוי לדוגמה</span><span><a href="#" data-demo>וואטסאפ</a> · <a href="#" data-demo>050-000-0000</a></span></div></footer>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="סל הקניות"><div class="dhead"><h2>הסל שלך</h2><button class="x" type="button" aria-label="סגירה">×</button></div>
+ <div class="dbody"></div><div class="dfoot"><div class="tot"><span>סה"כ <small></small></span><b></b></div><a class="btn pri" href="checkout.html">לתשלום</a></div></aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt" aria-hidden="true"><div class="mbox" style="position:relative"><button class="x mclose" type="button" aria-label="סגירה">×</button><div class="mvis"></div><div class="mform"></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="g.js"></script>
+<script>(function(){var g=document.getElementById("grid"),tabs=[].slice.call(document.querySelectorAll("#tabs .tab"));
+g.innerHTML=SH.P.map(SH.cardHTML).join("");SH.bindCards(g);SH.reveal(g);
+function setC(c){tabs.forEach(function(t){t.setAttribute("aria-pressed",t.dataset.c===c?"true":"false")});[].forEach.call(g.children,function(k){k.classList.toggle("out",c!=="הכל"&&k.dataset.cat!==c);if(!k.classList.contains("out"))k.classList.add("in")})}
+tabs.forEach(function(t){t.addEventListener("click",function(){setC(t.dataset.c)})});
+var h=decodeURIComponent(location.hash.slice(1));if(h)setC(h)})();</script>
+</body></html>
