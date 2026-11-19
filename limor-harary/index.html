@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>לימור הררי · ספרקלינג מיינדס - אתר לדוגמה</title>
+<meta name="description" content="לימור הררי - אדריכלית חינוכית. הרצאות, סדנאות, תיירות חינוכית, עיצוב מרחבי למידה וקלפי בינה מלאכותית.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=IBM+Plex+Sans+Hebrew:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06051a; --bg2:#0d0a2b; --ink:#f4f1ff; --dim:#aca6d8; --mute:#77719f;
+  --gold:#ffd166; --pink:#ff5ccd; --cyan:#5ef2ff; --violet:#8b6cff;
+  --glass:rgba(16,13,46,.58); --line:rgba(255,255,255,.11);
+  --disp:'Karantina',system-ui,sans-serif; --body:'IBM Plex Sans Hebrew',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);font-size:17px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--pink);color:#fff}
+
+#stage{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.nogl #stage{display:none}
+.nogl body,.nogl{background:radial-gradient(1200px 700px at 20% 30%,#2a1660 0%,transparent 60%),radial-gradient(900px 600px at 80% 80%,#0b3a55 0%,transparent 60%),var(--bg)}
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 30% 50%,transparent 40%,rgba(6,5,26,.75) 100%)}
+main,header,footer,.ribbon{position:relative;z-index:2}
+
+/* ribbon + nav */
+.ribbon{position:fixed;top:0;inset-inline:0;z-index:50;display:flex;gap:12px;justify-content:center;align-items:center;padding:7px 14px;font-size:13px;background:linear-gradient(90deg,rgba(255,92,205,.22),rgba(94,242,255,.18));border-bottom:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.ribbon a{color:var(--gold);font-weight:600;border-bottom:1px solid currentColor}
+header{position:fixed;top:34px;inset-inline:0;z-index:40;display:flex;justify-content:center;padding:0 16px}
+.nav{width:min(1240px,100%);display:flex;align-items:center;gap:22px;padding:10px 12px 10px 18px;border-radius:999px;background:rgba(10,8,32,.55);border:1px solid var(--line);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
+.logo svg{width:26px;height:26px;filter:drop-shadow(0 0 8px rgba(255,209,102,.8))}
+.logo small{display:block;font-weight:400;font-size:11.5px;color:var(--dim);line-height:1.1}
+.nav ul{display:flex;gap:4px;list-style:none;margin-inline-start:auto}
+.nav ul a{display:block;padding:7px 12px;border-radius:999px;font-size:14.5px;color:var(--dim);transition:.25s}
+.nav ul a:hover,.nav ul a.on{color:var(--ink);background:rgba(255,255,255,.07)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .25s,box-shadow .25s,background .25s;white-space:nowrap}
+.btn-hot{background:linear-gradient(100deg,var(--gold),var(--pink) 55%,var(--violet));color:#160828;box-shadow:0 10px 40px -10px rgba(255,92,205,.7)}
+.btn-hot:hover{transform:translateY(-2px);box-shadow:0 16px 50px -10px rgba(255,92,205,.9)}
+.btn-ghost{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-sm{padding:9px 16px;font-size:14px}
+.nav .btn{margin-inline-start:6px}
+
+/* sections */
+.sec{min-height:100vh;display:flex;align-items:center;padding:140px 24px 90px}
+.wrap{width:min(1240px,100%);margin:0 auto}
+.col{width:min(600px,100%)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;letter-spacing:.4px;color:var(--gold);margin-bottom:18px}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+h1,h2{font-family:var(--disp);font-weight:700;letter-spacing:.5px;line-height:.86}
+h1{font-size:clamp(78px,12vw,178px)}
+h2{font-size:clamp(52px,6.6vw,96px);margin-bottom:22px}
+.grad{background:linear-gradient(90deg,var(--gold),var(--pink),var(--cyan),var(--gold));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 9s linear infinite}
+@keyframes flow{to{background-position:300% 0}}
+.lead{font-size:clamp(18px,1.6vw,21px);color:#d9d4ff;font-weight:300;max-width:540px}
+p.dim{color:var(--dim)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:24px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+
+/* hero */
+.hero h1{margin:6px 0 26px}
+.hero .row{margin-top:34px}
+.spark-hint{margin-top:44px;display:flex;align-items:center;gap:14px;font-size:14px;color:var(--dim)}
+.spark-hint b{font-family:var(--mono);color:var(--gold);font-weight:600;font-size:15px}
+.pulse{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,209,102,.5);position:relative;flex:none}
+.pulse::after{content:"";position:absolute;inset:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px var(--gold);animation:pl 1.8s ease-in-out infinite}
+@keyframes pl{50%{transform:scale(.55);opacity:.6}}
+.pillars{display:flex;gap:26px;margin-top:40px;flex-wrap:wrap}
+.pillars div{font-size:13.5px;color:var(--dim);line-height:1.3}
+.pillars b{display:block;font-family:var(--disp);font-size:44px;color:var(--ink);line-height:.9;font-weight:700}
+
+/* about */
+.frames{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:30px 0}
+.frame{aspect-ratio:3/4;border-radius:16px;border:1px dashed rgba(255,255,255,.22);background:linear-gradient(160deg,rgba(139,108,255,.14),rgba(94,242,255,.05));display:flex;flex-direction:column;justify-content:flex-end;padding:10px;font-size:12px;color:var(--dim);line-height:1.35;position:relative;overflow:hidden}
+.frame::before{content:"";position:absolute;top:12px;inset-inline-start:12px;width:18px;height:18px;border-radius:5px;border:1px solid rgba(255,255,255,.3)}
+.frame b{color:var(--ink);font-weight:600;font-size:12.5px}
+.quote{border-inline-start:2px solid var(--pink);padding:4px 18px;margin-top:8px;font-size:19px;font-weight:300;color:#e6e1ff}
+.quote cite{display:block;font-style:normal;font-size:13px;color:var(--mute);margin-top:6px}
+.chipline{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.tag{font-size:13.5px;padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#ddd8ff}
+
+/* boarding passes */
+.passes{display:flex;flex-direction:column;gap:14px;margin-top:30px}
+.pass{display:grid;grid-template-columns:96px 1fr;border-radius:20px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden;position:relative;transition:border-color .3s,transform .3s,box-shadow .3s;cursor:pointer}
+.pass:hover{transform:translateX(-6px);border-color:rgba(255,255,255,.25)}
+.pass.sel{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 20px 60px -20px rgba(255,209,102,.55)}
+.stub{border-inline-end:2px dashed rgba(255,255,255,.16);padding:16px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;position:relative}
+.stub .code{font-family:var(--mono);font-size:24px;font-weight:600;color:var(--gold);letter-spacing:1px}
+.stub small{font-size:11px;color:var(--mute);line-height:1.2}
+.pmain{padding:16px 20px 16px 18px}
+.pmain .lab{font-size:11.5px;letter-spacing:.6px;color:var(--mute)}
+.pmain h3{font-size:18.5px;font-weight:700;line-height:1.3;margin:2px 0 6px}
+.pmain p{font-size:14.5px;color:var(--dim);line-height:1.55}
+.pfoot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px}
+.pfoot .add{color:var(--cyan);font-weight:600}
+.pass.sel .pfoot .add{color:var(--gold)}
+.stamp{position:absolute;top:12px;inset-inline-end:16px;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--gold);border:1.5px solid var(--gold);border-radius:6px;padding:2px 8px;transform:rotate(-8deg) scale(.6);opacity:0;transition:.3s cubic-bezier(.3,1.6,.5,1)}
+.pass.sel .stamp{opacity:1;transform:rotate(-8deg) scale(1)}
+.teaser{font-family:var(--mono);font-size:12.5px;color:var(--pink);margin-top:4px}
+
+/* builder */
+.builder{padding:30px;margin-top:10px}
+.grp{margin-bottom:20px}
+.grp>label,.grp>.gl{display:block;font-size:13.5px;color:var(--dim);margin-bottom:9px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:9px 15px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:14.5px;transition:.2s}
+.opt:hover{border-color:rgba(255,255,255,.3)}
+.opt.on{background:var(--ink);color:#120a2e;border-color:var(--ink);font-weight:600}
+.inp{width:100%;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--ink);font:inherit;font-size:15.5px;outline:none;transition:border-color .2s}
+.inp:focus{border-color:var(--cyan)}
+textarea.inp{min-height:96px;resize:vertical}
+.chosen{display:flex;flex-wrap:wrap;gap:6px;min-height:34px}
+.chosen span{font-size:13px;padding:5px 11px;border-radius:999px;background:rgba(255,209,102,.14);border:1px solid rgba(255,209,102,.45);color:var(--gold)}
+.chosen em{font-style:normal;font-size:13.5px;color:var(--mute)}
+.bubble{margin:6px 0 20px;padding:14px 16px;border-radius:16px 16px 4px 16px;background:#0f3b33;border:1px solid rgba(94,242,170,.25);font-size:14.5px;line-height:1.6;white-space:pre-wrap;color:#e3fff5;position:relative}
+.bubble::before{content:"תצוגה מקדימה של ההודעה";display:block;font-size:11px;color:#8fd9c0;margin-bottom:6px}
+.contactline{margin-top:16px;font-size:14px;color:var(--dim)}
+.contactline b{color:var(--ink);font-family:var(--mono);font-weight:500;direction:ltr;unicode-bidi:embed}
+
+/* globe */
+.countries{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 10px}
+.country{padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:14.5px;display:flex;align-items:center;gap:8px;transition:.25s}
+.country i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.country:hover{border-color:rgba(94,242,255,.5)}
+.country.on{background:rgba(94,242,255,.14);border-color:var(--cyan)}
+.small{font-size:13px;color:var(--mute)}
+.tour{padding:24px;margin-top:22px}
+.tour ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:14px 0 20px}
+.tour li{display:flex;gap:10px;font-size:15px;color:#ddd8ff;line-height:1.4}
+.tour li::before{content:"✦";color:var(--gold);font-size:12px;margin-top:3px}
+
+/* spaces */
+.toggle{display:inline-flex;padding:5px;border-radius:999px;background:rgba(0,0,0,.35);border:1px solid var(--line);margin:8px 0 22px;position:relative}
+.toggle button{padding:10px 20px;border-radius:999px;font-size:15px;color:var(--dim);position:relative;z-index:1;transition:color .3s}
+.toggle button.on{color:#120a2e;font-weight:600}
+.toggle .knob{position:absolute;top:5px;bottom:5px;border-radius:999px;background:linear-gradient(100deg,var(--cyan),#b6fbff);transition:.45s cubic-bezier(.6,0,.2,1)}
+.keys{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap}
+.key{flex:1;min-width:120px;padding:14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:.5s;opacity:.45}
+.key b{display:block;font-size:16px}
+.key span{font-size:12.5px;color:var(--dim)}
+.pods-on .key{opacity:1;border-color:rgba(94,242,255,.35);background:rgba(94,242,255,.07)}
+.badge{display:inline-flex;gap:8px;align-items:center;font-size:14px;padding:8px 14px;border-radius:12px;background:rgba(255,209,102,.1);border:1px solid rgba(255,209,102,.35);color:var(--gold);margin:6px 0 22px}
+.biz{padding:24px;margin-top:34px}
+.biz h3{font-size:20px;margin-bottom:6px}
+
+/* cards */
+.deckwrap{display:flex;gap:26px;align-items:center;margin:26px 0;flex-wrap:wrap}
+.flip{width:170px;height:240px;perspective:900px;flex:none;cursor:pointer}
+.flip-in{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.3,1.3,.4,1)}
+.flip.turn .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;border:1px solid rgba(255,255,255,.2)}
+.face.back{background:radial-gradient(circle at 50% 40%,rgba(255,209,102,.35),transparent 55%),linear-gradient(150deg,#2a1466,#0c1c45);}
+.face.back svg{width:70px;height:70px;filter:drop-shadow(0 0 14px var(--gold))}
+.face.back small{margin-top:14px;font-size:12px;color:var(--dim)}
+.face.front{transform:rotateY(180deg);background:linear-gradient(160deg,#fff7e3,#ffe1f4 60%,#dffbff);color:#1a0d33}
+.face.front .n{font-family:var(--mono);font-size:11px;color:#7a5aa8}
+.face.front b{font-size:19px;line-height:1.3;margin:10px 0}
+.face.front span{font-size:12px;color:#5b4a7a}
+.deckside p{font-size:15px;color:var(--dim);max-width:300px}
+.sets{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.set{padding:22px;border-radius:22px;transition:transform .2s;transform-style:preserve-3d}
+.set .for{font-size:12.5px;color:var(--cyan)}
+.set h3{font-size:20px;margin:4px 0 4px}
+.set .aud{font-size:13.5px;color:var(--dim);margin-bottom:12px;line-height:1.45}
+.set ul{list-style:none;font-size:14px;color:#ddd8ff;margin-bottom:14px}
+.set li{padding:3px 0;display:flex;gap:8px}
+.set li::before{content:"✦";color:var(--pink);font-size:10px;margin-top:5px}
+.price{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.price b{font-family:var(--disp);font-size:52px;line-height:.8}
+.price s{color:var(--mute);font-size:15px}
+.ship{font-size:13.5px;color:var(--mute);margin-top:14px;line-height:1.6}
+
+/* more */
+.tiles{display:grid;grid-template-columns:1fr;gap:14px;margin-top:10px}
+.tile{padding:22px 24px;display:grid;grid-template-columns:54px 1fr auto;gap:16px;align-items:center}
+.tile .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.tile .ic svg{width:26px;height:26px}
+.tile h3{font-size:18px;line-height:1.3}
+.tile p{font-size:14px;color:var(--dim);line-height:1.5}
+
+/* contact */
+.cform{padding:28px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* offer */
+.offer{padding:120px 24px 110px}
+.opanel{width:min(1080px,100%);margin:0 auto;border-radius:32px;padding:48px;background:linear-gradient(160deg,rgba(255,247,227,.97),rgba(255,233,246,.97) 55%,rgba(225,251,255,.97));color:#1a0d33;box-shadow:0 40px 120px -30px rgba(255,92,205,.5)}
+.opanel .eyebrow{color:#b0217f}
+.opanel h2{color:#1a0d33;font-size:clamp(46px,5.6vw,80px)}
+.opanel .olead{font-size:18px;max-width:720px;color:#3d2c5c}
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:34px 0 24px}
+.pkg{background:#fff;border-radius:22px;padding:24px;border:1px solid rgba(26,13,51,.1);position:relative}
+.pkg.rec{border:2px solid #b0217f;box-shadow:0 20px 50px -24px rgba(176,33,127,.6)}
+.pkg .rtag{position:absolute;top:-13px;inset-inline-start:20px;background:#b0217f;color:#fff;font-size:12.5px;font-weight:600;padding:4px 12px;border-radius:999px}
+.pkg h3{font-size:19px}
+.pkg .pp{font-family:var(--disp);font-size:58px;line-height:.9;margin:10px 0 2px}
+.pkg .pp small{font-family:var(--body);font-size:15px;font-weight:500}
+.pkg .rn{font-size:13px;color:#6a5a88;margin-bottom:12px}
+.pkg p{font-size:14.5px;color:#3d2c5c;line-height:1.55}
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.terms div{font-size:14.5px;color:#3d2c5c;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.6)}
+.terms b{display:block;color:#1a0d33}
+.opanel .btn-hot{color:#fff;background:linear-gradient(100deg,#b0217f,#6a2bd9)}
+.opanel .btn-ghost{border-color:rgba(26,13,51,.25);color:#1a0d33}
+.seller{font-size:14px;color:#6a5a88;margin-top:14px}
+
+footer{padding:40px 24px 120px;text-align:center;font-size:13.5px;color:var(--mute)}
+footer a{color:var(--dim);margin:0 8px}
+
+/* floating wa */
+.fab{position:fixed;bottom:22px;inset-inline-start:22px;z-index:45;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25d366;box-shadow:0 12px 30px -8px rgba(37,211,102,.7);transition:transform .25s}
+.fab:hover{transform:scale(1.08)}
+.fab svg{width:30px;height:30px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .nav ul{display:none}
+  .nav .btn{margin-inline-start:auto}
+  .sec{padding:130px 18px 70px;min-height:auto}
+  .hero{min-height:100svh}
+  .col{width:100%}
+  .sets,.pk,.terms{grid-template-columns:1fr}
+  .opanel{padding:30px 22px}
+  .frames{grid-template-columns:repeat(2,1fr)}
+  .tour ul{grid-template-columns:1fr}
+  .vignette{background:rgba(6,5,26,.42)}
+}
+@media (max-width:560px){
+  .logo small{display:none}
+  .two{grid-template-columns:1fr}
+  .builder,.cform{padding:20px}
+  .tile{grid-template-columns:44px 1fr;}
+  .tile .ic{width:44px;height:44px}
+  .tile .btn{grid-column:1/-1;justify-self:start}
+  .pass{grid-template-columns:72px 1fr}
+  .stub .code{font-size:19px}
+  .ribbon{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){.grad{animation:none}.rv{transition:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div class="vignette"></div>
+
+<div class="ribbon">אתר לדוגמה שהוכן עבור לימור הררי · ספרקלינג מיינדס <a href="#offer">לפרטים</a></div>
+
+<header>
+  <nav class="nav" aria-label="ניווט ראשי">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd166"/><stop offset=".6" stop-color="#ff5ccd"/><stop offset="1" stop-color="#5ef2ff"/></linearGradient></defs><path d="M20 2C21.5 13 27 18.5 38 20 27 21.5 21.5 27 20 38 18.5 27 13 21.5 2 20 13 18.5 18.5 13 20 2Z" fill="url(#lg)"/></svg>
+      <span>ספרקלינג מיינדס<small>לימור הררי</small></span>
+    </a>
+    <ul>
+      <li><a href="#lectures">הרצאות</a></li>
+      <li><a href="#world">סיורים</a></li>
+      <li><a href="#spaces">מרחבי למידה</a></li>
+      <li><a href="#cards">קלפי בינה</a></li>
+      <li><a href="#contact">צור קשר</a></li>
+    </ul>
+    <a class="btn btn-hot btn-sm" href="#build">להזמנת הרצאה</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="sec hero" id="top" data-shape="mind">
+    <div class="wrap"><div class="col">
+      <div class="eyebrow">לימור הררי · אדריכלית חינוכית</div>
+      <h1>ברוכים הבאים<br><span class="grad">לעתיד.</span></h1>
+      <p class="lead">מקום שבו יצירתיות וחשיבה חדה פוגשות למידה עמוקה וחווייתית. הרצאות, סדנאות, סיורים לימודיים בעולם ועיצוב מרחבי למידה - להורים, למחנכים, למנהלים ולחברות.</p>
+      <div class="row">
+        <a class="btn btn-hot" href="#build">בונים הרצאה ←</a>
+        <a class="btn btn-ghost" href="#lectures">לראות את ההרצאות</a>
+      </div>
+      <div class="spark-hint"><span class="pulse"></span><span>געו במסך - כל נגיעה מציתה ניצוץ.<br>ניצוצות שהדלקת: <b id="sparkCount">0</b></span></div>
+    </div></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec" id="about" data-shape="mind">
+    <div class="wrap"><div class="col rv">
+      <div class="eyebrow">מי מובילה את המסע</div>
+      <h2>טכנולוגיה, חינוך<br>וחשיבה <span class="grad">יצירתית.</span></h2>
+      <p class="lead">לימור הררי היא פדגוגית דיגיטלית, מרצה בינלאומית לחדשנות ויזמית שמובילה פרויקטים שמחברים חדשנות טכנולוגית עם פדגוגיה מתקדמת. חברה בקהילת המחנכים של אפל, ומשתפת ידע עם קהלים בעולם כדי לעזור לאנשי חינוך לצמוח.</p>
+      <div class="chipline">
+        <span class="tag">פדגוגיה דיגיטלית</span><span class="tag">חדשנות בחינוך</span><span class="tag">בינה מלאכותית</span><span class="tag">מרחבי למידה</span><span class="tag">למידה חווייתית</span>
+      </div>
+      <div class="frames" aria-label="מקום לתמונות מהאתר הקיים">
+        <div class="frame"><b>הרצאה בסין</b>התמונה מהאתר שלך תיכנס כאן</div>
+        <div class="frame"><b>כנס בט, לונדון</b>התמונה מהאתר שלך תיכנס כאן</div>
+        <div class="frame"><b>קהילת המחנכים של אפל</b>התמונה מהאתר שלך תיכנס כאן</div>
+        <div class="frame"><b>פראג</b>התמונה מהאתר שלך תיכנס כאן</div>
+      </div>
+      <blockquote class="quote">״חינוך הוא מסע לכל החיים, שהיעד שלו מתרחב ככל שנוסעים.״<cite>ג׳ים סטוואל</cite></blockquote>
+    </div></div>
+  </section>
+
+  <!-- LECTURES -->
+  <section class="sec" id="lectures" data-shape="rings">
+    <div class="wrap"><div class="col">
+      <div class="rv">
+        <div class="eyebrow">הרצאות · אל תשכחו להביא דרכון</div>
+        <h2>5 הרצאות.<br><span class="grad">5 יעדים.</span></h2>
+        <p class="lead">כל הרצאה היא טבעת במסלול. בחרו כרטיס אחד או יותר - הם נכנסים לבקשה שלכם בהמשך העמוד.</p>
+      </div>
+      <div class="passes" id="passes"></div>
+    </div></div>
+  </section>
+
+  <!-- BUILDER -->
+  <section class="sec" id="build" data-shape="rings">
+    <div class="wrap"><div class="col rv">
+      <div class="eyebrow">בונים את המפגש שלכם</div>
+      <h2>תגידו מה,<br>למי <span class="grad">ומתי.</span></h2>
+      <div class="glass builder">
+        <div class="grp"><span class="gl">ההרצאות שבחרתם</span><div class="chosen" id="chosen"></div></div>
+        <div class="grp"><span class="gl">פורמט</span><div class="opts" data-key="format">
+          <button class="opt on">הרצאה</button><button class="opt">סדנה</button><button class="opt">עדיין לא יודעים</button></div></div>
+        <div class="grp"><span class="gl">למי?</span><div class="opts" data-key="aud">
+          <button class="opt on">הורים</button><button class="opt">צוות חינוכי</button><button class="opt">הנהלת בית ספר</button><button class="opt">חברה או ארגון</button></div></div>
+        <div class="grp"><span class="gl">כמה משתתפים בערך</span><div class="opts" data-key="size">
+          <button class="opt">עד 30</button><button class="opt on">30-100</button><button class="opt">מעל 100</button></div></div>
+        <div class="grp"><label for="org">שם המוסד או הארגון (לא חובה)</label><input class="inp" id="org" placeholder="למשל: בית ספר ניצנים"></div>
+        <div class="bubble" id="bubble"></div>
+        <a class="btn btn-hot" id="sendBuild" target="_blank" rel="noopener">לשלוח ללימור בוואטסאפ ←</a>
+        <div class="contactline">או בטלפון <b>052-378-1198</b> · <b>limorharary@gmail.com</b></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- WORLD -->
+  <section class="sec" id="world" data-shape="globe">
+    <div class="wrap"><div class="col rv">
+      <div class="eyebrow">תיירות חינוכית · ארזתם לבד?</div>
+      <h2>בתי ספר בעולם,<br><span class="grad">מקרוב.</span></h2>
+      <p class="lead">מה עושים אחרת באירלנד, באסטוניה או בסין? לחצו על מדינה וצאו לדרך.</p>
+      <div class="countries" id="countries"></div>
+      <div class="small">המדינות מתוך ההרצאה ״גישות חינוכיות מסביב לעולם״</div>
+      <div class="glass tour">
+        <h3>סיור לימודי בחו״ל לאנשי חינוך</h3>
+        <ul>
+          <li>ביקורים בבתי ספר</li><li>צפייה בשיטות הוראה</li><li>מפגשים עם מומחים</li><li>ביקור בתערוכת טכנולוגיה חינוכית</li>
+        </ul>
+        <p class="dim" style="font-size:15px;margin-bottom:18px">חוזרים עם אופקים רחבים יותר וקשרים מקצועיים חדשים.</p>
+        <a class="btn btn-ghost" id="tourBtn" target="_blank" rel="noopener">לפרטים על הסיור הבא ←</a>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- SPACES -->
+  <section class="sec" id="spaces" data-shape="room">
+    <div class="wrap"><div class="col rv" id="spacesCol">
+      <div class="eyebrow">עיצוב מרחבי למידה</div>
+      <h2>מהשורות -<br>אל <span class="grad">המרחב.</span></h2>
+      <p class="lead">לחצו ותראו את אותה כיתה מתארגנת מחדש.</p>
+      <div class="toggle" id="toggle"><span class="knob"></span><button data-l="rows" class="on">כיתה בשורות</button><button data-l="pods">מרחב למידה</button></div>
+      <div class="keys">
+        <div class="key"><b>תנועה</b><span>מרחב שמזמין לקום ולזוז</span></div>
+        <div class="key"><b>יצירה</b><span>פינות שמזמינות לבנות ולנסות</span></div>
+        <div class="key"><b>שיתוף</b><span>עבודה יחד, פנים מול פנים</span></div>
+      </div>
+      <p class="dim">כל פרויקט מתחיל מהחזון שלכם ומהשאלה איך תתרחש בו הלמידה, ומשלב טכנולוגיות עדכניות עם עיצוב חדשני. מחקרים קושרים מרחבים שמעודדים תנועה, יצירתיות ושיתוף פעולה למיומנויות עתיד ולמעורבות גבוהה יותר של תלמידים.</p>
+      <div class="badge">✦ שיחת ייעוץ ראשונה - בלי עלות ובלי התחייבות</div><br>
+      <a class="btn btn-hot" id="spaceBtn" target="_blank" rel="noopener">לתאם שיחת ייעוץ ←</a>
+      <div class="glass biz">
+        <div class="eyebrow" style="margin-bottom:8px">לחברות וארגונים</div>
+        <h3>ייעוץ טכנו-פדגוגי</h3>
+        <p class="dim" style="font-size:15px;margin-bottom:16px">ליווי אישי ומקצועי, תוכניות הכשרה מותאמות והטמעה של כלים דיגיטליים שמחזקים צוותים ובונים תרבות למידה חדשנית.</p>
+        <a class="btn btn-ghost btn-sm" id="bizBtn" target="_blank" rel="noopener">לשיחה על הארגון שלכם ←</a>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- CARDS -->
+  <section class="sec" id="cards" data-shape="cards">
+    <div class="wrap"><div class="col rv">
+      <div class="eyebrow">קלפי בינה מלאכותית</div>
+      <h2>שיחה שמתחילה<br>ב<span class="grad">קלף אחד.</span></h2>
+      <p class="lead">שתי ערכות לשיח ולאתגר על בינה מלאכותית וחדשנות - לחדר מורים, לכיתה ולצוות.</p>
+      <div class="deckwrap">
+        <div class="flip" id="flip" role="button" tabindex="0" aria-label="שלפו קלף">
+          <div class="flip-in">
+            <div class="face back"><svg viewBox="0 0 40 40"><path d="M20 2C21.5 13 27 18.5 38 20 27 21.5 21.5 27 20 38 18.5 27 13 21.5 2 20 13 18.5 18.5 13 20 2Z" fill="#ffd166"/></svg><small>לחצו לשלוף</small></div>
+            <div class="face front"><span class="n" id="fn">נושא 1 מתוך 4</span><b id="ft"></b><span>אחד מנושאי הערכה</span></div>
+          </div>
+        </div>
+        <div class="deckside"><p>הקלפים פותחים שיחה על מה שבאמת משתנה: מקוריות ויצירתיות, אתיקה והטיות של אלגוריתמים, מיומנויות רכות והתפתחות רגשית-חברתית, ושוק העבודה.</p><button class="btn btn-ghost btn-sm" id="draw" style="margin-top:14px">שלפו קלף נוסף ↻</button></div>
+      </div>
+      <div class="sets">
+        <div class="set glass tilt">
+          <div class="for">ערכה לאנשי חינוך</div>
+          <h3>לחדר המורים</h3>
+          <div class="aud">מנהלים, מורים, מרצים ומנחים - להוראה, ללמידה ולהתפתחות מקצועית</div>
+          <ul><li>30 קלפי שיח</li><li>5 קלפי אתגר</li><li>30 תמונות מקוריות שנוצרו בבינה מלאכותית</li><li>קלף הפתעה</li></ul>
+          <div class="price"><b>145 ₪</b><s>220 ₪</s></div>
+          <a class="btn btn-hot btn-sm" data-set="ערכה לאנשי חינוך" target="_blank" rel="noopener">אני רוצה ערכה ←</a>
+        </div>
+        <div class="set glass tilt">
+          <div class="for">ערכה לתלמידים</div>
+          <h3>לכיתה</h3>
+          <div class="aud">תלמידי חטיבת ביניים ותיכון - לשיח ולפעילויות אתגר</div>
+          <ul><li>30 קלפי שיח</li><li>5 קלפי אתגר</li><li>30 תמונות מקוריות שנוצרו בבינה מלאכותית</li><li>קלף הפתעה</li></ul>
+          <div class="price"><b>145 ₪</b><s>220 ₪</s></div>
+          <a class="btn btn-hot btn-sm" data-set="ערכה לתלמידים" target="_blank" rel="noopener">אני רוצה ערכה ←</a>
+        </div>
+      </div>
+      <div class="ship">משלוח עד הבית 50 ₪, עד 5 ימי עסקים · איסוף עצמי בזכרון יעקב בתיאום · 10 ערכות ומעלה - הנחה משמעותית. מתאים גם כמתנה לצוות.</div>
+    </div></div>
+  </section>
+
+  <!-- MORE -->
+  <section class="sec" id="more" data-shape="mind">
+    <div class="wrap"><div class="col rv">
+      <div class="eyebrow">עוד ניצוצות</div>
+      <h2>לקחת <span class="grad">הביתה.</span></h2>
+      <div class="tiles">
+        <div class="tile glass">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.6"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/><path d="M12 7v4l2.5 1.5"/></svg></div>
+          <div><h3>הספר ״חמש דקות״</h3><p>הספר של לימור, נמכר ברשת סטימצקי.</p></div>
+          <a class="btn btn-ghost btn-sm" id="bookBtn" target="_blank" rel="noopener">לפרטים</a>
+        </div>
+        <div class="tile glass">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ff5ccd" stroke-width="1.6"><path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3Z"/><path d="M19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7L19 16Z"/></svg></div>
+          <div><h3>מועדון ספרקלינג מיינדס</h3><p>תכנים מעוררי השראה וקבוצת וואטסאפ שקטה.</p></div>
+          <a class="btn btn-ghost btn-sm" id="clubBtn" target="_blank" rel="noopener">להצטרף</a>
+        </div>
+        <div class="tile glass">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#5ef2ff" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><path d="M17.5 14v7M14 17.5h7"/></svg></div>
+          <div><h3>מאגר כלי בינה</h3><p>אוסף כלי בינה מלאכותית לאנשי חינוך, במקום אחד.</p></div>
+          <a class="btn btn-ghost btn-sm" href="https://app--ai-sparks-6f11302a.base44.app/" target="_blank" rel="noopener">למאגר</a>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec" id="contact" data-shape="star">
+    <div class="wrap"><div class="col rv">
+      <div class="eyebrow">צור קשר</div>
+      <h2>הכל <span class="grad">אפשרי.</span></h2>
+      <div class="glass cform">
+        <div class="grp"><span class="gl">על מה נדבר?</span><div class="opts" data-key="topic">
+          <button class="opt on">הרצאות וסדנאות</button><button class="opt">תיירות חינוכית בחו״ל</button><button class="opt">עיצוב מרחבי למידה</button><button class="opt">ייעוץ טכנו-פדגוגי לחברות</button><button class="opt">קלפי בינה</button></div></div>
+        <div class="two grp"><input class="inp" id="cname" placeholder="שם"><input class="inp" id="corg" placeholder="מוסד / ארגון"></div>
+        <div class="grp"><textarea class="inp" id="cmsg" placeholder="כמה מילים על מה שאתם מחפשים"></textarea></div>
+        <a class="btn btn-hot" id="sendContact" target="_blank" rel="noopener">לשלוח בוואטסאפ ←</a>
+        <div class="contactline">טלפון <b>052-378-1198</b> · מייל <b>limorharary@gmail.com</b></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- OFFER (for Limor) -->
+  <section class="offer" id="offer" data-shape="star">
+    <div class="opanel rv">
+      <div class="eyebrow">לימור, זה בשבילך</div>
+      <h2>ככה האתר שלך<br>יכול להיראות.</h2>
+      <p class="olead">בניתי את העמוד הזה כדי שתראי איך כל מה שיש לך - ההרצאות, הסיורים, המרחבים, הקלפים והספר - נראה במקום אחד, חי ועתידני כמו התחום שלך. את לא צריכה לעשות כלום חוץ מלאשר ולשלוח תמונות.</p>
+      <div class="pk">
+        <div class="pkg">
+          <h3>עמוד אחד</h3>
+          <div class="pp">999 <small>₪</small></div>
+          <div class="rn">לשנה הראשונה, הכל כלול · מהשנה השנייה 349 ₪ לשנה</div>
+          <p>עמוד כמו זה, דומיין, אחסון, כפתורי וואטסאפ וחיוג בכל מסך.</p>
+        </div>
+        <div class="pkg">
+          <h3>אתר מלא</h3>
+          <div class="pp">1,999 <small>₪</small></div>
+          <div class="rn">לשנה הראשונה, הכל כלול · מהשנה השנייה 490 ₪ לשנה</div>
+          <p>עד 6 עמודים - בית, אודות, הרצאות, סיורים, מרחבי למידה, צור קשר - לכל אחד כתובת משלו בגוגל.</p>
+        </div>
+        <div class="pkg rec">
+          <span class="rtag">מתאים לך</span>
+          <h3>אתר + חנות</h3>
+          <div class="pp">3,490 <small>₪</small></div>
+          <div class="rn">לשנה הראשונה, הכל כלול · מהשנה השנייה 990 ₪ לשנה</div>
+          <p>אתר מלא + חנות עד 30 מוצרים עם סליקה - לקלפים, לספר ולהרשמה לסדנאות.</p>
+        </div>
+      </div>
+      <div class="terms">
+        <div><b>משלמים רק אחרי</b>התשלום רק אחרי שהאתר באוויר ואישרת אותו.</div>
+        <div><b>הכתובת שלך נשארת</b>את הכתובת הקיימת מעבירים בלי תשלום.</div>
+        <div><b>אפשר בתשלומים</b>באשראי, או במחיר חודשי לצד השנתי.</div>
+      </div>
+      <div class="row">
+        <a class="btn btn-hot" id="offerBtn" target="_blank" rel="noopener">אני רוצה את האתר ←</a>
+        <a class="btn btn-ghost" href="https://amak-sites.github.io/catalog/" target="_blank" rel="noopener">לכל האפשרויות</a>
+      </div>
+      <div class="seller">אסתר · 053-923-2024</div>
+    </div>
+  </section>
+</main>
+
+<footer>© ספרקלינג מיינדס · לימור הררי · <a href="#contact">צור קשר</a><a href="#top">הצהרת נגישות</a><a href="#top">תקנון</a></footer>
+
+<a class="fab" id="fab" target="_blank" rel="noopener" aria-label="וואטסאפ ללימור"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg></a>
+
+<script>
+/* ---------- content + whatsapp ---------- */
+const LIMOR='972523781198', SELLER='972539232024';
+const wa=(n,t)=>'https://wa.me/'+n+'?text='+encodeURIComponent(t);
+const LECT=[
+ {t:'גישות חינוכיות מסביב לעולם',d:'מה עושים אחרת באירלנד, באסטוניה, בפינלנד, בסין ובדרום אמריקה - ועובדות מפתיעות על מערכות חינוך.',tz:'אל תשכחו להביא דרכון'},
+ {t:'בתי ספר מחוץ לקופסה: עתיד המרחב החינוכי',d:'סיור בדוגמאות מהארץ ומהעולם למרחבי למידה חדשניים, וגם איפה הבינה המלאכותית נכנסת לתמונה.',tz:'המרחב הוא חלק מהשיעור'},
+ {t:'דלתות מסתובבות: תפיסות חינוך המשתקפות בעזרת בינה מלאכותית',d:'דמוקרטיה, מגדר, פרטיות, צדק ושוויון ועתיד העבודה - מה הבינה המלאכותית מראה לנו על החינוך שלנו.',tz:'תתכוננו לחשוב מחדש'},
+ {t:'בינה אמיתית מול בינה מלאכותית - חשיבה ביקורתית בעולם משתנה',d:'איך משתמשים בבינה מלאכותית כדי לעורר סקרנות וחשיבה ביקורתית, ומה קורה מאחורי הקלעים. להורים ולמחנכים.',tz:'רד לעומק שאלות ותגביה לעלות'},
+ {t:'המפתח לעתיד: איך מחנכים ילדים בעידן הבינה המלאכותית',d:'אילו מקצועות ויכולות מחכים לילדים שלנו, והצעות מעשיות להורים שרוצים להכין אותם.',tz:'המפתח בידיים שלכם'}
+];
+const sel=new Set();
+const passes=document.getElementById('passes');
+LECT.forEach((l,i)=>{
+  const el=document.createElement('article');
+  el.className='pass rv';el.tabIndex=0;el.dataset.i=i;
+  el.innerHTML=`<div class="stub"><small>טיסה</small><span class="code">SM0${i+1}</span><small>שער 0${i+1}</small></div>
+  <div class="pmain"><span class="stamp">בכרטיס ✓</span><div class="lab">יעד</div><h3>${l.t}</h3><p>${l.d}</p>
+  <div class="pfoot"><span class="teaser">${l.tz}</span><span class="add">+ להוסיף לבקשה</span></div></div>`;
+  const tog=()=>{sel.has(i)?sel.delete(i):sel.add(i);el.classList.toggle('sel',sel.has(i));el.querySelector('.add').textContent=sel.has(i)?'✓ נוסף לבקשה':'+ להוסיף לבקשה';G.setSel(i,sel.has(i));upd();};
+  el.addEventListener('click',tog);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tog();}});
+  el.addEventListener('mouseenter',()=>G.hover(i));el.addEventListener('mouseleave',()=>G.hover(-1));
+  passes.appendChild(el);
+});
+const val=k=>{const b=document.querySelector(`.opts[data-key="${k}"] .opt.on`);return b?b.textContent:''};
+document.querySelectorAll('.opts').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;g.querySelectorAll('.opt').forEach(x=>x.classList.remove('on'));b.classList.add('on');upd();}));
+function upd(){
+  const ch=document.getElementById('chosen');
+  ch.innerHTML=sel.size?[...sel].sort().map(i=>`<span>SM0${i+1} · ${LECT[i].t.split(':')[0].split(' - ')[0]}</span>`).join(''):'<em>עוד לא נבחרה הרצאה - אפשר גם לבקש מלימור המלצה</em>';
+  const org=document.getElementById('org').value.trim();
+  let m='היי לימור, ';
+  m+= val('format')==='עדיין לא יודעים'?'אנחנו מחפשים הרצאה או סדנה':('אנחנו מחפשים '+val('format'));
+  m+=' ל'+val('aud')+(org?' ב'+org:'')+', '+val('size')+' משתתפים.';
+  m+= sel.size?'\nמה שעניין אותנו:\n'+[...sel].sort().map(i=>'• '+LECT[i].t).join('\n'):'\nנשמח להמלצה מה מתאים לנו.';
+  m+='\nאפשר לדבר על תאריכים?';
+  document.getElementById('bubble').textContent=m;
+  document.getElementById('sendBuild').href=wa(LIMOR,m);
+  const t=val('topic'),n=document.getElementById('cname').value.trim(),o=document.getElementById('corg').value.trim(),x=document.getElementById('cmsg').value.trim();
+  document.getElementById('sendContact').href=wa(LIMOR,`היי לימור${n?', כאן '+n:''}${o?' מ'+o:''}. אשמח לשמוע על ${t}.${x?'\n'+x:''}`);
+}
+['org','cname','corg','cmsg'].forEach(id=>document.getElementById(id).addEventListener('input',upd));
+const setWa=(id,t,n=LIMOR)=>document.getElementById(id).href=wa(n,t);
+setWa('tourBtn','היי לימור, אשמח לפרטים על הסיור הלימודי הבא בחו״ל לאנשי חינוך.');
+setWa('spaceBtn','היי לימור, אשמח לתאם שיחת ייעוץ על עיצוב מרחב למידה.');
+setWa('bizBtn','היי לימור, אשמח לשמוע על ייעוץ טכנו-פדגוגי לארגון שלנו.');
+setWa('bookBtn','היי לימור, אשמח לפרטים על הספר ״חמש דקות״.');
+setWa('clubBtn','היי לימור, אשמח להצטרף למועדון ספרקלינג מיינדס.');
+setWa('fab','היי לימור, הגעתי מהאתר ואשמח לשמוע עוד.');
+setWa('offerBtn','היי אסתר, ראיתי את האתר לדוגמה שהכנת לספרקלינג מיינדס ואשמח לשמוע עוד.',SELLER);
+document.querySelectorAll('[data-set]').forEach(a=>a.href=wa(LIMOR,`היי לימור, אני רוצה להזמין ${a.dataset.set} של קלפי הבינה המלאכותית. איך מזמינים?`));
+
+/* countries */
+const COUNTRIES=[['אירלנד',53.4,-8],['אנגליה',52.4,-1.5],['אסטוניה',58.8,25.5],['פינלנד',63,26],['גרמניה',51,10.4],['פולין',52,19.4],['סין',35,104],['דרום אמריקה',-14,-58]];
+const cwrap=document.getElementById('countries');
+COUNTRIES.forEach((c,i)=>{const b=document.createElement('button');b.className='country';b.innerHTML='<i></i>'+c[0];b.onclick=()=>{cwrap.querySelectorAll('.country').forEach(x=>x.classList.remove('on'));b.classList.add('on');G.focus(i);};cwrap.appendChild(b);});
+
+/* card draw */
+const TOP=['מקוריות ויצירתיות','אתיקה והטיות של אלגוריתמים','מיומנויות רכות והתפתחות רגשית-חברתית','שוק העבודה שמשתנה'];
+let ti=-1;const flip=document.getElementById('flip');
+function draw(){if(flip.classList.contains('turn')){flip.classList.remove('turn');setTimeout(show,450);}else show();}
+function show(){ti=(ti+1)%TOP.length;document.getElementById('ft').textContent=TOP[ti];document.getElementById('fn').textContent='נושא '+(ti+1)+' מתוך 4';flip.classList.add('turn');G.burstCenter&&G.burstCenter();}
+flip.addEventListener('click',draw);flip.addEventListener('keydown',e=>{if(e.key==='Enter')draw();});document.getElementById('draw').addEventListener('click',draw);
+
+/* tilt */
+document.querySelectorAll('.tilt').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(800px) rotateY(${x*8}deg) rotateX(${-y*8}deg)`;});c.addEventListener('pointerleave',()=>c.style.transform='');});
+
+/* toggle */
+const tg=document.getElementById('toggle'),knob=tg.querySelector('.knob');
+function setLayout(l){tg.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));const b=tg.querySelector(`[data-l="${l}"]`);knob.style.width=b.offsetWidth+'px';knob.style.left=b.offsetLeft+'px';document.getElementById('spacesCol').classList.toggle('pods-on',l==='pods');G.layout(l);}
+tg.addEventListener('click',e=>{const b=e.target.closest('button');if(b)setLayout(b.dataset.l);});
+
+/* reveal + nav */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+let spacesAuto=false;
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const s=e.target.dataset.shape;G.shape(s);const id=e.target.id;document.querySelectorAll('.nav ul a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id));if(id==='spaces'&&!spacesAuto){spacesAuto=true;setTimeout(()=>setLayout('pods'),1700);}}}),{rootMargin:'-45% 0px -45% 0px'});
+document.querySelectorAll('[data-shape]').forEach(s=>so.observe(s));
+
+/* stub until 3D loads */
+window.G={setSel(){},hover(){},focus(){},layout(){},shape(){},burstCenter:null};
+upd();requestAnimationFrame(()=>setLayout('rows'));
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+if(!window.THREE){document.documentElement.classList.add('nogl');return;}
+const canvas=document.getElementById('stage');
+let renderer;
+try{renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:false,powerPreference:'high-performance'});}catch(e){document.documentElement.classList.add('nogl');return;}
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobile=innerWidth<980;
+const N=mobile?4200:8200;
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));
+renderer.setClearColor(0x06051a,1);
+const scene=new THREE.Scene();
+scene.fog=new THREE.FogExp2(0x06051a,0.045);
+const camera=new THREE.PerspectiveCamera(45,1,0.1,100);
+camera.position.set(0,0,6.4);
+const world=new THREE.Group();scene.add(world);
+
+const PAL=[[1,.82,.4],[1,.36,.8],[.37,.95,1],[.55,.42,1],[1,1,1]];
+const rnd=Math.random, TAU=Math.PI*2;
+
+/* ---- shapes ---- */
+function mind(){const a=new Float32Array(N*3);for(let i=0;i<N;i++){let x,y,z;if(i<N*.84){const h=i%2?1:-1;const u=rnd()*2-1,th=rnd()*TAU,s=Math.sqrt(1-u*u);let dx=s*Math.cos(th),dy=u,dz=s*Math.sin(th);if(dx*h<0)dx*=.35;const g=1+.07*Math.sin(9*th+6*u)+.04*Math.sin(17*u+3*th);x=h*.5+dx*.98*g;y=dy*1.12*g*.92+.05;z=dz*1.45*g;}else{const r=Math.cbrt(rnd())*1.1;const u=rnd()*2-1,th=rnd()*TAU,s=Math.sqrt(1-u*u);x=r*s*Math.cos(th)*.9;y=r*u*.9;z=r*s*Math.sin(th)*1.2;}a[i*3]=x*1.15;a[i*3+1]=y*1.15;a[i*3+2]=z*1.15;}return a;}
+const grp=new Float32Array(N);
+function rings(){const a=new Float32Array(N*3);const W=[.75,1.05,1.35,1.65,1.95];const tot=W.reduce((s,w)=>s+w,0);let idx=0;for(let k=0;k<5;k++){const cnt=k===4?N-idx:Math.floor(N*W[k]/tot);const R=.6+k*.4;const ax=1.15+k*.16,ay=k*.62;const cx=Math.cos(ax),sx=Math.sin(ax),cy=Math.cos(ay),sy=Math.sin(ay);for(let j=0;j<cnt;j++,idx++){const t=rnd()*TAU;const th=(rnd()-.5)*.09,tv=(rnd()-.5)*.09;let x=Math.cos(t)*(R+th),y=Math.sin(t)*(R+th),z=tv;let y2=y*cx-z*sx,z2=y*sx+z*cx;let x3=x*cy+z2*sy,z3=-x*sy+z2*cy;a[idx*3]=x3;a[idx*3+1]=y2;a[idx*3+2]=z3;grp[idx]=k;}}return a;}
+const GR=1.8;
+function ll(lat,lon,r=GR){const p=(90-lat)*Math.PI/180,t=(lon+180)*Math.PI/180;return new THREE.Vector3(-r*Math.sin(p)*Math.cos(t),r*Math.cos(p),r*Math.sin(p)*Math.sin(t));}
+function globe(){const a=new Float32Array(N*3);const g=Math.PI*(3-Math.sqrt(5));for(let i=0;i<N;i++){let x,y,z;if(i<N*.8){const yy=1-(i/(N*.8-1))*2,r=Math.sqrt(1-yy*yy),t=g*i;x=Math.cos(t)*r;y=yy;z=Math.sin(t)*r;}else{const lat=(Math.floor(rnd()*5)-2)*30,lon=rnd()*360;const v=ll(lat,lon,1);if(rnd()<.5){x=v.x;y=v.y;z=v.z;}else{const v2=ll(rnd()*180-90,Math.floor(rnd()*6)*60,1);x=v2.x;y=v2.y;z=v2.z;}}a[i*3]=x*GR;a[i*3+1]=y*GR;a[i*3+2]=z*GR;}return a;}
+// room: desks + floor
+const DESKS=24;const dk=new Int16Array(N),lo=new Float32Array(N*3);
+(function(){for(let i=0;i<N;i++){if(i<N*.58){dk[i]=i%DESKS;const w=.36,d=.24,h=.2;const f=rnd();let x,y,z;if(f<.55){x=(rnd()-.5)*w;z=(rnd()-.5)*d;y=0;}else if(f<.85){const e=Math.floor(rnd()*4);const t=rnd()-.5;x=e<2?t*w:(e===2?-.5:.5)*w;z=e<2?(e===0?-.5:.5)*d:t*d;y=0;}else{x=(rnd()<.5?-.42:.42)*w;z=(rnd()<.5?-.4:.4)*d;y=-rnd()*h;}lo[i*3]=x;lo[i*3+1]=y;lo[i*3+2]=z;}else dk[i]=-1;}})();
+function room(layout){const a=new Float32Array(N*3);const C=[];if(layout==='rows'){for(let r=0;r<4;r++)for(let c=0;c<6;c++)C.push([-1.55+c*.62,0,-.95+r*.62,0]);}else{for(let p=0;p<6;p++){const ang=p/6*TAU+.3,R=1.45;const px=Math.cos(ang)*R,pz=Math.sin(ang)*R*.82;for(let q=0;q<4;q++){const qa=q/4*TAU+ang;C.push([px+Math.cos(qa)*.27,0,pz+Math.sin(qa)*.27,qa]);}}}
+ for(let i=0;i<N;i++){if(dk[i]>=0){const c=C[dk[i]];let x=lo[i*3],z=lo[i*3+2];if(c[3]){const cs=Math.cos(c[3]),sn=Math.sin(c[3]);const nx=x*cs-z*sn,nz=x*sn+z*cs;x=nx;z=nz;}a[i*3]=c[0]+x;a[i*3+1]=c[1]+lo[i*3+1];a[i*3+2]=c[2]+z;}else{const f=rnd();let x,y,z;if(f<.6){const line=rnd()<.5;const k=Math.floor(rnd()*11);if(line){x=-2.2+k*.44;z=(rnd()-.5)*3.2;}else{z=-1.6+(k%8)*.457;x=(rnd()-.5)*4.4;}y=-.32;}else if(layout==='pods'&&f<.85){const t=rnd()*TAU,r=.35+rnd()*.05;x=Math.cos(t)*r;z=Math.sin(t)*r*.82;y=-.32+rnd()*.9*(rnd()<.3?1:0);}else{x=(rnd()-.5)*4.4;z=(rnd()-.5)*3.2;y=rnd()*1.6;}a[i*3]=x;a[i*3+1]=y;a[i*3+2]=z;}}return a;}
+function sparkPath(cx,cy,s,f){const t=rnd()*TAU;const c=Math.cos(t),sn=Math.sin(t);return [cx+s*f*Math.sign(c)*Math.abs(c)**3,cy+s*f*Math.sign(sn)*Math.abs(sn)**3];}
+function cards(){const a=new Float32Array(N*3);const W=1.2,H=1.8;for(let i=0;i<N;i++){const k=i%2;const rot=k?-.16:.16,ox=k?.55:-.55,oz=k?.15:-.15;let x,y;const f=rnd();if(f<.38){const p=rnd()*2*(W+H);if(p<W){x=p-W/2;y=-H/2;}else if(p<W+H){x=W/2;y=p-W-H/2;}else if(p<2*W+H){x=p-W-H-W/2;y=H/2;}else{x=-W/2;y=p-2*W-H-H/2;}}else if(f<.62){[x,y]=sparkPath(0,.05,.42,Math.sqrt(rnd())*.9+.1);}else{x=(rnd()-.5)*W*.92;y=(rnd()-.5)*H*.92;if(rnd()<.6){y=H/2-.18-rnd()*.08;x=(rnd()-.5)*W*.6}}const cs=Math.cos(rot),sn=Math.sin(rot);a[i*3]=ox+x*cs-y*sn;a[i*3+1]=x*sn+y*cs;a[i*3+2]=oz+(rnd()-.5)*.04;}return a;}
+function star(){const a=new Float32Array(N*3);for(let i=0;i<N;i++){let x,y,z=(rnd()-.5)*.25;const f=rnd();if(f<.45){[x,y]=sparkPath(0,0,2.1,1);}else if(f<.7){[x,y]=sparkPath(0,0,2.1,Math.sqrt(rnd()));z*=.5;}else if(f<.8){[x,y]=sparkPath(1.6,1.4,.55,rnd()<.6?1:Math.sqrt(rnd()));}else if(f<.86){[x,y]=sparkPath(-1.5,-1.5,.38,rnd()<.6?1:Math.sqrt(rnd()));}else{const u=rnd()*2-1,t=rnd()*TAU,r=2.4+rnd()*1.6,s=Math.sqrt(1-u*u);x=r*s*Math.cos(t);y=r*u;z=r*s*Math.sin(t)*.5;}a[i*3]=x;a[i*3+1]=y;a[i*3+2]=z;}return a;}
+
+const S={mind:mind(),rings:rings(),globe:globe(),rows:room('rows'),pods:room('pods'),cards:cards(),star:star()};
+// make rings grp only used in rings; store
+/* ---- material ---- */
+function makeMat(){return new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,vertexColors:true,
+ uniforms:{uTime:{value:0},uPix:{value:renderer.getPixelRatio()},uSel:{value:[0,0,0,0,0]},uRing:{value:0},uHover:{value:-1},uTint:{value:new THREE.Color(.37,.95,1)},uTintAmt:{value:0}},
+ vertexShader:`attribute float aSize;attribute float aPhase;attribute float aGrp;uniform float uTime,uPix,uRing,uHover,uTintAmt;uniform float uSel[5];uniform vec3 uTint;varying vec3 vC;varying float vA;
+ void main(){vec4 mv=modelViewMatrix*vec4(position,1.0);gl_Position=projectionMatrix*mv;float tw=.55+.45*sin(uTime*2.2+aPhase*6.2831);float s=aSize*(.75+.5*tw);vec3 c=mix(color,uTint,uTintAmt);float sl=0.;for(int k=0;k<5;k++){if(abs(float(k)-aGrp)<.5){sl=uSel[k];}}float hv=abs(aGrp-uHover)<.5?1.:0.;float e=max(sl,hv*.8)*uRing;c=mix(c,vec3(1.,.8,.38),e*.9);s*=1.+e*1.1;gl_PointSize=s*uPix*(260./-mv.z);vC=c;vA=.5+.5*tw;}`,
+ fragmentShader:`varying vec3 vC;varying float vA;void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;float a=smoothstep(.5,.05,d);float core=smoothstep(.16,0.,d);gl_FragColor=vec4(vC*(a*.55+core*.9),a*vA);}`});}
+const mat=makeMat();
+const geo=new THREE.BufferGeometry();
+const pos=new Float32Array(N*3),cur=new Float32Array(N*3),col=new Float32Array(N*3),siz=new Float32Array(N),ph=new Float32Array(N),spd=new Float32Array(N);
+for(let i=0;i<N;i++){const r=rnd();const p=PAL[r<.32?0:r<.55?1:r<.75?2:r<.9?3:4];col.set(p,i*3);siz[i]=(rnd()<.06?.14:.06+rnd()*.045)*(mobile?1.15:1);ph[i]=rnd();spd[i]=.55+rnd()*.9;
+ const u=rnd()*2-1,t=rnd()*TAU,s=Math.sqrt(1-u*u),R=6+rnd()*6;cur[i*3]=R*s*Math.cos(t);cur[i*3+1]=R*u;cur[i*3+2]=R*s*Math.sin(t);}
+geo.setAttribute('position',new THREE.BufferAttribute(pos,3).setUsage(THREE.DynamicDrawUsage));
+geo.setAttribute('color',new THREE.BufferAttribute(col,3));
+geo.setAttribute('aSize',new THREE.BufferAttribute(siz,1));
+geo.setAttribute('aPhase',new THREE.BufferAttribute(ph,1));
+const grpAttr=new Float32Array(N).fill(-5);
+geo.setAttribute('aGrp',new THREE.BufferAttribute(grpAttr,1));
+const pts=new THREE.Points(geo,mat);pts.frustumCulled=false;world.add(pts);
+
+/* globe overlay: markers + arcs + travellers */
+const IL=ll(31.6,35);
+const M=COUNTRIES.length;
+const mk=new THREE.BufferGeometry();const mkp=new Float32Array((M+1+M)*3),mkc=new Float32Array((M+1+M)*3),mks=new Float32Array(M+1+M),mkph=new Float32Array(M+1+M),mkg=new Float32Array(M+1+M).fill(-5);
+const cvec=COUNTRIES.map(c=>ll(c[1],c[2],GR*1.01));
+cvec.forEach((v,i)=>{mkp.set([v.x,v.y,v.z],i*3);mkc.set([.37,.95,1],i*3);mkph[i]=rnd();});
+mkp.set([IL.x*1.01,IL.y*1.01,IL.z*1.01],M*3);mkc.set([1,.82,.4],M*3);
+for(let i=0;i<M;i++){mkc.set([1,.9,.6],(M+1+i)*3);mkph[M+1+i]=rnd();}
+mk.setAttribute('position',new THREE.BufferAttribute(mkp,3).setUsage(THREE.DynamicDrawUsage));mk.setAttribute('color',new THREE.BufferAttribute(mkc,3));mk.setAttribute('aSize',new THREE.BufferAttribute(mks,1).setUsage(THREE.DynamicDrawUsage));mk.setAttribute('aPhase',new THREE.BufferAttribute(mkph,1));mk.setAttribute('aGrp',new THREE.BufferAttribute(mkg,1));
+const mkMat=makeMat();const mkPts=new THREE.Points(mk,mkMat);mkPts.frustumCulled=false;world.add(mkPts);
+const arcs=[];const arcMat=new THREE.LineBasicMaterial({color:0xffd166,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false});
+const arcPts=cvec.map(v=>{const a=[];for(let t=0;t<=1.0001;t+=1/48){const p=new THREE.Vector3().copy(IL).lerp(v,t).normalize().multiplyScalar(GR*(1+.28*Math.sin(Math.PI*t)));a.push(p);}const g=new THREE.BufferGeometry().setFromPoints(a);const l=new THREE.Line(g,arcMat);world.add(l);arcs.push(l);return a;});
+
+/* sparks */
+const SN=mobile?260:520;const sg=new THREE.BufferGeometry();const sp=new Float32Array(SN*3),sv=new Float32Array(SN*3),sl=new Float32Array(SN),ss=new Float32Array(SN),sc=new Float32Array(SN*3),sph=new Float32Array(SN),sgp=new Float32Array(SN).fill(-5);
+for(let i=0;i<SN;i++){const p=PAL[i%3];sc.set(p,i*3);sph[i]=rnd();sp[i*3+2]=-50;}
+sg.setAttribute('position',new THREE.BufferAttribute(sp,3).setUsage(THREE.DynamicDrawUsage));sg.setAttribute('color',new THREE.BufferAttribute(sc,3));sg.setAttribute('aSize',new THREE.BufferAttribute(ss,1).setUsage(THREE.DynamicDrawUsage));sg.setAttribute('aPhase',new THREE.BufferAttribute(sph,1));sg.setAttribute('aGrp',new THREE.BufferAttribute(sgp,1));
+const sMat=makeMat();const sPts=new THREE.Points(sg,sMat);sPts.frustumCulled=false;scene.add(sPts);
+let sHead=0;const tmp=new THREE.Vector3();
+function emit(x,y,z,n,force){for(let k=0;k<n;k++){const i=sHead;sHead=(sHead+1)%SN;sp[i*3]=x;sp[i*3+1]=y;sp[i*3+2]=z;const u=rnd()*2-1,t=rnd()*TAU,s=Math.sqrt(1-u*u),f=force*(.3+rnd());sv[i*3]=s*Math.cos(t)*f;sv[i*3+1]=u*f+force*.2;sv[i*3+2]=s*Math.sin(t)*f*.5;sl[i]=1;}}
+function toWorld(cx,cy){tmp.set(cx/innerWidth*2-1,-(cy/innerHeight)*2+1,.5).unproject(camera).sub(camera.position).normalize();const d=-camera.position.z/tmp.z;return tmp.multiplyScalar(d).add(camera.position);}
+let mx=0,my=0,lastEmit=0,count=0;const cnt=document.getElementById('sparkCount');
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;if(RM)return;const now=performance.now();if(now-lastEmit>28&&e.pointerType==='mouse'){lastEmit=now;const w=toWorld(e.clientX,e.clientY);emit(w.x,w.y,w.z,2,.012);}},{passive:true});
+addEventListener('pointerdown',e=>{if(e.target.closest('a,button,input,textarea,.pass,.flip'))return;const w=toWorld(e.clientX,e.clientY);emit(w.x,w.y,w.z,46,.05);count++;cnt.textContent=count;});
+
+/* state */
+let shape='mind',target=S.mind,ringMix=0,globeMix=0,tintAmt=0,layout='rows',focusI=-1,autoSpin=true;
+const rotT={x:0,y:0};let spinY=0;
+function setTarget(){target=shape==='room'?S[layout]:S[shape];for(let i=0;i<N;i++)grpAttr[i]=shape==='rings'?grp[i]:-5;geo.attributes.aGrp.needsUpdate=true;}
+window.G={
+ setSel(i,on){mat.uniforms.uSel.value[i]=on?1:0;},
+ hover(i){mat.uniforms.uHover.value=i;},
+ focus(i){focusI=i;autoSpin=false;},
+ layout(l){layout=l;if(shape==='room')setTarget();},
+ shape(s){if(s===shape)return;shape=s;setTarget();},
+ burstCenter(){const off=offset();emit(off.x,off.y,0,40,.04);}
+};
+const ofs={x:0,y:0,s:1};
+function offset(){const desk=innerWidth>=980;const hw=Math.tan(22.5*Math.PI/180)*6.4*camera.aspect;let x=desk?-hw*.5:0,y=desk?0:.9,s=desk?Math.min(1.05,hw*.46/2.2):.78;if(shape==='room'){y+=desk?-.1:.3;s*=desk?1:.85;}if(shape==='star'){s*=.9;}return{x,y,s};}
+function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+addEventListener('resize',resize);resize();
+
+const clock=new THREE.Clock();let T=0;
+function angDiff(a,b){let d=(b-a)%TAU;if(d>Math.PI)d-=TAU;if(d<-Math.PI)d+=TAU;return d;}
+function frame(){
+ const dt=Math.min(clock.getDelta(),.05);T+=dt;
+ const k=(RM?.03:.05)*(dt*60);
+ for(let i=0;i<N;i++){const j=i*3,f=Math.min(1,k*spd[i]);cur[j]+=(target[j]-cur[j])*f;cur[j+1]+=(target[j+1]-cur[j+1])*f;cur[j+2]+=(target[j+2]-cur[j+2])*f;const w=.012;pos[j]=cur[j]+Math.sin(T*.9+ph[i]*20)*w;pos[j+1]=cur[j+1]+Math.cos(T*.8+ph[i]*17)*w;pos[j+2]=cur[j+2];}
+ geo.attributes.position.needsUpdate=true;
+ // group rotation
+ let tx=0,ty=0,spin=0;
+ if(shape==='globe'){if(focusI>=0){const v=cvec[focusI];ty=-Math.atan2(v.x,v.z);tx=Math.atan2(v.y,Math.hypot(v.x,v.z))*.85;}else{spin=.15;tx=.25;}}
+ else if(shape==='room'){ty=-.55;tx=.62;}
+ else if(shape==='cards'){ty=Math.sin(T*.5)*.35-.15;tx=Math.sin(T*.4)*.08;}
+ else if(shape==='star'){ty=Math.sin(T*.3)*.4;tx=0;}
+ else if(shape==='rings'){spin=.12;tx=Math.sin(T*.3)*.12;}
+ else{spin=.18;tx=Math.sin(T*.25)*.15;}
+ const rf=Math.min(1,.045*dt*60);
+ if(spin)world.rotation.y+=spin*dt;else world.rotation.y+=angDiff(world.rotation.y,ty)*rf;
+ world.rotation.x+=(tx-world.rotation.x)*rf;
+ const o=offset();ofs.x+=(o.x-ofs.x)*.05;ofs.y+=(o.y-ofs.y)*.05;ofs.s+=(o.s-ofs.s)*.05;
+ world.position.set(ofs.x,ofs.y,0);world.scale.setScalar(ofs.s);
+ // mixes
+ ringMix+=((shape==='rings'?1:0)-ringMix)*.06;globeMix+=((shape==='globe'?1:0)-globeMix)*.05;
+ tintAmt+=((shape==='globe'?.35:shape==='room'?.45:0)-tintAmt)*.04;
+ mat.uniforms.uRing.value=ringMix;mat.uniforms.uTintAmt.value=tintAmt;
+ [mat,mkMat,sMat].forEach(m=>m.uniforms.uTime.value=T);
+ // markers
+ for(let i=0;i<M;i++){mks[i]=globeMix*(i===focusI?.75:.4);}
+ mks[M]=globeMix*.6;
+ for(let i=0;i<M;i++){const a=arcPts[i];const t=((T*.35+i*.13)%1);const p=a[Math.floor(t*(a.length-1))];mkp.set([p.x,p.y,p.z],(M+1+i)*3);mks[M+1+i]=globeMix*.3*Math.sin(Math.PI*t);}
+ mk.attributes.position.needsUpdate=true;mk.attributes.aSize.needsUpdate=true;
+ arcMat.opacity=globeMix*.65;
+ // sparks
+ for(let i=0;i<SN;i++){if(sl[i]>0){const j=i*3;sp[j]+=sv[j]*dt*60;sp[j+1]+=sv[j+1]*dt*60;sp[j+2]+=sv[j+2]*dt*60;sv[j]*=.955;sv[j+1]=sv[j+1]*.955-.0009;sv[j+2]*=.955;sl[i]-=dt*.7;ss[i]=Math.max(0,sl[i])*.13;}else ss[i]=0;}
+ sg.attributes.position.needsUpdate=true;sg.attributes.aSize.needsUpdate=true;
+ // camera parallax
+ camera.position.x+=(mx*.5-camera.position.x)*.04;camera.position.y+=(-my*.35-camera.position.y)*.04;camera.lookAt(0,0,0);
+ renderer.render(scene,camera);
+ requestAnimationFrame(frame);
+}
+frame();
+// first ambient burst
+setTimeout(()=>{const o=offset();emit(o.x,o.y,0,60,.05);},900);
+})();
+</script>
+</body>
+</html>
