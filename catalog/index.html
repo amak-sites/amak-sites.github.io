@@ -88,6 +88,32 @@ h2.t{font:900 clamp(2.2rem,5vw,3.8rem)/1.02 var(--d);letter-spacing:-.015em}
 .step p{color:var(--soft);position:relative}
 
 /* packages */
+/* comparison table */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cmpw{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,var(--card2),var(--card))}
+.cmp{width:100%;min-width:760px;border-collapse:separate;border-spacing:0;font-size:.98rem}
+.cmp th,.cmp td{padding:.85rem 1rem;text-align:center;border-bottom:1px solid var(--line);vertical-align:middle}
+.cmp tbody tr:last-child td,.cmp tbody tr:last-child th{border-bottom:0}
+.cmp th[scope=row]{text-align:start;font-weight:700;color:var(--soft);position:sticky;inset-inline-start:0;background:var(--card);z-index:1;min-width:170px}
+.cmp thead th{vertical-align:top;padding:1.3rem 1rem 1rem}
+.cmp thead th:first-child{background:var(--card);position:sticky;inset-inline-start:0;z-index:2}
+.cmp .pn{display:block;font:900 1.55rem var(--d);color:var(--ink)}
+.cmp .pk{display:block;font:700 .85rem var(--b);color:var(--mute);margin-top:.2rem}
+.cmp .pp{display:block;font:900 2.1rem/1.1 var(--d);margin-top:.7rem;color:var(--ink)}
+.cmp .pp small{font:700 .8rem var(--b);color:var(--soft)}
+.cmp td.mo{font-weight:700;color:var(--olive-t)}
+.cmp td.no{color:var(--mute)}
+.cmp .y{display:inline-block;width:22px;height:22px;border-radius:7px;background:rgba(154,166,74,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b3bf5c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/13px no-repeat;vertical-align:middle}
+.cmp .n{color:#4a5070;font-weight:700}
+.cmp .star{background:linear-gradient(180deg,rgba(28,63,174,.38),rgba(28,63,174,.16))}
+.cmp thead .star{background:radial-gradient(120% 90% at 50% 0%,#1d3a9e,var(--blue-deep));position:relative}
+.cmp .flag2{display:inline-block;margin-bottom:.5rem;background:var(--olive);color:#0b0d06;font:800 .72rem var(--d);padding:.12rem .55rem;border-radius:999px}
+.cmp td a.ex{color:var(--ink);font-weight:700}
+.cmp .acts2{display:flex;flex-direction:column;gap:.45rem;align-items:stretch}
+.cmpnote{margin-top:1rem;color:var(--soft);font-size:.95rem;display:grid;gap:.35rem}
+.swipe{display:none;color:var(--mute);font-size:.85rem;margin-bottom:.5rem}
+@media (max-width:820px){.swipe{display:block}}
+
 .packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;align-items:stretch}
 @media (max-width:920px){.packs{grid-template-columns:1fr}}
 .pack{position:relative;display:flex;flex-direction:column;border-radius:24px;background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
@@ -134,7 +160,7 @@ h2.t{font:900 clamp(2.2rem,5vw,3.8rem)/1.02 var(--d);letter-spacing:-.015em}
 .demo .trade{color:var(--soft);font-size:.95rem}
 .demo .row{display:flex;gap:.5rem;align-items:center;justify-content:space-between;margin-top:.6rem;flex-wrap:wrap}
 .tier{font:800 .78rem var(--d);padding:.2rem .65rem;border-radius:999px;background:rgba(154,166,74,.16);color:var(--olive-t)}
-.tier.full{background:rgba(28,63,174,.35);color:#aebdff}.tier.store{background:rgba(157,123,255,.18);color:#c6b3ff}
+.tier.basic{background:rgba(154,166,74,.28);color:#d5df86}.tier.full{background:rgba(28,63,174,.35);color:#aebdff}.tier.store{background:rgba(157,123,255,.18);color:#c6b3ff}
 .demo .acts{display:flex;gap:.4rem}
 
 /* add-ons */
@@ -212,33 +238,46 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 </div></section>
 
 <section class="s" id="packs" style="padding-top:0"><div class="wrap">
- <div class="sh rv"><span class="eye">חבילות</span><h2 class="t">שלוש חבילות. כל אחת מתחת למחיר השוק.</h2><p class="sub">החודשי בחבילות בלי התחייבות. אפשר לקחת רק את האתר.</p></div>
- <div class="packs">
-  <article class="pack rv"><div class="chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>עמוד אחד</span></div><div class="in">
-   <h3>מופיעים</h3><p class="for">לעסק שצריך להימצא בגוגל ולהיראות מקצועי.</p>
-   <div class="price">999<small>₪ שנה ראשונה</small></div><p class="renew">מהשנה השנייה 349 ₪ לשנה</p>
-   <ul><li>עמוד אחד, מותאם לנייד</li><li>דומיין ואחסון לשנה</li><li>וואטסאפ וחיוג בכל מסך</li><li>סידור פרופיל העסק בגוגל</li><li>קישור לבקשת ביקורות וקוד קיו־אר</li><li>טופס פנייה שמגיע לוואטסאפ</li></ul>
-   <div class="acts"><a class="btn line sm" href="#gallery" data-tier="one">דוגמאות</a><a class="btn hot sm" data-wa="היי אסתר, אני רוצה את חבילת מופיעים (עמוד אחד)" href="https://wa.me/972539232024" target="_blank" rel="noopener">אני רוצה</a></div>
-  </div></article>
-  <article class="pack star rv"><span class="flag">הכי משתלם</span><div class="chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>אתר מלא</span></div><div class="in">
-   <h3>מביאים פניות</h3><p class="for">לעסק שרוצה שיתקשרו אליו יותר, כל חודש.</p>
-   <div class="price">1,999<small>₪ שנה ראשונה</small></div><p class="monthly">+ 444 ₪ לחודש, בלי התחייבות</p><p class="renew">מהשנה השנייה 490 ₪ לשנה</p>
-   <ul><li>עד 6 עמודים, כולל בלוג</li><li>כתובת נפרדת לכל עמוד בגוגל</li><li>טופס פנייה שמגיע לוואטסאפ</li><li>עדכון שבועי בפרופיל גוגל</li><li>4 פוסטים בבלוג כל חודש</li></ul><p class="incl">בנפרד זה 643 ₪ לחודש.</p>
-   <div class="acts"><a class="btn line sm" href="#gallery" data-tier="full">דוגמאות</a><a class="btn hot sm" data-wa="היי אסתר, אני רוצה את חבילת מביאים פניות (אתר מלא)" href="https://wa.me/972539232024" target="_blank" rel="noopener">אני רוצה</a></div>
-  </div></article>
-  <article class="pack rv"><div class="chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>אתר עם חנות</span></div><div class="in">
-   <h3>מוכרים</h3><p class="for">לעסק עם מוצרים, שוברים או חבילות.</p>
-   <div class="price">3,490<small>₪ שנה ראשונה</small></div><p class="monthly">+ 777 ₪ לחודש, בלי התחייבות</p><p class="renew">מהשנה השנייה 990 ₪ לשנה</p>
-   <ul><li>אתר מלא + חנות עד 30 מוצרים</li><li>שוברי מתנה שהלקוח מעצב</li><li>תשלום באשראי או בביט, כולל תשלומים</li><li>ניהול קמפיין בגוגל או במטא, ערוץ אחד</li><li>עדכון שבועי בפרופיל גוגל</li></ul><p class="incl">תקציב הפרסום לא כלול. משלמים אותו ישירות לגוגל או למטא, מומלץ מ-1,500 ₪ בחודש. סך הכל בחודש עם התקציב המומלץ: כ-2,277 ₪.</p>
-   <div class="acts"><a class="btn line sm" href="#gallery" data-tier="store">דוגמאות</a><a class="btn hot sm" data-wa="היי אסתר, אני רוצה את חבילת מוכרים (אתר עם חנות)" href="https://wa.me/972539232024" target="_blank" rel="noopener">אני רוצה</a></div>
-  </div></article>
- </div>
+ <div class="sh rv"><span class="eye">חבילות</span><h2 class="t">ארבע חבילות. כל אחת מתחת למחיר השוק.</h2><p class="sub">משלמים רק אחרי שהאתר באוויר ואישרתם אותו. החודשי בלי התחייבות, ואפשר לקחת רק את האתר.</p></div>
+ <p class="swipe">גוללים הצידה לראות את כל החבילות</p>
+ <div class="cmpw rv"><table class="cmp">
+  <caption class="sr">השוואת ארבע החבילות</caption>
+  <thead>
+   <tr><th scope="col"><span class="pk">החבילה</span></th>
+    <th scope="col"><span class="pn">מופיעים</span><span class="pk">עמוד אחד</span><span class="pp">999<small> ₪</small></span></th>
+    <th scope="col"><span class="pn">מציגים</span><span class="pk">חנות בסיסית בוואטסאפ</span><span class="pp">1,499<small> ₪</small></span></th>
+    <th scope="col" class="star"><span class="flag2">הכי משתלם</span><span class="pn">מביאים פניות</span><span class="pk">אתר מלא</span><span class="pp">1,999<small> ₪</small></span></th>
+    <th scope="col"><span class="pn">מוכרים</span><span class="pk">חנות מלאה, מנוהלת</span><span class="pp">3,490<small> ₪</small></span></th></tr>
+  </thead>
+  <tbody>
+   <tr><th scope="row">למי</th><td class="">עסק שצריך להימצא בגוגל ולהיראות מקצועי</td><td class="">עסק עם מוצרים, שמזמינים ממנו בוואטסאפ</td><td class="star ">עסק שרוצה שיתקשרו אליו יותר, כל חודש</td><td class="">עסק שמוכר באתר ורוצה שמישהו ינהל הכל</td></tr>
+   <tr><th scope="row">הקמה, שנה ראשונה</th><td class="">999 ₪</td><td class="">1,499 ₪</td><td class="star ">1,999 ₪</td><td class="">3,490 ₪</td></tr>
+   <tr><th scope="row">חודשי</th><td class="no">אין</td><td class="no">אין</td><td class="star mo">444 ₪, בלי התחייבות</td><td class="mo">777 ₪, בלי התחייבות</td></tr>
+   <tr><th scope="row">מהשנה השנייה</th><td class="">349 ₪ לשנה</td><td class="">490 ₪ לשנה</td><td class="star ">490 ₪ לשנה</td><td class="">990 ₪ לשנה</td></tr>
+   <tr><th scope="row">האתר</th><td class="">עמוד אחד</td><td class="">עמוד בית + עד 10 מוצרים</td><td class="star ">עד 6 עמודים, כולל בלוג</td><td class="">אתר מלא + חנות עד 30 מוצרים</td></tr>
+   <tr><th scope="row">דומיין ואחסון לשנה</th><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class="star "><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td></tr>
+   <tr><th scope="row">וואטסאפ וחיוג בכל מסך</th><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class="star "><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td></tr>
+   <tr><th scope="row">סידור פרופיל בגוגל, קישור לביקורות, קיו־אר</th><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class="star "><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td></tr>
+   <tr><th scope="row">טופס פנייה שמגיע לוואטסאפ</th><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class="star "><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td></tr>
+   <tr><th scope="row">שינוי אחד בחודש בחינם</th><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class="star "><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td></tr>
+   <tr><th scope="row">כתובת נפרדת לכל עמוד בגוגל</th><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class="star "><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td></tr>
+   <tr><th scope="row">כפתור "להזמנה בוואטסאפ" בכל מוצר</th><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td><td class="star "><span class="n" aria-label="לא כלול">-</span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td></tr>
+   <tr><th scope="row">סל, תשלום באשראי או בביט, שוברי מתנה</th><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class="star "><span class="n" aria-label="לא כלול">-</span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td></tr>
+   <tr><th scope="row">עדכון שבועי בפרופיל גוגל</th><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class="star "><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td></tr>
+   <tr><th scope="row">4 פוסטים בבלוג כל חודש</th><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class="star "><span class="y" role="img" aria-label="כלול"></span></td><td class=""><span class="n" aria-label="לא כלול">-</span></td></tr>
+   <tr><th scope="row">ניהול קמפיין בגוגל או במטא</th><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class="star "><span class="n" aria-label="לא כלול">-</span></td><td class="">ערוץ אחד</td></tr>
+   <tr><th scope="row">תחזוקה שוטפת: מוצרים, מחירים, מלאי</th><td class=""><span class="n" aria-label="לא כלול">-</span></td><td class="">אתם, דרך הוואטסאפ</td><td class="star "><span class="n" aria-label="לא כלול">-</span></td><td class=""><span class="y" role="img" aria-label="כלול"></span></td></tr>
+   <tr><th scope="row">דוגמה</th><td class=""><a class="ex" href="https://amak-sites.github.io/metapelet/" target="_blank" rel="noopener">רונית אלון</a></td><td class=""><a class="ex" href="https://amak-sites.github.io/demo-ac-store/" target="_blank" rel="noopener">אקלים בית</a></td><td class="star "><a class="ex" href="https://amak-sites.github.io/kav-gamar/" target="_blank" rel="noopener">קו גמר</a></td><td class=""><a class="ex" href="https://amak-sites.github.io/demo-store/" target="_blank" rel="noopener">שירן</a></td></tr>
+   <tr><th scope="row"></th><td class=""><div class="acts2"><a class="btn line sm" href="#gallery" data-tier="one">דוגמאות</a><a class="btn hot sm" data-wa="היי אסתר, אני רוצה את חבילת מופיעים (עמוד אחד)" href="https://wa.me/972539232024" target="_blank" rel="noopener">אני רוצה</a></div></td><td class=""><div class="acts2"><a class="btn line sm" href="#gallery" data-tier="basic">דוגמאות</a><a class="btn hot sm" data-wa="היי אסתר, אני רוצה את חבילת מציגים (חנות בסיסית)" href="https://wa.me/972539232024" target="_blank" rel="noopener">אני רוצה</a></div></td><td class="star "><div class="acts2"><a class="btn line sm" href="#gallery" data-tier="full">דוגמאות</a><a class="btn hot sm" data-wa="היי אסתר, אני רוצה את חבילת מביאים פניות (אתר מלא)" href="https://wa.me/972539232024" target="_blank" rel="noopener">אני רוצה</a></div></td><td class=""><div class="acts2"><a class="btn line sm" href="#gallery" data-tier="store">דוגמאות</a><a class="btn hot sm" data-wa="היי אסתר, אני רוצה את חבילת מוכרים (חנות מנוהלת)" href="https://wa.me/972539232024" target="_blank" rel="noopener">אני רוצה</a></div></td></tr>
+  </tbody>
+ </table></div>
+ <div class="cmpnote rv"><p>במציגים אין תשלום חודשי: ההזמנות מגיעות ישר אליכם לוואטסאפ, ואתם מטפלים בהן.</p><p>במוכרים תקציב הפרסום לא כלול. משלמים אותו ישירות לגוגל או למטא, מומלץ מ-1,500 ₪ בחודש. סך הכל בחודש עם התקציב המומלץ: כ-2,277 ₪.</p></div>
 </div></section>
 
 <section class="s" id="gallery" style="padding-top:0"><div class="wrap">
  <div class="sh rv"><span class="eye">הדוגמאות</span><h2 class="t">בחרו את זה שמרגיש כמו העסק שלכם.</h2><p class="sub">כל הדוגמאות לעסקים בדויים. לחיצה פותחת את האתר עצמו, עם כל האפקטים.</p></div>
  <div class="filters" role="group" aria-label="סוג אתר"><span class="lbl">סוג</span>
-  <button class="chip" type="button" aria-pressed="true" data-f="tier" data-v="all">הכל</button><button class="chip" type="button" aria-pressed="false" data-f="tier" data-v="one">עמוד אחד</button><button class="chip" type="button" aria-pressed="false" data-f="tier" data-v="full">אתר מלא</button><button class="chip" type="button" aria-pressed="false" data-f="tier" data-v="store">חנות</button></div>
+  <button class="chip" type="button" aria-pressed="true" data-f="tier" data-v="all">הכל</button><button class="chip" type="button" aria-pressed="false" data-f="tier" data-v="one">עמוד אחד</button><button class="chip" type="button" aria-pressed="false" data-f="tier" data-v="basic">חנות בסיסית</button><button class="chip" type="button" aria-pressed="false" data-f="tier" data-v="full">אתר מלא</button><button class="chip" type="button" aria-pressed="false" data-f="tier" data-v="store">חנות מנוהלת</button></div>
  <div class="filters" role="group" aria-label="תחום"><span class="lbl">תחום</span>
   <button class="chip" type="button" aria-pressed="true" data-f="field" data-v="all">הכל</button><button class="chip" type="button" aria-pressed="false" data-f="field" data-v="home">בית ושיפוצים</button><button class="chip" type="button" aria-pressed="false" data-f="field" data-v="water">אינסטלציה ומיזוג</button><button class="chip" type="button" aria-pressed="false" data-f="field" data-v="care">טיפול ואימון</button><button class="chip" type="button" aria-pressed="false" data-f="field" data-v="garden">גינה וחוץ</button></div>
  <p class="count" id="count" aria-live="polite"></p>
@@ -297,9 +336,9 @@ var D=[
  ["demo-kitchen","מטבחי לוטם","מטבחים","one","home"],["demo-shower","זכוכית קלה","מקלחונים","one","home"],["demo-closet","נגריית הגפן","נגרות וארונות","one","home"],
  ["demo-balcony","מרפסת שקופה","סגירת מרפסות","one","home"],["demo-alu","קו אלום","אלומיניום","one","home"],["demo-wood","סיב ועץ","עבודות עץ","one","home"],
  ["demo-deck","דק ושמש","דקים ופרגולות","one","garden"],["pergolot","קורה ודק","פרגולות ודקים","one","garden"],["ganan","יואב גינון","גינון","one","garden"],
- ["kav-gamar","קו גמר","שיפוצים · 5 עמודים","full","home"],["demo-ac-store","אקלים בית","מזגנים · עמודי מוצרים","full","water"],
+ ["kav-gamar","קו גמר","שיפוצים · 5 עמודים","full","home"],["demo-ac-store","אקלים בית","מזגנים · עמודי מוצרים","basic","water"],
  ["demo-store","שירן","חנות שוברים ומוצרים","store","care"],["demo-garden","יואב גינון","אתר, בלוג וחנות","store","garden"]];
-var TIER={one:["עמוד אחד","999 ₪"],full:["אתר מלא","1,999 ₪"],store:["חנות","3,490 ₪"]};
+var TIER={one:["עמוד אחד","999 ₪"],basic:["חנות בסיסית","1,499 ₪"],full:["אתר מלא","1,999 ₪"],store:["חנות מנוהלת","3,490 ₪"]};
 function wa(t){return"https://wa.me/972539232024?text="+encodeURIComponent(t)}
 document.querySelectorAll("[data-wa]").forEach(function(a){a.href=wa(a.dataset.wa)});
 
