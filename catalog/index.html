@@ -88,6 +88,19 @@ h2.t{font:900 clamp(2.2rem,5vw,3.8rem)/1.02 var(--d);letter-spacing:-.015em}
 .step p{color:var(--soft);position:relative}
 
 /* packages */
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:56px;align-items:center}
+.about .ph{position:relative}
+.about .ph img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:28px;display:block;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.about .ph::before{content:"";position:absolute;inset:-18px;border-radius:36px;background:radial-gradient(closest-side,rgba(28,63,174,.55),transparent);z-index:-1}
+.about .sig{margin-top:14px;font:800 1.05rem var(--d);color:var(--ink)}
+.about .sig small{display:block;font:600 .9rem var(--b);color:var(--mute);margin-top:.2rem}
+.about h2{margin:.4rem 0 1.2rem}
+.about p{color:var(--soft);font-size:1.08rem;line-height:1.75;margin:0 0 1rem}
+.about p.lead{color:var(--ink);font-size:1.25rem;font-weight:700}
+.about .acts{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.4rem}
+@media (max-width:820px){.about{grid-template-columns:1fr;gap:28px}.about .ph{max-width:340px;margin:0 auto}}
 /* comparison table */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .cmpw{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,var(--card2),var(--card))}
@@ -303,6 +316,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
  <div class="legend"><span><i></i>טווח מקובל בשוק</span><span><i class="u"></i>המחיר כאן</span><span>לפי מחירונים של חברות שיווק ובניית אתרים בישראל, נבדק בנובמבר 2026. חלקם לפני מע"מ.</span></div>
 </div></section>
 
+<section class="s" id="about" style="padding-top:0"><div class="wrap"><div class="about rv">
+ <div class="tx">
+  <span class="eye">מי מאחורי זה</span>
+  <h2 class="t">נעים מאוד, אני אסתר.</h2>
+  <p class="lead">עצמאית, בדיוק כמוך.</p>
+  <p>אני טובה במה שאני עושה, כי נכוויתי מספיק פעמים. מחברות לבניית אתרים, מחברות קידום, ממזכירות ומשירותים שהבטיחו הרבה. אף אחד מהם לא הצליח לרצות אותי. אולי זו הרמה שלהם, ואולי זה שאני פולנייה.</p>
+  <p>אז בניתי בעצמי. גם האתר שלי נבנה ככה, ואף חברה לא הייתה בונה לי אותו ברמה הזאת.</p>
+  <p>כן, היום יש בינה מלאכותית. אבל גם איתה יש סטנדרט. את הכלי שאני עובדת איתו שייפתי שעות וימים, עד שהוא מגיע לרמת הגימור שאני דורשת. ומעבר לזה, אני בן אדם אמיתי, וזמינה לך.</p>
+  <p>אני שוברת את מחירי השוק בכוונה. כי נמאס לי, וכי אני עושה את זה גם מתוך שליחות ולא רק בשביל הכסף. מה שאני מרוויחה כאן חוזר לעסקים האחרים שלי. אין גוף שעומד מאחוריי, רק אני.</p>
+  <p>שמחה להיות כאן בשביל קהילת העצמאים בישראל. כל שאלה - בוואטסאפ, ואני עונה.</p>
+  <div class="acts"><a class="btn hot" data-wa="היי אסתר, ראיתי את הקטלוג ויש לי שאלה" href="https://wa.me/972539232024" target="_blank" rel="noopener">לשאול אותי בוואטסאפ</a><a class="btn line" href="https://backtosource-mentoring.com/" target="_blank" rel="noopener">האתר שלי</a></div>
+ </div>
+ <div class="ph"><img src="img/esther.jpg" alt="אסתר מיכל קציר" loading="lazy" width="640" height="640"><div class="sig">אסתר מיכל קציר<small>וואטסאפ 053-923-2024</small></div></div>
+</div></div></section>
 <section class="s" id="faq" style="padding-top:0"><div class="wrap">
  <div class="sh rv"><span class="eye">שאלות</span><h2 class="t">מה שואלים לפני.</h2></div>
  <div class="faq rv">
