@@ -1,0 +1,41 @@
+<!doctype html><html dir="rtl"><head><meta charset="utf-8"><style>
+@font-face{font-family:RL;font-weight:900;src:url(package/files/rubik-latin-900-normal.woff2)}
+@font-face{font-family:RL;font-weight:500;src:url(package/files/rubik-latin-400-normal.woff2)}
+@font-face{font-family:R;font-weight:900;src:url(package/files/rubik-hebrew-900-normal.woff2)}
+@font-face{font-family:R;font-weight:700;src:url(package/files/rubik-hebrew-700-normal.woff2)}
+@font-face{font-family:R;font-weight:400;src:url(package/files/rubik-hebrew-400-normal.woff2)}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden}
+body{font-family:RL,R;color:#fff;position:relative;
+background:radial-gradient(900px 700px at 22% 45%,rgba(28,63,174,.55),transparent 70%),radial-gradient(700px 500px at 85% 20%,rgba(115,70,240,.18),transparent 70%),#07080d}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(1200px 700px at 50% 45%,#000 30%,transparent 80%)}
+.txt{position:absolute;right:130px;top:270px;width:960px}
+.eye{display:inline-flex;align-items:center;gap:14px;font:700 30px R;color:#b3bf5c;letter-spacing:.5px}
+.eye i{width:12px;height:12px;border-radius:50%;background:#b3bf5c;box-shadow:0 0 18px #b3bf5c}
+h1{margin:22px 0 0;font:900 94px/1.08 RL,R;white-space:nowrap;letter-spacing:-1px}
+h1 em{font-style:normal;color:#b3bf5c}
+.sub{margin-top:34px;font:400 36px/1.35 R;color:#c9cde0}
+.sub b{font-family:RL,R;font-weight:900;color:#fff}
+.chips{margin-top:40px;display:flex;gap:14px}
+.chip{white-space:nowrap;font:700 26px R;padding:12px 24px;border-radius:999px;border:1.5px solid rgba(179,191,92,.45);color:#e6ebc2;background:rgba(154,166,74,.08)}
+.stage{position:absolute;left:60px;top:190px;width:820px;height:700px;perspective:1800px}
+.win{position:absolute;width:580px;border-radius:18px;overflow:hidden;background:#11131c;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px rgba(28,63,174,.25)}
+.win .bar{height:34px;background:#1a1d29;display:flex;align-items:center;gap:8px;padding:0 14px;direction:ltr}
+.win .bar i{width:11px;height:11px;border-radius:50%;background:#3a3f55}
+.win .bar i:first-child{background:#b3bf5c}
+.win img{display:block;width:100%}
+.w1{left:0;top:40px;transform:rotateY(18deg) rotateZ(-3deg) scale(.86);opacity:.75}
+.w2{left:200px;top:260px;transform:rotateY(14deg) rotateZ(2deg) scale(.9);opacity:.85}
+.w3{left:90px;top:120px;transform:rotateY(10deg) rotateZ(-1deg);z-index:2}
+</style></head><body><div class="grid"></div>
+<div class="stage">
+ <div class="win w1"><div class="bar"><i></i><i></i><i></i></div><img src="/home/claude/amak-sites.github.io/catalog/img/kav-gamar.jpg"></div>
+ <div class="win w2"><div class="bar"><i></i><i></i><i></i></div><img src="/home/claude/amak-sites.github.io/catalog/img/demo-garden.jpg"></div>
+ <div class="win w3"><div class="bar"><i></i><i></i><i></i></div><img src="/home/claude/amak-sites.github.io/catalog/img/demo-ac-store.jpg"></div>
+</div>
+<div class="txt">
+ <div class="eye"><i></i>אתרים לעסקים קטנים</div>
+ <h1>האתר של העסק שלך<br><em>באוויר תוך 48 שעות</em></h1>
+ <div class="sub">רואים את האתר לפני שמחליטים.<br>משלמים רק אחרי שאישרתם · מ-<b>999</b> ₪</div>
+ <div class="chips"><span class="chip">עמוד אחד</span><span class="chip">חנות בוואטסאפ</span><span class="chip">אתר מלא</span><span class="chip">חנות מנוהלת</span></div>
+</div>
+</body></html>
