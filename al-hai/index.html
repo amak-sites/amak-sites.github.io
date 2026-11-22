@@ -384,7 +384,7 @@ const qSec=(S.quotes||[]).length?`<section id="reviews"><div class="wrap">
   <div class="quotes">${S.quotes.map(q=>`<figure class="rv"><blockquote>${esc(q.t)}</blockquote><figcaption><span>${esc(q.n)}</span><span class="st" aria-label="5 כוכבים">${stars(5)}</span></figcaption></figure>`).join("")}</div>
   <a class="all-reviews" href="${esc(S.googleUrl)}" target="_blank" rel="noopener">לכל הביקורות בגוגל ←</a>
 </div></section>`:"";
-const galSec=S.demo&&!(S.photos||[]).length?`<section id="gallery" style="padding-top:0"><div class="wrap">
+const galSec=(S.photos||[]).length?`<section id="gallery" style="padding-top:0"><div class="wrap"><div class="sec-head rv"><span class="eyebrow">עבודות</span><h2>${esc(S.galleryTitle||"מהשטח")}</h2><p>${esc(S.photosNote||"צילומים מתוך פרופיל העסק בגוגל")}</p></div><div class="gal">${S.photos.slice(0,8).map(p=>`<figure class="rv" style="margin:0;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)"><img src="${esc(p.src)}" alt="${esc(p.alt||"")}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></figure>`).join("")}</div></div></section>`:S.demo?`<section id="gallery" style="padding-top:0"><div class="wrap">
   <div class="sec-head rv"><span class="eyebrow">עבודות</span><h2>${esc(S.galleryTitle||"מהשטח")}</h2><p>${esc(S.galleryNote||"כאן ייכנסו תמונות של עבודות שלך. שלח 4 תמונות מהטלפון ואני מכניסה אותן.")}</p></div>
   <div class="gal">${(S.galleryPlaceholders||["עבודה","עבודה","עבודה","עבודה"]).slice(0,4).map(t=>`<div class="rv">${esc(t)}</div>`).join("")}</div>
 </div></section>`:"";
